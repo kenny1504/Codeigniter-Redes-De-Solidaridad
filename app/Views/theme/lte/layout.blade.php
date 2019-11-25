@@ -20,7 +20,8 @@
         <link rel="stylesheet" type="text/css" href="assets/lte/dist/css/skins/_all-skins.min.css" >
         <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/bootstrap-daterangepicker/daterangepicker.css" >
         <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" >     
-</head>
+        <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/vectormap/jquery-jvectormap.css">
+      </head>
     <body class="hold-transition skin-blue sidebar-mini fixed">
 <!-- Site wrapper -->
        <div class="wrapper">     
@@ -79,22 +80,7 @@
             </div>        
             <!--fin footer -->  
        <?= $this->include("theme/lte/Scripts.blade.php") ?><!-- scripts de la pagina inicio y demas-->
-<!--Validacion para verificar si es docente o no-->
- <!--       <script>
-        if("<?php      
-                      //  $session = \Config\Services::session();    // uso de varibles de session
-                      //  $session->start();
-                       // echo $_SESSION['Descripcion'];
-        ?>"=="Docente")
-        {
-        $("#menu_usuarios").addClass('hidden');
-        $("#menu_Matriculas").addClass('hidden');
-        $("#menu_Estudiantes").addClass('hidden');
-        $("#menu_Docentes").addClass('hidden');
-        $("#menu_Administra").addClass('hidden');
-        $("#menu_Reportes").addClass('hidden');
-        }    
-        </script> -->
+
       </body>
 </html>
 

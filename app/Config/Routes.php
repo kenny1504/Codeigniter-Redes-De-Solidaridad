@@ -137,8 +137,6 @@ $routes->post('/eliminar/grado', 'grado::eliminar');
 $routes->post('/cargargrados/asignatura', 'grado::cargargrados');
 $routes->post('/cargarmaterias_grado/grado', 'asignatura::cargarmaterias_grado');
 
-//Rutas detalleAsignatura
-//$routes->get('/detalleAsignatura/guardar', 'detalleAsignatura::guardar');
 
 
 /**

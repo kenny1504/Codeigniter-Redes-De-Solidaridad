@@ -1,5 +1,4 @@
 <?= $this->extend("theme/lte/layout.blade.php") ?><!--extiendo del layout "pagina inicio" -->
-<!--agrega titulo a la pagina-->
 <?=  $this -> section ( 'titulo' )  ?> 
 Asignaturas
 <?=  $this -> endSection () ?> 
