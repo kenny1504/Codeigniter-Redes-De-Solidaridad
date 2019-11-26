@@ -7,7 +7,7 @@ Usuarios
             <div class="box-header">
               <h2 class="box-title text-light-blue">Usuarios</h2>
               <div class="pull-right box-tools">
-                <a href="#" data-toggle="modal" data-target="#crear_usuario" class="btn btn-warning btn-sm pull-right" >Agregar Usario</a> 
+                <a href="#" onclick="ingresar_usuario();" class="btn btn-warning btn-sm pull-right b1" >Agregar Usario</a> 
                 <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
                 <input type="text" id="buscarU"  name="table_search" class="form-control " placeholder="Buscar">
                   <div class="input-group-btn">
@@ -35,11 +35,13 @@ Usuarios
                                     <td><?php echo $usuario['ClaveDeUsuario'];?></td>  <!--agrega dato a la columna--> 
                                     <td><?php echo $usuario['FechaDeVencimiento'];?></td>  <!--agrega dato a la columna-->
                                 <td>
-            <!-- Boton Nuevo--> <button class="btn btn-primary"  onclick="ver_usuario(this);" data-cedula="<?php echo $usuario['Cedula']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" 
+            <!-- Boton ver-->  <button class="btn btn-primary"  onclick="ver_usuario(this);" data-cedula="<?php echo $usuario['Cedula']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" 
                                  data-user="<?php echo $usuario['NombreDeUsuario'];?>" data-rol="<?php echo $usuario['Descripcion'];?>" 
                                  data-password="<?php echo $usuario['ClaveDeUsuario'];?>" data-vencimiento="<?php echo $usuario['FechaDeVencimiento'];?>" id="Ver-Usuario">ver</button>  <!--botton para ver ** Sirve para ver materias asignadas a este grado** -->     
-                                <button class="btn btn-success " onclick="" data-id="<?php echo $usuario['Id_Usuarios']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" ><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
-                                <button class="btn btn-info" onclick='' data-id="<?php echo $usuario['Id_Usuarios']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" ><i class="fa fa-fw fa-trash "></i></button>  <!--botton para eliminar-->                            
+            <!-- Boton editar-->  <button class="btn btn-success " onclick="editar_usuario(this);" data-cedula="<?php echo $usuario['Cedula']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" 
+                                 data-user="<?php echo $usuario['NombreDeUsuario'];?>" data-rol="<?php echo $usuario['Descripcion'];?>" 
+                                 data-password="<?php echo $usuario['ClaveDeUsuario'];?>" data-vencimiento="<?php echo $usuario['FechaDeVencimiento'];?>"><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
+          <!-- Boton borrar--><button class="btn btn-info" onclick='' data-id="<?php echo $usuario['Id_Usuarios']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" ><i class="fa fa-fw fa-trash "></i></button>  <!--botton para eliminar-->                            
                                 </td>
                                 </tr>                         
 						              <?php endforeach; ?> 

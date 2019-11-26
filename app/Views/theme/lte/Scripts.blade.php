@@ -53,5 +53,7 @@
         <script type="text/javascript" src="js/js-redes/ValidarCedula.js"></script> <!-- script ingresar usuario-->
         <script type="text/javascript" src="js/jquery.mask.js"></script> <!-- script ingresar usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/ver.js"></script> <!-- script ingresar usuario-->
-        <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script ingresar usuario-->
+        <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script Buscar un usuario-->
+        <script type="text/javascript" src="js/js-redes/usuario/crear.js"></script> <!-- script ingresar un usuario-->
+        <script type="text/javascript" src="js/js-redes/usuario/editar.js"></script> <!-- script editar un usuario-->
 </div>

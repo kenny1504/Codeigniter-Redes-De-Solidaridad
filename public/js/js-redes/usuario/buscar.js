@@ -2,9 +2,6 @@ $(document).ready(function () {
         var contenido_fila;
         var coincidencias;
         var exp;
-        var codigoAscci;
-
-
 //Este metodo es el evento keyup del campo de búsqueda
 $("#buscarU").keyup(function () { //captura los valores del imput segun escriba
     if ($(this).val().length >= 1) //verifica si no esta vacio
@@ -23,7 +20,6 @@ function filtrar(cadena) { //busca coincidencias
             $(this).addClass('oculta');
     })
 };
-
 //Este metodo se invoca cuando el campo de búsqueda está vacío, o quiero mostrar
 //todos los campos
 function mostrarfilas() {
