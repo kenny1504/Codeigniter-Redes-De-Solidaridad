@@ -6,7 +6,15 @@ Usuarios
             <div class="box">
             <div class="box-header">
               <h2 class="box-title text-light-blue">Usuarios</h2>
-              <a href="#" data-toggle="modal" data-target="#crear_usuario" class="btn btn-warning btn-sm pull-right" >Agregar Usario</a>
+              <div class="pull-right box-tools">
+                <a href="#" data-toggle="modal" data-target="#crear_usuario" class="btn btn-warning btn-sm pull-right" >Agregar Usario</a> 
+                <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
+                <input type="text" id="buscarU"  name="table_search" class="form-control " placeholder="Buscar">
+                  <div class="input-group-btn">
+                    <span style="margin-right:2em;"  class="btn btn-default"><i class="fa fa-search"></i></span>
+                  </div>
+                </div>  
+              </div>     
             </div>
             <!-- /.box-header -->
             <div class="box-body panel box box-primary">
@@ -40,4 +48,14 @@ Usuarios
             </div>
             <div class="panel box box-primary"></div><!-- /.box-body -->
           </div>  
+<style>
+.oculta {
+        display: none;
+    }
+
+    .muestra{
+        display: table-row;
+    }
+</style>
+
 <?=  $this -> endSection () ?> 
