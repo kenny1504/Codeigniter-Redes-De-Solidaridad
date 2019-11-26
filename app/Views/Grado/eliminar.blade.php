@@ -9,7 +9,7 @@
             </div> 
             <div class="modal-footer">
               <input type="text" class="hidden" id="valor_id_grado" name="valor_id_grado" > <!-- captura el valor del id del Grado academico -->
-              <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirmar_eliminar_grado">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirmar_eliminar_grado" >
                 <span  class="icon fa fa-check " ></span>
               </button>
               <button type="button" class="btn btn-warning" data-dismiss="modal">

@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\turnos;
+use App\Models\matriculas;
 
 class turno extends BaseController
 {
@@ -28,15 +29,22 @@ class turno extends BaseController
     }
     public function eliminar()
 	{
-		$id=$this->request->getPost('valor_id_turno');   //varible que recive los valores de input valor_id_turno
 		$valor=0;  
-		$turnos = new turnos();
-		$result = $turnos->where('id',$id)->delete();
-		if(!empty($result))
-		{
-			$valor=1;
+		$id=$this->request->getPost('valor_id_turno');   //varible que recive los valores de input valor_id_turno
+		
+		$matricula = new matriculas();//creacion de instancia matricula para hacer la busqueda en la tabla		
+		$buscar = $matricula->where('Turnoid',$id)->find();//buscar si el Grupoid no existe en la tabla matricula
+
+		if($buscar==false)//si no existe en la tabla matricula
+		{		
+			$turnos = new turnos();
+			$result = $turnos->where('id',$id)->delete();
+			if(!empty($result))
+			{
+				$valor=1;
+			}
 		}
-		return  json_decode($valor);
+		return  json_encode($valor);
 	}
 	public function agregar()
 	{

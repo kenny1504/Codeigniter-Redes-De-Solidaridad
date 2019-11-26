@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\parentescos;
+use App\Models\estudiantes;
 
 class parentesco extends BaseController
 {
@@ -28,15 +29,21 @@ class parentesco extends BaseController
     }
     public function eliminar()
 	{
+		$valor=0;
 		$id=$this->request->getPost('valor_id_parentesco');   //varible que recive los valores de input valor_id_parentesco
-		$valor=0;  
-		$parentescos = new parentescos();
+		$estudiante = new estudiantes();//creacion de instancia estudiante para hacer la busqueda en la tabla		
+		$buscar = $estudiante->where('parentescoid',$id)->find();//buscar si el Grupoid no existe en la tabla estudiante
+
+		if($buscar==false)//si no existe en la tabla estudiante
+		{		
+			$parentescos = new parentescos();
 		$result = $parentescos->where('id',$id)->delete();
 		if(!empty($result))
 		{
 			$valor=1;
 		}
-		return  json_decode($valor);
+		}
+		return  json_encode($valor);
 	}
 
 	public function actualizar()

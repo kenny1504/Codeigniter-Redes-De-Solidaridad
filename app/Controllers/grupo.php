@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\grupos;
+use App\Models\ofertas;
 
 class grupo extends BaseController
 {
@@ -80,14 +81,20 @@ class grupo extends BaseController
 	}
 	public function eliminar()
 	{
-		$id=$this->request->getPost('valor_id_grupo');   //varible que recive los valores de input valor_id_grupo
 		$valor=0;  
-		$grupos = new grupos();
-		$result = $grupos->where('id',$id)->delete();
-		if(!empty($result))
-		{
-			$valor=1;
+		$id=$this->request->getPost('valor_id_grupo');//variable que recibe el id de grupo a eliminar
+		$oferta = new ofertas();//creacion de instancia oferta para hacer la busqueda en la tabla		
+		$buscar = $oferta->where('Grupoid',$id)->find();//buscar si el Grupoid no existe en la tabla oferta
+
+		if($buscar==false)//si no existe en la tabla oferta
+		{		
+			$grupos = new grupos();
+			$result = $grupos->where('id',$id)->delete();
+			if(!empty($result))
+			{
+				$valor=1;
+			}
 		}
-		return  json_decode($valor);
+		return  json_encode($valor);
 	}
 }
