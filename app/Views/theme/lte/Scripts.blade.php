@@ -56,4 +56,6 @@
         <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script Buscar un usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/crear.js"></script> <!-- script ingresar un usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/editar.js"></script> <!-- script editar un usuario-->
+        <!--********************* script  "Estudiantes" *************************-->
+        <script type="text/javascript" src="js/js-redes/Estudiante/buscar.js"></script> <!-- script Buscar un usuario-->
 </div>
