@@ -14,7 +14,6 @@ function eliminar_grado(button)
     $('#valor_id_grado').val(ide);   //manda valor_id_grado "id" a ventana modal
 }
 
-//url="/elimina/asignatura"; //kenny
 $("#confirmar_eliminar_grado").click(function() {
         
     $.ajax({
