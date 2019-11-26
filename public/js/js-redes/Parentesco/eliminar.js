@@ -19,12 +19,25 @@ function eliminar_parentesco(button)
                     type: 'POST',
                     url: 'parentesco/eliminar', // ruta eliminar parentesco
                     data: $('#delete_parentesco').serialize(), // manda el form donde se encuentra la modal parentesco
+                    dataType: "JSON",
                     success: function(data){ 
-                    dat.remove(); //remueve la fila eliminado 
-                    $("#exito").modal("show"); //abre modal de exito
-                    $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
-                                $("#exito").modal("hide"); // cierra modal
-                                } );
+                    if(data==1)
+                    {
+                        dat.remove(); //remueve la fila eliminado 
+                        $("#exito").modal("show"); //abre modal de exito
+                        $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
+                                   $("#exito").modal("hide"); // cierra modal
+                                   } );
                     }
+                   else
+                   {
+                    var error="Error al eliminar el Parentesco, debido a que se ha asignada a una estudiante"
+                    $('#mensaje').text(error);   //manda el error a la modal
+                    $("#Mensaje-error").modal("show"); //abre modal de error
+                    $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
+                        $("#Mensaje-error").modal("hide"); // cierra modal error
+                        } );
+                   }    
+                }
              });// 
 });

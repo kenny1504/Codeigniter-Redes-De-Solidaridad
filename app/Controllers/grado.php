@@ -2,6 +2,8 @@
 
 use CodeIgniter\Controller;
 use App\Models\grados;
+use App\Models\gradoaasignaturas;
+use App\Models\ofertas;
 
 class grado extends BaseController
 {
@@ -26,15 +28,31 @@ class grado extends BaseController
 	}
 	public function eliminar()
 	{
-		$id=$this->request->getPost('valor_id_grado');   //varible que recive los valores de input valor_id_grado
 		$valor=0;  
-		$grados = new grados();
-		$result = $grados->where('id',$id)->delete();
-		if(!empty($result))
-		{
-			$valor=1;
+		$id=$this->request->getPost('valor_id_grado');//variable que recibe el id de grado a eliminar
+		$gradoasignatura = new gradoaasignaturas();//creacion de instancia gradoasignatura para hacer la busqueda en la tabla	
+		$oferta = new ofertas();//creacion de instancia ofertas para hacer la busqueda en la tabla	
+		$buscar = $gradoasignatura->where('Gradoid',$id)->find();//buscar si el Gradoid no existe en la tabla gradoasignatura
+		$buscar1 = $oferta->where('Gradoid',$id)->find();//buscar si el Gradoid no existe en la tabla ofertas
+
+		if($buscar==false && $buscar1==false)//si no existe en la tabla gradoasignatura y oferta
+		{		
+			$grados = new grados();//creacion de instancia grados	
+			$result = $grados->where('id',$id)->delete();//eliminar grado
+			if(!empty($result))
+				{
+					$valor=1;//retornamos 1 para verificar que a sido eliminado
+				}
 		}
-		return  json_decode($valor);
+		else if($buscar==false && $buscar1==true)
+		{
+			$valor=2;//retornamos 2, si solo es encontrado en la oferta
+		}
+		else if($buscar==true && $buscar1==false)
+		{
+			$valor=3;//retornamos 2, si solo se le han asignado materias
+		}
+		return  json_encode($valor);
 	}
 	
 	public function cargargrados()

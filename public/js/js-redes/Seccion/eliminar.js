@@ -19,12 +19,25 @@ function eliminar_seccion(button)
                     type: 'POST',
                     url: 'eliminar/seccion', // ruta eliminar seccion
                     data: $('#delete_seccion').serialize(), // manda el form donde se encuentra la modal seccion
+                    dataType: "JSON",
                     success: function(data){ 
-                    dat.remove(); //remueve la fila eliminado 
-                    $("#exito").modal("show"); //abre modal de exito
-                    $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
-                                $("#exito").modal("hide"); // cierra modal
-                                } );
+                    if(data==1)
+                    {
+                        dat.remove(); //remueve la fila eliminado 
+                        $("#exito").modal("show"); //abre modal de exito
+                        $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
+                                   $("#exito").modal("hide"); // cierra modal
+                                   } );
                     }
+                   else
+                   {
+                    var error="Error al eliminar la Seccion, debido a que se ha asignada a una oferta"
+                    $('#mensaje').text(error);   //manda el error a la modal
+                    $("#Mensaje-error").modal("show"); //abre modal de error
+                    $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
+                        $("#Mensaje-error").modal("hide"); // cierra modal error
+                        } );
+                   }    
+                }
              });// 
     });

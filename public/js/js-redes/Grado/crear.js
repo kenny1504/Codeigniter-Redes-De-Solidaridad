@@ -18,7 +18,8 @@ $("#m,#m2").click(function(){ // agrega la clase hidden para ocultar label error
           $('.error').text("Error: El "+ data.Grado); 
         } else {
         var datos=  "<tr id=" + data.id + ">"+"<td>"+data.Grado+"</td>"
-        + "<td>"+"<button class='btn btn-success' data-id="+ data.id +"  onclick='editar_Grado(this);' ><i class=' fa fa-fw fa-pencil'></i></button>"
+        + "<td>" + "<button class='btn btn-primary' data-id="+ data.id +" onclick='mostrar_Materias_grados(this);' ><i id='Ver-Asignaturas'>ver</button>"                   
+        +"<button class='btn btn-success' data-id="+ data.id +"  onclick='editar_Grado(this);' ><i class=' fa fa-fw fa-pencil'></i></button>"
         + "<button class='btn btn-info' data-id="+ data.id +" onclick='eliminar_grado(this);'><i class='fa fa-fw fa-trash '></i></button>"                                   
         +"</td>"+"</tr>"; // variable guarda el valor 
        $('#grados').append(datos); // agrega nuevo registro a tabla

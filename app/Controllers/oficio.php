@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\oficios;
+use App\Models\tutores;
 use Tests\Support\Models\ValidErrorsModel;
 
 class oficio extends BaseController
@@ -29,15 +30,21 @@ class oficio extends BaseController
 	}
 	public function eliminar()
 	{
-		$id=$this->request->getPost('valor_id_oficio');   //varible que recive los valores de input valor_id_oficio
 		$valor=0;  
-		$oficios = new oficios();
-		$result = $oficios->where('id',$id)->delete();
-		if(!empty($result))
-		{
-			$valor=1;
+		$id=$this->request->getPost('valor_id_oficio');   //varible que recive los valores de input valor_id_oficio		
+		$tutor = new tutores();//creacion de instancia tutor para hacer la busqueda en la tabla		
+		$buscar = $tutor->where('Oficiosid',$id)->find();//buscar si el Grupoid no existe en la tabla tutor
+
+		if($buscar==false)//si no existe en la tabla tutor
+		{		
+			$oficios = new oficios();
+			$result = $oficios->where('id',$id)->delete();
+			if(!empty($result))
+			{
+				$valor=1;
+			}
 		}
-		return  json_decode($valor);
+		return  json_encode($valor);
 	}
 
 	public function actualizar()
