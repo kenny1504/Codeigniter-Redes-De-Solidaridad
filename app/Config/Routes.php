@@ -84,6 +84,7 @@ $routes->get('/session', 'Home::session');
 //Rutas Usuario
 $routes->post('/usuario', 'usuario::autenticacion');
 $routes->get('/usuario', 'usuario::index');
+$routes->post('/roles', 'usuario::Cargar_Roles');
 
 
 //Rutas Asignaturas
@@ -147,6 +148,8 @@ $routes->post('/cargargrupos/grupo', 'grupo::cargargrupos');
 $routes->post('/cargardocentes/docente', 'docente::cargardocentes');
 
 
+//Rutas Estudiantes
+$routes->get('/estudiantes', 'estudiante::index');
 
 
 

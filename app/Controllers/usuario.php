@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 
+use App\Models\funcionesdeacceso;
 use CodeIgniter\Controller;
 use App\Models\usuarios;
 class usuario extends BaseController
@@ -105,6 +106,13 @@ class usuario extends BaseController
 		}
 
 
-	}
+   }
+   
+   public function Cargar_Roles()
+   {
+      $roles = new funcionesdeacceso();
+      $result= $roles->findAll();
+     return json_encode($result);
 
+   }
 }

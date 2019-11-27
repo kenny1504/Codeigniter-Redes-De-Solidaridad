@@ -9,9 +9,6 @@ class usuarios extends Model
         protected $returnType = 'array';
         protected $allowedFields = ['Cedula,ClaveDeUsuario,Nombre,NombreDeUsuario'];
         protected $useTimestamps = false;
-<<<<<<< Updated upstream
-
-
 
         protected $validationRules = [
                 'NombreDeUsuario'        => 'required|is_unique[usuarios.NombreDeUsuario]',
@@ -30,6 +27,4 @@ class usuarios extends Model
                  ]
         ];
                
-=======
->>>>>>> Stashed changes
 }

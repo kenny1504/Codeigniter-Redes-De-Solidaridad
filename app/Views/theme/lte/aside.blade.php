@@ -63,7 +63,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Agregar</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Mostrar</a></li>
+            <li><a href="<?php base_url() ?>estudiantes" method="GET"><i class="fa fa-circle-o text-aqua"></i> Mostrar</a></li> 
           </ul>
         </li> <!--Estudiantes fin -->
         <li id="menu_Docentes" class="treeview"> <!--Docentes Estudiantes-->

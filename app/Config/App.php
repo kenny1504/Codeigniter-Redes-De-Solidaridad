@@ -21,8 +21,8 @@ class App extends BaseConfig
 	| environments.
 	|
 	*/
-	//public $baseURL ='http://localhost:8080';
-	public $baseURL = 'http://localhost:8001/Codeigniter-Redes-De-Solidaridad/public/';
+	public $baseURL ='http://localhost:8080';
+	//public $baseURL = 'http://localhost:8001/Codeigniter-Redes-De-Solidaridad/public/';
 	
 
 	/*
@@ -267,3 +267,5 @@ class App extends BaseConfig
 	public $CSPEnabled = false;
 
 }
+
+
