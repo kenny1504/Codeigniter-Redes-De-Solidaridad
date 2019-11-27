@@ -31,7 +31,7 @@ function Ingresar_grado(e) { // Metodo para guardar(editar) datos los datos al p
                                 $('.error').text("Error: "+ data.Grado); 
                           } else {
                                 var datos=  "<tr id=" + data.id + ">"+"<td>"+data.Grado+"</td>"
-                                + "<td>" + "<button class='btn btn-primary' data-id="+ data.id +" onclick='mostrar_Materias_grados(this);' ><i id='Ver-Asignaturas'>ver</button>"  
+                                + "<td style='padding-top:0.1%; padding-bottom:0.1%;'>" + "<button class='btn btn-primary' data-id="+ data.id +" onclick='mostrar_Materias_grados(this);' ><i id='Ver-Asignaturas'>ver</button>"  
                                 +"<button class='btn btn-success'  onclick='editar_Grado(this);' data-id="+ data.id +" data-Nombre="+data.Grado+"><i class=' fa fa-fw fa-pencil'></i></button>"
                                 + "<button class='btn btn-info ' onclick='eliminar_grado(this);' data-id="+ data.id +"><i class='fa fa-fw fa-trash '></i></button>"                                   
                                 +"</td>"+"</tr>";// variable guarda los nuevos valores

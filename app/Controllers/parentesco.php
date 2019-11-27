@@ -16,7 +16,7 @@ class parentesco extends BaseController
 			
             $parentescos = new parentescos();
             $data = [
-                'parentescos' => $parentescos->paginate(10), //retorna los datos de la tabla parentescos con su paginacion
+                'parentescos' => $parentescos->paginate(12), //retorna los datos de la tabla parentescos con su paginacion
                 'pager' => $parentescos->pager
             ];
             return view('/Parentesco/index.blade.php',$data);// retorna vista y se envian datos

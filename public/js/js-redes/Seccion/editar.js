@@ -30,7 +30,7 @@ function Ingresar_seccion(e) { // Metodo para guardar(editar) datos los datos al
                                 $('.error').text("Error: "+ data.Codigo); 
                           } else {
                                 var datos=  "<tr id=" + data.id + ">"+"<td>"+data.Codigo+"</td>"
-                                + "<td>"+"<button class='btn btn-success'  onclick='editar_Seccion(this);' data-id="+ data.id +" data-Nombre="+data.Codigo+"><i class=' fa fa-fw fa-pencil'></i></button>"
+                                + "<td style='padding-top:0.1%; padding-bottom:0.1%;'>"+"<button class='btn btn-success'  onclick='editar_Seccion(this);' data-id="+ data.id +" data-Nombre="+data.Codigo+"><i class=' fa fa-fw fa-pencil'></i></button>"
                                 + "<button class='btn btn-info ' onclick='eliminar_seccion(this);' data-id="+ data.id +"><i class='fa fa-fw fa-trash '></i></button>"                                   
                                 +"</td>"+"</tr>";// variable guarda los nuevos valores
 

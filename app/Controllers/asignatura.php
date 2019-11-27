@@ -17,7 +17,7 @@ class asignatura extends BaseController
 		{			
 			$asignaturas = new asignaturas();
 			$data = [
-				'asignaturas' => $asignaturas->paginate(10), //retorna los datos de la tabla asignaturas con su paginacion
+				'asignaturas' => $asignaturas->paginate(12), //retorna los datos de la tabla asignaturas con su paginacion
 				'pager' => $asignaturas->pager
 			];
 			return view('/Materia/index.blade.php',$data);// retorna vista y se envian datos 

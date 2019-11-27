@@ -21,7 +21,7 @@ Grupos
                         <?php foreach ($grupos as $grupo): ?><!--ciclo que recorre el arreglo retonrnado del controlador-->						
                                  <tr id="<?php echo $grupo['id']; ?>" >  <!--abre fila-->
                                     <td><?php echo $grupo['Grupo'];?></td>  <!--agrega dato a la columna-->
-                                <td>
+                                <td style="padding-top:0.1%; padding-bottom:0.1%;">
                                 <button class="btn btn-success " onclick="editar_Grupo(this);" data-id="<?php echo $grupo['id']; ?>" data-Nombre="<?php echo $grupo['Grupo'];?>" ><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
                                 <button class="btn btn-info" onclick='eliminar_grupo(this);' data-id="<?php echo $grupo['id']; ?>" data-Nombre="<?php echo $grupo['Grupo'];?>" ><i class="fa fa-fw fa-trash "></i></button>  <!--botton para eliminar-->                                   
                                 </td>

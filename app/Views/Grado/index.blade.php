@@ -21,7 +21,7 @@ Grados
                         <?php foreach ($grados as $grado): ?><!--ciclo que recorre el arreglo retonrnado del controlador-->				
                                  <tr id="<?php echo $grado['id']; ?>" >  <!--abre fila-->
                                     <td><?php echo $grado['Grado'];?></td>  <!--agrega dato a la columna-->
-                                <td>
+                                <td style="padding-top:0.1%; padding-bottom:0.1%;">
             <!-- Boton Nuevo--> <button class="btn btn-primary" onclick='mostrar_Materias_grados(this)' data-id="<?php echo $grado['id']; ?>" data-Nombre="<?php echo $grado['Grado'];?>" id="Ver-Asignaturas">ver</button>  <!--botton para ver ** Sirve para ver materias asignadas a este grado** -->     
                                 <button class="btn btn-success " onclick="editar_Grado(this);" data-id="<?php echo $grado['id']; ?>" data-Nombre="<?php echo $grado['Grado'];?>" ><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
                                 <button class="btn btn-info" onclick='eliminar_grado(this);' data-id="<?php echo $grado['id']; ?>" data-Nombre="<?php echo $grado['Grado'];?>" ><i class="fa fa-fw fa-trash "></i></button>  <!--botton para eliminar-->                            

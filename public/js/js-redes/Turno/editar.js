@@ -30,7 +30,7 @@ function Ingresar_turn(e) { // Metodo para guardar(editar) datos los datos al pr
                                 $('.error').text("Error: "+ data.Nombre); 
                           } else {
                                 var datos=  "<tr id=" + data.id + ">"+"<td>"+data.Nombre+"</td>"
-                                + "<td>"+"<button class='btn btn-success'  onclick='editar_Turno(this);' data-id="+ data.id +" data-Nombre="+data.Nombre+"><i class=' fa fa-fw fa-pencil'></i></button>"
+                                + "<td style='padding-top:0.1%; padding-bottom:0.1%;'>"+"<button class='btn btn-success'  onclick='editar_Turno(this);' data-id="+ data.id +" data-Nombre="+data.Nombre+"><i class=' fa fa-fw fa-pencil'></i></button>"
                                 + "<button class='btn btn-info ' onclick='eliminar_turno(this);' data-id="+ data.id +"><i class='fa fa-fw fa-trash '></i></button>"                                   
                                 +"</td>"+"</tr>";// variable guarda los nuevos valores
 

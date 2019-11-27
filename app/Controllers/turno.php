@@ -16,7 +16,7 @@ class turno extends BaseController
 			
             $turnos = new turnos();
             $data = [
-                'turnos' => $turnos->paginate(10), //retorna los datos de la tabla turnos con su paginacion
+                'turnos' => $turnos->paginate(12), //retorna los datos de la tabla turnos con su paginacion
                 'pager' => $turnos->pager
             ];
             return view('/Turno/index.blade.php',$data);// retorna vista y se envian datos
