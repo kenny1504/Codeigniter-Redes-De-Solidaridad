@@ -52,14 +52,14 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
 
     $.ajax({
         type: 'POST',
-        url: 'cargardocentes/docente', // llamada a ruta para cargar combobox con datos de tabla docentes
+        url: 'cargardoc/docente', // llamada a ruta para cargar combobox con datos de tabla docentes
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
         
           $('#Docente').empty();//limpia el combobox
-          data.forEach(element => { //ciclo para recorrer el arreglo de docentes
+          data->getResultArray().foreach(element => { //ciclo para recorrer el arreglo de docentes
               //variable para asignarle los valores al combobox
-            var datos='<option style="color: blue;" value="'+element.id+'">'+element.Estado+' '+element.Apellido1+' '+element.Apellido2+'</option>';
+            var datos='<option style="color: blue;" value="'+element.id+'">'+element.Nombre+'</option>';
 
               $('#Docente').append(datos);//ingresa valores al combobox
           });

@@ -145,7 +145,7 @@ $routes->get('/ofertas', 'oferta::index');
 
 $routes->post('/cargarsecciones/seccion', 'seccion::cargarsecciones');
 $routes->post('/cargargrupos/grupo', 'grupo::cargargrupos');
-$routes->post('/cargardocentes/docente', 'docente::cargardocentes');
+$routes->post('/cargardoc/docente', 'docente::cargardoc');
 
 
 //Rutas Estudiantes

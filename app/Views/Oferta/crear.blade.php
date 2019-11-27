@@ -42,7 +42,7 @@
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="return ValidarCedula(cedula.value);" class="btn btn-outline"  >Guardar</button>          
+                    <button type="button"  class="btn btn-outline"  >Guardar</button>          
                 </div>
                 <!-- /.modal-content -->
               </div>
