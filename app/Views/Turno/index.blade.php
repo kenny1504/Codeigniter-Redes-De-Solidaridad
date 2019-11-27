@@ -22,7 +22,7 @@ Turnos
                         <?php foreach ($turnos as $turno): ?><!--ciclo que recorre el arreglo retonrnado del controlador-->					
                                  <tr id="<?php echo $turno['id']; ?>" >  <!--abre fila-->
                                     <td><?php echo $turno['Nombre'];?></td>  <!--agrega dato a la columna-->
-                                <td>
+                                <td style="padding-top:0.1%; padding-bottom:0.1%;">
                                 <button class="btn btn-success " onclick="editar_Turno(this);" data-id="<?php echo $turno['id']; ?>" data-Nombre="<?php echo $turno['Nombre'];?>" ><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
                                 <button class="btn btn-info" onclick='eliminar_turno(this);' data-id="<?php echo $turno['id']; ?>" data-Nombre="<?php echo $turno['Nombre'];?>" ><i class="fa fa-fw fa-trash "></i></button>  <!--botton para eliminar-->                                   
                                 </td>

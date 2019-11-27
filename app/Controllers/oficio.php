@@ -17,7 +17,7 @@ class oficio extends BaseController
 			
 			$oficios = new oficios();
 			$data = [
-				'oficios' => $oficios->paginate(10), //retorna los datos de la tabla oficios con su paginacion
+				'oficios' => $oficios->paginate(12), //retorna los datos de la tabla oficios con su paginacion
 				'pager' => $oficios->pager
 			];
 			return view('/Oficio/index.blade.php',$data);// retorna vista y se envian datos

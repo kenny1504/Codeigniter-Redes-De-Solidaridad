@@ -34,26 +34,25 @@ $("#estudiantes tbody tr").each(function () {
 };
 }) //Aquí termina el document.ready
 
-var n=0;
+
+//Metodo para mostrar u ocultar botones en index Estudiantes
+var n=0; var fila; 
 $(".mostrar").click(function() { // ajax para eliminar un grado
+    fila=$(this).parents("tr"); //captura fila para ponerle color
+    fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
     var iden=$(this).attr("data-id"); // captura el id_grado "id" del grado
-        var id="#"+iden;
-        var id2="#"+iden+"a";
+    var id="#"+iden;//captura id de la celda de botones
+    var id2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
     if(n==0){
-      $(id).removeClass('hidden');
+      $(id).removeClass('hidden'); 
       $(id2).addClass('hidden');
       n=1; // oculta error del servidor(validacion-servidor)
     }
     else{
-        $(id2).removeClass('hidden');
-        $(id).addClass('hidden'); // oculta error del servidor(validacion-servidor)
+        fila.attr("style"," ");//remueve el color a fila
+        $(id2).removeClass('hidden'); //muestra celda
+        $(id).addClass('hidden'); // oculta botones
         n=0;
     }
 }); 
-$(".ocultar").click(function() { // ajax para eliminar un grado
-    var iden=$(this).attr("data-id"); // captura el id_grado "id" del grado
-    var id="#"+iden;
-  $(id).addClass('hidden'); // oculta error del servidor(validacion-servidor)
-}); 
-
 

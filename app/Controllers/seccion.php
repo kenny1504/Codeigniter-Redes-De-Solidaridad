@@ -16,7 +16,7 @@ class seccion extends BaseController
 			
 			$secciones = new secciones();
 			$data = [
-				'secciones' => $secciones->paginate(10), //retorna los datos de la tabla secciones con su paginacion
+				'secciones' => $secciones->paginate(12), //retorna los datos de la tabla secciones con su paginacion
 				'pager' => $secciones->pager
 			];
 			return view('/Seccion/index.blade.php',$data);// retorna vista y se envian datos

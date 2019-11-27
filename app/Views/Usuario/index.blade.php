@@ -34,7 +34,7 @@ Usuarios
                                     <td><?php echo $usuario['NombreDeUsuario'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $usuario['ClaveDeUsuario'];?></td>  <!--agrega dato a la columna--> 
                                     <td><?php echo $usuario['FechaDeVencimiento'];?></td>  <!--agrega dato a la columna-->
-                                <td>
+                                <td style="padding-top:0.1%; padding-bottom:0.1%;">
             <!-- Boton ver-->  <button class="btn btn-primary"  onclick="ver_usuario(this);" data-cedula="<?php echo $usuario['Cedula']; ?>" data-Nombre="<?php echo $usuario['Nombre'];?>" 
                                  data-user="<?php echo $usuario['NombreDeUsuario'];?>" data-rol="<?php echo $usuario['Descripcion'];?>" 
                                  data-password="<?php echo $usuario['ClaveDeUsuario'];?>" data-vencimiento="<?php echo $usuario['FechaDeVencimiento'];?>" id="Ver-Usuario">ver</button>  <!--botton para ver ** Sirve para ver materias asignadas a este grado** -->     

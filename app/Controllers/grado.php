@@ -15,7 +15,7 @@ class grado extends BaseController
 		{		
 			$grados = new grados();
 			$data = [
-				'grados' => $grados->paginate(10), //retorna los datos de la tabla grados() con su paginacion
+				'grados' => $grados->paginate(12), //retorna los datos de la tabla grados() con su paginacion
 				'pager' => $grados->pager
 			];
 			return view('/Grado/index.blade.php',$data);// retorna vista y se envian datos

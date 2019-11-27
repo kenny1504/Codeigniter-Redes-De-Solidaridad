@@ -21,7 +21,7 @@ Oficios
                         <?php foreach ($oficios as $oficio): ?><!--ciclo que recorre el arreglo retonrnado del controlador-->			
                                  <tr id="<?php echo $oficio['id']; ?>" >  <!--abre fila-->
                                     <td><?php echo $oficio['Nombre'];?></td>  <!--agrega dato a la columna-->
-                                <td>
+                                <td style="padding-top:0.1%; padding-bottom:0.1%;">
                                 <button class="btn btn-success" onclick="editar_Oficio(this);" data-id="<?php echo $oficio['id']; ?>" data-Nombre="<?php echo $oficio['Nombre'];?>" ><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
                                 <button class="btn btn-info" onclick='eliminar_oficio(this);' data-id="<?php echo $oficio['id']; ?>" data-Nombre="<?php echo $oficio['Nombre'];?>" ><i class="fa fa-fw fa-trash "></i></button>  <!--botton para eliminar-->                                   
                                 </td>

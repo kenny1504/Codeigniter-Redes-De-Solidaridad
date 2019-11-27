@@ -16,7 +16,7 @@ class grupo extends BaseController
 			
 			$grupos = new grupos();
 			$data = [
-				'grupos' => $grupos->paginate(10), //retorna los datos de la tabla grupos con su paginacion
+				'grupos' => $grupos->paginate(12), //retorna los datos de la tabla grupos con su paginacion
 				'pager' => $grupos->pager
 			];
 			return view('/Grupo/index.blade.php',$data);// retorna vista y se envian datos

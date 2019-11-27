@@ -19,7 +19,7 @@ $("#turno_guardar").click(function() { //ajax para ingresar turno
         $('.error').text("Error: El "+ data.Nombre); 
       } else {
       var datos=  "<tr id=" + data.id + ">"+"<td>"+data.Nombre+"</td>"
-      + "<td>"+"<button class='btn btn-success' data-id="+ data.id +"  onclick='editar_Turno(this);' ><i class=' fa fa-fw fa-pencil'></i></button>"
+      + "<td style='padding-top:0.1%; padding-bottom:0.1%;'>"+"<button class='btn btn-success' data-id="+ data.id +"  onclick='editar_Turno(this);' ><i class=' fa fa-fw fa-pencil'></i></button>"
       + "<button class='btn btn-info' data-id="+ data.id +" onclick='eliminar_turno(this);'><i class='fa fa-fw fa-trash '></i></button>"                                   
       +"</td>"+"</tr>"; // variable guarda el valor 
      $('#turnos').append(datos); // agrega nuevo registro a tabla
