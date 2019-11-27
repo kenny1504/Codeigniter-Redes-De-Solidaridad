@@ -33,3 +33,27 @@ $("#estudiantes tbody tr").each(function () {
 })
 };
 }) //Aquí termina el document.ready
+
+var n=0;
+$(".mostrar").click(function() { // ajax para eliminar un grado
+    var iden=$(this).attr("data-id"); // captura el id_grado "id" del grado
+        var id="#"+iden;
+        var id2="#"+iden+"a";
+    if(n==0){
+      $(id).removeClass('hidden');
+      $(id2).addClass('hidden');
+      n=1; // oculta error del servidor(validacion-servidor)
+    }
+    else{
+        $(id2).removeClass('hidden');
+        $(id).addClass('hidden'); // oculta error del servidor(validacion-servidor)
+        n=0;
+    }
+}); 
+$(".ocultar").click(function() { // ajax para eliminar un grado
+    var iden=$(this).attr("data-id"); // captura el id_grado "id" del grado
+    var id="#"+iden;
+  $(id).addClass('hidden'); // oculta error del servidor(validacion-servidor)
+}); 
+
+
