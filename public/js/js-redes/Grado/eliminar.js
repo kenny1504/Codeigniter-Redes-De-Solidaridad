@@ -1,7 +1,7 @@
 var dat; //variable global que guarda el dato "tr" (Fila a eliminar)
 $(".eliminar-grado").click(function() { // ajax para eliminar un grado
     dat = $(this).closest("tr"); //captura toda la fila donde se efectuo el click (Eliminar)
-    var iden=$(this).attr("data-id1"); // captura el id_grado "id" del grado
+    var iden=$(this).attr("data-id"); // captura el id_grado "id" del grado
     $('#eliminar_Grado').modal('show'); // abre ventana modal
     $('#valor_id_grado').val(iden);   //manda valor_id_grado "id" a ventana modal
 }); 
@@ -9,7 +9,7 @@ $(".eliminar-grado").click(function() { // ajax para eliminar un grado
 function eliminar_grado(button)
 {
     dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Eliminar)
-    var ide=$(button).attr("data-id1"); // captura el valor_id_grado "id" de la grado
+    var ide=$(button).attr("data-id"); // captura el valor_id_grado "id" de la grado
     $('#eliminar_Grado').modal('show'); // abre ventana modal
     $('#valor_id_grado').val(ide);   //manda valor_id_grado "id" a ventana modal
 }

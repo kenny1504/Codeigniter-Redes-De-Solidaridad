@@ -97,4 +97,10 @@ class seccion extends BaseController
 		}
 		return  json_encode($valor);
 	}
+	public function cargarsecciones()
+	{
+	   $secciones = new secciones();
+       $result= $secciones->findAll();
+	   return json_encode($result);
+	}
 }

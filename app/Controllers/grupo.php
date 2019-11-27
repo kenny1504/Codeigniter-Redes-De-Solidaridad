@@ -97,4 +97,10 @@ class grupo extends BaseController
 		}
 		return  json_encode($valor);
 	}
+	public function cargargrupos()
+	{
+	   $grupos = new grupos();
+       $result= $grupos->findAll();
+	   return json_encode($result);
+	}
 }

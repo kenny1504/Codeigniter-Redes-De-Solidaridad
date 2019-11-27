@@ -137,6 +137,17 @@ $routes->post('/eliminar/grado', 'grado::eliminar');
 $routes->post('/cargargrados/asignatura', 'grado::cargargrados');
 $routes->post('/cargarmaterias_grado/grado', 'asignatura::cargarmaterias_grado');
 
+$routes->post('/cargargrados/oferta', 'grado::cargargrados');
+//Rutas Ofertas
+$routes->get('/ofertas', 'oferta::index');
+
+
+$routes->post('/cargarsecciones/seccion', 'seccion::cargarsecciones');
+$routes->post('/cargargrupos/grupo', 'grupo::cargargrupos');
+$routes->post('/cargardocentes/docente', 'docente::cargardocentes');
+
+
+
 
 
 /**

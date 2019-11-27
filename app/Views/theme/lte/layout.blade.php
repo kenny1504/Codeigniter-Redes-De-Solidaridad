@@ -72,7 +72,9 @@
                     <?= $this->include("Usuario/perfil.blade.php") ?><!-- Modal perfil de usuario-->
                     <!--******** include de Generales ********-->   
                     <?= $this->include("Alertas/exito.blade.php") ?><!-- Modal mensaje "Exito" -->
-                    <?= $this->include("Alertas/error.blade.php") ?><!-- Modal mensaje "errores" -->                     
+                    <?= $this->include("Alertas/error.blade.php") ?><!-- Modal mensaje "errores" -->   
+                    <!--******** include de Ofertas ********-->  
+                    <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->                 
                     </div>
             <!--inicio footer -->
             <div>

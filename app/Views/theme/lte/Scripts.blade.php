@@ -54,4 +54,6 @@
         <script type="text/javascript" src="js/jquery.mask.js"></script> <!-- script ingresar usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/ver.js"></script> <!-- script ingresar usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script ingresar usuario-->
+        <!--********************* script  "Oferta" *************************-->
+        <script type="text/javascript" src="js/js-redes/Oferta/crear.js"></script> <!-- escript para ingresar datos por ajax-->
 </div>

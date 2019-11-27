@@ -16,7 +16,7 @@ class oficios extends Model
 
         protected $validationMessages = [ // mensages personalizados de validacion
                 'Nombre'        => [
-                        'is_unique' => 'Priks ya existe el Tutor.'
+                        'is_unique' => 'Ya Existe El Oficio.'
                 ]
         ];
 }

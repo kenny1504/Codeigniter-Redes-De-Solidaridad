@@ -16,7 +16,7 @@ class turnos extends Model
 
         protected $validationMessages = [ // mensages personalizados de validacion
                 'Nombre'        => [
-                        'is_unique' => 'Priks ya existe el turno.'
+                        'is_unique' => 'Ya Existe El Turno.'
                 ]
         ];
 }

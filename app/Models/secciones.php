@@ -16,7 +16,7 @@ class secciones extends Model
 
         protected $validationMessages = [ // mensages personalizados de validacion
                 'Codigo'        => [
-                        'is_unique' => 'ya existe la seccion.'
+                        'is_unique' => 'Ya Existe La Seccion'
                 ]
         ];
 }

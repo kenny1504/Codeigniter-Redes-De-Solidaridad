@@ -153,7 +153,9 @@
                   <i class="fa fa-circle-o text-yellow" ></i> Agregar </a>
                 </li>
                 <li class="treeview">
-                    <li><a href="#" ><i class="fa fa-circle-o text-yellow"></i> Mostrar</a></li>
+                    <li><a href="<?php base_url() ?>ofertas" method="GET"><i class="fa fa-circle-o text-yellow"></i> Mostrar</a></li>
+         
+                    
                 </li>
               </ul> <!--final del ofertas ---> 
               <a href="#"><i class="fa fa-circle-o text-aqua"></i> Oficios <!--inicio del oficios --->  

@@ -1,7 +1,7 @@
 var dat; //variable global que guarda el dato "tr" (Fila a eliminar)
 $(".eliminar-grupo").click(function() { // ajax para eliminar un grupo
 dat = $(this).closest("tr"); //captura toda la fila donde se efectuo el click (Eliminar)
-var iden=$(this).attr("data-id2"); // captura el valor_id_grupo "id" del grupo
+var iden=$(this).attr("data-id"); // captura el valor_id_grupo "id" del grupo
 $('#eliminar_Grupo').modal('show'); // abre ventana modal
 $('#valor_id_grupo').val(iden);   //manda valor_id_grupo "id" a ventana modal
 }); 
@@ -9,7 +9,7 @@ $('#valor_id_grupo').val(iden);   //manda valor_id_grupo "id" a ventana modal
 function eliminar_grupo(button)
 {
     dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Eliminar)
-    var ide=$(button).attr("data-id2"); // captura el valor_id_grupo "id" del grupo
+    var ide=$(button).attr("data-id"); // captura el valor_id_grupo "id" del grupo
     $('#eliminar_Grupo').modal('show'); // abre ventana modal
     $('#valor_id_grupo').val(ide);   //manda valor_id_grupo "id" a ventana modal
 
