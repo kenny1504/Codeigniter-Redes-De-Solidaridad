@@ -13,7 +13,8 @@ class docente extends BaseController
         $consulta="SELECT docentes.id AS id,CONCAT (personas.Nombre,' ',personas.Apellido1,' ',personas.Apellido2) AS Nombre FROM docentes 
         JOIN personas on personas.id=docentes.personasid";
 
-                        $data['docentes'] = $db->query($consulta); //Envia la consulta a la base de datos
-                        return json_encode($data);// retorna 
+ 
+                        $data = $db->query($consulta); //Envia la consulta a la base de datos     
+                        return json_encode($data->getResultArray());// retorna 
     }
 }

@@ -8,7 +8,7 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
           $('#Grado').empty();//limpia el combobox
           data.forEach(element => { //ciclo para recorrer el arreglo de grados
               //variable para asignarle los valores al combobox
-            var datos='<option style="color: blue;" value="'+element.id+'">'+element.Grado+'</option>';
+            var datos='<option  value="'+element.id+'">'+element.Grado+'</option>';
 
               $('#Grado').append(datos);//ingresa valores al combobox
           });
@@ -25,7 +25,7 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
           $('#Seccion').empty();//limpia el combobox
           data.forEach(element => { //ciclo para recorrer el arreglo de secciones
               //variable para asignarle los valores al combobox
-            var datos='<option style="color: blue;" value="'+element.id+'">'+element.Codigo+'</option>';
+            var datos='<option  value="'+element.id+'">'+element.Codigo+'</option>';
 
               $('#Seccion').append(datos);//ingresa valores al combobox
           });
@@ -42,7 +42,7 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
           $('#Grupo').empty();//limpia el combobox
           data.forEach(element => { //ciclo para recorrer el arreglo de grupos
               //variable para asignarle los valores al combobox
-            var datos='<option style="color: blue;" value="'+element.id+'">'+element.Grupo+'</option>';
+            var datos='<option  value="'+element.id+'">'+element.Grupo+'</option>';
 
               $('#Grupo').append(datos);//ingresa valores al combobox
           });
@@ -55,15 +55,12 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
         url: 'cargardoc/docente', // llamada a ruta para cargar combobox con datos de tabla docentes
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
-        
           $('#Docente').empty();//limpia el combobox
-          data->getResultArray().foreach(element => { //ciclo para recorrer el arreglo de docentes
-              //variable para asignarle los valores al combobox
-            var datos='<option style="color: blue;" value="'+element.id+'">'+element.Nombre+'</option>';
-
-              $('#Docente').append(datos);//ingresa valores al combobox
-          });
-          
+          var datos="";
+          for(var i=0; i<data.length;i++){
+            datos+='<option  value="'+data[i].id+'">'+data[i].Nombre+'</option>';
+          }
+          $('#Docente').append(datos);//ingresa valores al combobox
       }
     });//Fin ajax combobox Docentes
 });
