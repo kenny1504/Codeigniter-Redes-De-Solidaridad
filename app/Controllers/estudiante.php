@@ -2,6 +2,7 @@
 
 use CodeIgniter\Controller;
 use App\Models\UserModel;
+use CodeIgniter\HTTP\Request;
 
 class estudiante extends BaseController
 {
@@ -26,7 +27,21 @@ class estudiante extends BaseController
                  return view('login.blade.php');
              }
 
+    }
+    public function cargar($id) //funcion para guardar en la tabla detalleAsignatura
+	{
+         $db = \Config\Database::connect(); // concexion con la basse de datos
+   
+       $consulta="SELECT e.CodigoEstudiante,p.Nombre,p.Apellido1,p.Apellido2,p.FechaNacimiento,p.Sexo,par.Parentesco,p.Telefono,p.Direccion,
+        pe.Cedula,pe.Nombre as Nombret,pe.Apellido1 as apellido1t,pe.Apellido2 as apellido2t,pe.FechaNacimiento as fechat,p.Sexo as sexot,
+        pe.Correo as correot,pe.Telefono as telefonot,pe.Direccion as dirrecciont,o.Nombre as oficiot
+                FROM estudiantes as e JOIN personas as p on p.id=e.personasid
+                join tutores as t on e.tutorid=t.id join personas as pe on pe.id=t.personasid
+                join oficios as o on o.id=t.Oficiosid
+                JOIN parentescos as par on par.id=e.parentescoid WHERE e.id='".$id."' "; 
+ 
+          $data = $db->query($consulta); //Envia la consulta a la base de datos 
+          return json_encode($data->getResultArray());          
 	}
-
 
 }

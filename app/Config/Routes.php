@@ -149,6 +149,7 @@ $routes->post('/guardar/oferta', 'oferta::guardar');
 
 //Rutas Estudiantes
 $routes->get('/estudiantes', 'estudiante::index');
+$routes->post('/estudiante/cargar', 'estudiante::cargar');
 
 
 
