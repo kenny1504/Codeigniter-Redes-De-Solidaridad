@@ -150,6 +150,7 @@ $routes->post('/cargardoc/docente', 'docente::cargardoc');
 
 //Rutas Estudiantes
 $routes->get('/estudiantes', 'estudiante::index');
+$routes->post('/estudiante/cargar', 'estudiante::cargar');
 
 
 

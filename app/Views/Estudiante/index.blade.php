@@ -38,7 +38,7 @@ Estudiantes
                                     <td><?php echo $Estudiante['Direccion'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $Estudiante['Nombre_tutor'];?>  <!--inicio columna que contienen botones-->
                                     <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Estudiante['id']; ?>" >
-                                                <button class="btn btn-primary"  onclick=""  id="Ver-Usuario">ver</button>      
+                                                <button class="btn btn-primary"  onclick="ver_estudiante(this);"  data-id="<?php echo $Estudiante['id']; ?>" id="Ver-estudiante">ver</button>      
                                                 <button class="btn btn-success " onclick="" ><i class=" fa fa-fw fa-pencil"></i></button> 
                                                 <button class="btn btn-info" onclick=""><i class="fa fa-fw fa-trash "></i></button>
                                                 <i class="fa fa-angle-double-right pull-right mostrar" data-id="<?php echo $Estudiante['id']; ?>"></i>                             

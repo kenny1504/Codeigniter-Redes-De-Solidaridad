@@ -70,11 +70,14 @@
                     <!--******** include de usuario ********-->   
                     <?= $this->include("Usuario/crear.blade.php") ?><!-- Modal crear usuario-->
                     <?= $this->include("Usuario/perfil.blade.php") ?><!-- Modal perfil de usuario-->
+                     <!--******** include de Ofertas ********-->  
+                     <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->  
+                     <!--******** include de Estudiantes ********--> 
+                     <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal crear oferta--> 
                     <!--******** include de Generales ********-->   
                     <?= $this->include("Alertas/exito.blade.php") ?><!-- Modal mensaje "Exito" -->
                     <?= $this->include("Alertas/error.blade.php") ?><!-- Modal mensaje "errores" -->   
-                    <!--******** include de Ofertas ********-->  
-                    <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->                 
+                                  
                     </div>
             <!--inicio footer -->
             <div>
