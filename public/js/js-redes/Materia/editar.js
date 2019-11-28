@@ -22,7 +22,7 @@ function Ingresar(e) { // Metodo para guardar(editar) datos los datos al presion
         $.ajax({
                 
                     type: 'POST',
-                    url: '/actualizar/asignatura', // ruta editar materia
+                    url: 'actualizar/asignatura', // ruta editar materia
                     data: $('#editar-materia').serialize(), // manda el form donde se encuentra la modal materia
                     dataType: "JSON", // tipo de respuesta del controlador
                     success: function(data){

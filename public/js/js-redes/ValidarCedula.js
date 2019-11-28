@@ -1,7 +1,6 @@
 $('#datepicker').datepicker({ //sirve para mostrar Datepicker
     autoclose: true
   })
-
 function EsCedula(elTexto) {
     var es = true;
     var cadena = elTexto.replace(new RegExp('-','g'),""); // elimina guiones de la cadena
