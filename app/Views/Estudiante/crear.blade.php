@@ -29,7 +29,8 @@
                                     <option value="F">F</option>
                                     <option value="M">M</option>
                                     <style>
-                                    select:requerid:invalid{
+                                    /*Codigo para aplicar placeholder a combobox */
+                                    select:requerid:invalid{ 
                                         color:gray;
                                     }
                                     option[value=""][disabled]
