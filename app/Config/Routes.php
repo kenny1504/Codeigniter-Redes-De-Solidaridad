@@ -137,15 +137,14 @@ $routes->post('/eliminar/grado', 'grado::eliminar');
 
 $routes->post('/cargargrados/asignatura', 'grado::cargargrados');
 $routes->post('/cargarmaterias_grado/grado', 'asignatura::cargarmaterias_grado');
-
-$routes->post('/cargargrados/oferta', 'grado::cargargrados');
+$routes->post('/cargargrados/oferta', 'docente::cargargrados');
 //Rutas Ofertas
 $routes->get('/ofertas', 'oferta::index');
-
-
-$routes->post('/cargarsecciones/seccion', 'seccion::cargarsecciones');
-$routes->post('/cargargrupos/grupo', 'grupo::cargargrupos');
-$routes->post('/cargardoc/docente', 'docente::cargardoc');
+$routes->post('/guardar/oferta', 'oferta::guardar');
+			//Rutas para cargar en combox-box
+			$routes->post('/cargarsecciones/seccion', 'seccion::cargarsecciones');
+			$routes->post('/cargargrupos/grupo', 'grupo::cargargrupos');
+			$routes->post('/cargardoc/docente', 'docente::cargardoc');
 
 
 //Rutas Estudiantes

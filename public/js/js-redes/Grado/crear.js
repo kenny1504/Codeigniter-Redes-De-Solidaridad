@@ -19,7 +19,7 @@ $("#m,#m2").click(function(){ // agrega la clase hidden para ocultar label error
         } else {
         var datos=  "<tr id=" + data.id + ">"+"<td>"+data.Grado+"</td>"
         + "<td style='padding-top:0.1%; padding-bottom:0.1%;'>" + "<button class='btn btn-primary' data-id="+ data.id +" onclick='mostrar_Materias_grados(this);' ><i id='Ver-Asignaturas'>ver</button>"                   
-        +"<button class='btn btn-success' data-id="+ data.id +"  onclick='editar_Grado(this);' ><i class=' fa fa-fw fa-pencil'></i></button>"
+        +"<button class='btn btn-success' onclick='editar_Grado(this);'  data-id="+ data.id +" data-Nombre="+data.Grado+"><i class=' fa fa-fw fa-pencil'></i></button>"
         + "<button class='btn btn-info' data-id="+ data.id +" onclick='eliminar_grado(this);'><i class='fa fa-fw fa-trash '></i></button>"                                   
         +"</td>"+"</tr>"; // variable guarda el valor 
        $('#grados').append(datos); // agrega nuevo registro a tabla

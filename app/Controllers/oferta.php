@@ -2,6 +2,8 @@
 
 use CodeIgniter\Controller;
 use App\Models\ofertas;
+use CodeIgniter\HTTP\Request;
+
 class oferta extends BaseController
 {
     public function index() //
@@ -25,4 +27,28 @@ class oferta extends BaseController
          return view('login.blade.php');
           } 
   }
+  public function guardar() //funcion para guardar en la tabla oferta
+	{
+        $oferta = new ofertas();
+        $iddescripcion=$this->request->getPost('Descripcion-Oferta');   //variable que recive los valores del iddescripcion
+        $idfecha='2019-08-08';
+        $iddocente=$this->request->getPost('Docente');   //variable que recive los valores del iddocente
+        $idseccion=$this->request->getPost('Seccion');   //variable que recive los valores del idseccion
+        $idgrado=$this->request->getPost('Grado');   //variable que recive los valores del idgrado
+        $idgrupo=$this->request->getPost('Grupo');   //variable que recive los valores del idgrupo
+
+
+            $data = array (
+                  'Descripcion' => $iddescripcion,
+                  'FechaOferta' => $idfecha,		
+                  'Seccionid' => $idseccion,	
+                  'Gradoid' => $idgrado,	
+                  'Grupoid' => $idgrupo,	
+                  'Docenteid' => $iddocente	
+                  );
+              $result = $oferta->insert($data);// peticion para insertar la oferta en la tabla oferta
+            
+               return   json_encode(100);
+               
+      }
 }

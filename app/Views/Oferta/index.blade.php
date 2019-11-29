@@ -23,10 +23,10 @@ Ofertas
                        <tr > 
                          <th>Descripcion</th>
                          <th>Fecha de Oferta</th>
-                         <th>Seccion</th>
+                         <th>Docente</th>                       
                          <th>Grado</th>
                          <th>Grupo</th>
-                         <th>Docente</th>
+                         <th>Seccion</th>
                        </tr>
                     </thead> 
                         <tbody> <!--Cuerpo de la tabla --> 
@@ -34,10 +34,10 @@ Ofertas
                                  <tr id="<?php echo $oferta['id']; ?>" >  <!--abre fila-->                              
                                     <td><?php echo $oferta['Descripcion'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $oferta['FechaOferta'];?></td>  <!--agrega dato a la columna-->
-                                    <td><?php echo $oferta['Codigo'];?></td>  <!--agrega dato a la columna--> 
+                                    <td><?php echo $oferta['Nombre_Docente'];?></td>  <!--agrega dato a la columna--> 
                                     <td><?php echo $oferta['Grado'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $oferta['Grupo'];?></td>  <!--agrega dato a la columna-->
-                                    <td><?php echo $oferta['Nombre_Docente'];?></td>  <!--agrega dato a la columna-->
+                                    <td><?php echo $oferta['Codigo'];?></td>  <!--agrega dato a la columna-->
                                 <td>
             <!-- Boton Nuevo--> 
                <button class="btn btn-success " onclick="" data-id="<?php echo $oferta['id']; ?>" data-Nombre="<?php echo $oferta['Descripcion'];?>" ><i class=" fa fa-fw fa-pencil"></i></button>  <!--botton para editar -->
