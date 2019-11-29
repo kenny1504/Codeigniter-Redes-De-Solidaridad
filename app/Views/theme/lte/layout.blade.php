@@ -21,6 +21,7 @@
         <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/bootstrap-daterangepicker/daterangepicker.css" >
         <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" >     
         <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/vectormap/jquery-jvectormap.css">
+        <link rel="stylesheet" type="text/css" href="js/js-redes/Estudiante/select2.min.css">
       </head>
     <body class="hold-transition skin-blue sidebar-mini fixed">
 <!-- Site wrapper -->
@@ -74,6 +75,7 @@
                      <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->  
                      <!--******** include de Estudiantes ********--> 
                      <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal ver estudiante-> 
+                     <?= $this->include("Estudiante/crear.blade.php") ?><!-- Modal ver estudiante-> 
                      <!--******** include de Tutor ********--> 
                      <?= $this->include("Tutor/ver.blade.php") ?><!-- Modal ver tutor--> 
                     <!--******** include de Generales ********-->   

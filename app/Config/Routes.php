@@ -1,7 +1,5 @@
 <?php namespace Config;
 
-      use App\Models\oficios;
-
 
 /**
  * --------------------------------------------------------------------
@@ -106,7 +104,7 @@ $routes->post('/actualizar/prentesco', 'parentesco::actualizar');
 $routes->post('/agregar/parentesco', 'parentesco::agregar');
 
 //Rutas Oficios
-$routes->get('/oficios', 'oficio::index');
+$routes->get('/oficios','oficio::index');
 $routes->post('/eliminar/oficio', 'oficio::eliminar');
 $routes->post('/actualizar/oficio', 'oficio::actualizar');
 $routes->post('/agregar/oficio', 'oficio::agregar');
@@ -150,6 +148,8 @@ $routes->post('/guardar/oferta', 'oferta::guardar');
 //Rutas Estudiantes
 $routes->get('/estudiantes', 'estudiante::index');
 $routes->post('/estudiante/cargar', 'estudiante::cargar');
+			//Rutas para cargar en combox-box
+			$routes->post('/estudiante/tutores', 'estudiante::tutores');
 
 
 

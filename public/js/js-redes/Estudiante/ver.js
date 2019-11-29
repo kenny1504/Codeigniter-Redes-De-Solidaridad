@@ -59,7 +59,7 @@ function ver_estudiante(button){
      apellido1=data[0].Apellido1;
      apellido2=data[0].Apellido2;
      fecha=data[0].FechaNacimiento;
-     tutor=data[0].Nombret+" "+data[0].apellido1t+" "+data[0].Apellido2; // nombre completo del tutor
+     tutor=data[0].Nombret+" "+data[0].apellido1t+" "+data[0].apellido2t; // nombre completo del tutor
      parentesco=data[0].Parentesco; 
      telefono=data[0].Telefono;
      dirreccion=data[0].Direccion;
