@@ -73,7 +73,9 @@
                      <!--******** include de Ofertas ********-->  
                      <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->  
                      <!--******** include de Estudiantes ********--> 
-                     <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal crear oferta--> 
+                     <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal ver estudiante-> 
+                     <!--******** include de Tutor ********--> 
+                     <?= $this->include("Tutor/ver.blade.php") ?><!-- Modal ver tutor--> 
                     <!--******** include de Generales ********-->   
                     <?= $this->include("Alertas/exito.blade.php") ?><!-- Modal mensaje "Exito" -->
                     <?= $this->include("Alertas/error.blade.php") ?><!-- Modal mensaje "errores" -->   
