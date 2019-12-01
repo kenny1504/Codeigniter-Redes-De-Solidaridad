@@ -99,4 +99,14 @@ class parentesco extends BaseController
 		}
 	
 	}
+	
+    public function parentescos() //metodo para cargar todos los parentescos
+    {
+        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $consulta="SELECT p.id , p.Parentesco FROM parentescos as p";
+       
+        $data = $db->query($consulta);//Envia la consulta a la base de datos 
+        return json_encode($data->getResultArray());
+
+    }
 }

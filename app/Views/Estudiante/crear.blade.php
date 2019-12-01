@@ -15,7 +15,7 @@
                                     <input type="text" name="Codigo" id="Codigo" class="form-control requerido" required placeholder="Codigo estudiante">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Nombre"id="Nombre" class="form-control requerido" required placeholder="Nombre">
+                                    <input type="text" name="NombreE"id="NombreE" class="form-control requerido" required placeholder="Nombre">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <input type="text" name="Apellido1" id="Apellido1" class="form-control requerido" required placeholder="Primer apellido">
@@ -24,15 +24,12 @@
                                     <input type="text" name="Apellido2" id="Apellido2" class="form-control " placeholder="Segundo apellido">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <select class="requerido" style="width: 20%; padding-top: 2.3%; " name="Sexo" id="Sexo" required aria-placeholder="sexo"> 
-                                    <option value=" " disabled selected>Sexo</option>
+                                    <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="Sexo" id="Sexo"  aria-placeholder="sexo"> 
+                                    <option value="" disabled selected>Sexo</option>
                                     <option value="F">F</option>
                                     <option value="M">M</option>
                                     <style>
                                     /*Codigo para aplicar placeholder a combobox */
-                                    select:requerid:invalid{ 
-                                        color:gray;
-                                    }
                                     option[value=""][disabled]
                                     {
                                         display: none;
@@ -45,14 +42,14 @@
                                     <input  style="width: 75%;" type="text" name="telefono" id="telefono" class="form-control pull-right requerido" placeholder="Telefono" required>
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <select class="requerido" style="width: 80%; padding-top: 2.7%; " name="tutores" id="tutores">
-                                            <option value=" " disabled selected>Tutor</option>
+                                    <select aria-required="true" required  style="width: 80%; padding-top: 2.7%; " name="tutores" id="tutores">
+                                            <option value="" disabled selected>Tutor</option>
                                     </select>
                                     <small onclick="ingresar_tutor();" style="padding-top: 1.3%;" class=" btn-sm pull-right btn-warning ">Ingresar Tutor</small>
                                 </div>
-                                <div class="form-group has-feedback">
-                                    <select class="requerido"  style="width: 100%; padding-top: 2.5%; " name="parent" id="parent">
-                                    <option value=" " disabled selected>Parentesco</option>
+                                <div aria-required="true" class="form-group has-feedback">
+                                    <select  required style="width: 100%; padding-top: 2.5%; " name="parent" id="parent">
+                                    <option value="" disabled selected>Parentesco</option>
                                     </select>
                                 </div>
                                 <div class="form-group has-feedback">
@@ -67,7 +64,7 @@
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" onclick="" class="btn btn-outline"  >Guardar</button>          
+                    <button type="submit" onclick="nuevo_estudiante();" class="btn btn-outline" >Guardar</button>      
                 </div>
                 <!-- /.modal-content -->
               </div>

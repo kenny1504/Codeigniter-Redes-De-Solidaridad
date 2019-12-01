@@ -12,7 +12,7 @@
                         <div class="register-box-body" style="background-color:#eee;" >
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/avatar-07.png" class="user-image" alt="User Image">
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Cedula" id="Cedula" class="form-control requerido" required placeholder="Cedula">
+                                    <input type="text" name="Cedulat" id="Cedulat" class="form-control requerido" required placeholder="Cedula">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <input type="text"  name="Nombre-tutor" id="Nombre-tutor" class="form-control requerido" required placeholder="Nombre">
@@ -62,7 +62,7 @@
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit"  onclick="return ValidarCedula(cedula.value);" class="btn btn-outline"  >Guardar</button>          
+                    <button type="submit"  onclick="return  ValidarCedulaTutor(Cedulat.value);" class="btn btn-outline"  >Guardar</button>          
                 </div>
                 <!-- /.modal-content -->
               </div>

@@ -43,22 +43,13 @@ class estudiante extends BaseController
           $data = $db->query($consulta); //Envia la consulta a la base de datos 
           return json_encode($data->getResultArray());          
     }
-    public function tutores() //metodo para cargar todos los tutores
-    {
-        $db = \Config\Database::connect(); // concexion con la basse de datos
-        $consulta="SELECT t.id,CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre FROM tutores as t JOIN personas as p on p.id=t.personasid";
-       
-        $data = $db->query($consulta);//Envia la consulta a la base de datos 
-        return json_encode($data->getResultArray());
 
-    }
-    public function parentesco() //metodo para cargar todos los tutores
+    public function agregar()
     {
-        $db = \Config\Database::connect(); // concexion con la basse de datos
-        $consulta="SELECT p.id , p.Parentesco FROM parentescos as p";
-       
-        $data = $db->query($consulta);//Envia la consulta a la base de datos 
-        return json_encode($data->getResultArray());
+    
+
+           
+
 
     }
 

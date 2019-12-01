@@ -149,9 +149,10 @@ $routes->post('/guardar/oferta', 'oferta::guardar');
 //Rutas Estudiantes
 $routes->get('/estudiantes', 'estudiante::index');
 $routes->post('/estudiante/cargar', 'estudiante::cargar');
+$routes->post('/estudiante/agregar', 'estudiante::agregar');
 			//Rutas para cargar en combox-box
-			$routes->post('/estudiante/tutores', 'estudiante::tutores');
-			$routes->post('/estudiante/parentesco', 'estudiante::parentesco');
+			$routes->post('/tutor/tutores', 'tutor::tutores');
+			$routes->post('/parentesco/parentescos', 'parentesco::parentescos');
 
 
 

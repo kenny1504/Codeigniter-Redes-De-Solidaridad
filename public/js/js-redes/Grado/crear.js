@@ -36,4 +36,4 @@ $("#m,#m2").click(function(){ // agrega la clase hidden para ocultar label error
       $("#Nombre-error").removeClass('hidden'); //muestra el campo Validacion (validacion-cliente)
       $('.error').addClass('hidden'); // oculta error del servidor(validacion-servidor)
     }
-  }); //fin del ajax
+  }); 

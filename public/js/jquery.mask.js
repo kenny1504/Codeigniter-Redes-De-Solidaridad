@@ -39,8 +39,11 @@
 // https://github.com/umdjs/umd/blob/master/templates/jqueryPlugin.js
 
 
-$(function(){
+$(function(){ // mascara de ingresar usuario
     $("#cedula").mask("000-000000-0000S");
+});
+$(function(){// mascara de ingresar tutor
+    $("#Cedulat").mask("000-000000-0000S");
 });
 
 
