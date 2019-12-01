@@ -1,5 +1,7 @@
 <?php namespace App\Controllers;
 
+use App\Models\estudiantes;
+use App\Models\personas;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use CodeIgniter\HTTP\Request;
@@ -46,10 +48,67 @@ class estudiante extends BaseController
 
     public function agregar()
     {
-    
+     
+        $persona =new personas();
+        $estudiante =new estudiantes();
 
+        //Datos a insertar en la tabla estudiante
+        $codigo_estudiante=$this->request->getPost('Codigo');
+        $tutor_estudiante=$this->request->getPost('tutores');
+        $parentesco_estudiante=$this->request->getPost('parent');
+
+        //Datos insertar tabla persona
+        $nombre_estudiante=$this->request->getPost('NombreE');
+        $Apellido1_estudiante=$this->request->getPost('Apellido1');
+        $Apellido2_estudiante=$this->request->getPost('Apellido2');
+        $Sexo_estudiante=$this->request->getPost('Sexo');
+        $telefono_estudiante=$this->request->getPost('telefono');
+        $direccion_estudiante=$this->request->getPost('direccion');
+        $nacimiento_estudiante=$this->request->getPost('fechanacient'); 
+        
+
+        //convertiendo el formato de fecha para poder insertar en persona 
+                     $anio=$nacimiento_estudiante[6].$nacimiento_estudiante[7].$nacimiento_estudiante[8].$nacimiento_estudiante[9]; // variable que guarda año
+                     $dia=$nacimiento_estudiante[3].$nacimiento_estudiante[4]; // variable que guarda mes
+                     $mes=$nacimiento_estudiante[0].$nacimiento_estudiante[1];// variable que guarda dia
            
+        
+        $buscar= $estudiante->where('CodigoEstudiante',$codigo_estudiante)->find();
 
+        if($buscar==false)
+        {
+
+                $person = array (
+                    'Cedula'=> "000-000000-0000P",
+                    'Nombre'=> $nombre_estudiante,
+                    'Apellido1'=> $Apellido1_estudiante,
+                    'Apellido2'=> $Apellido2_estudiante,
+                    'Sexo'=> $Sexo_estudiante,
+                    'Direccion'=> $direccion_estudiante,
+                    'Telefono'=> $telefono_estudiante,
+                    'Correo'=> "Estudiante@estudiante.com",
+                    'FechaNacimiento'=> "$anio-$mes-$dia"
+                );
+                $result = $persona->insert($person);// pedicion para insertar una nueva persona
+                
+                if($result==true) // si actualiza los datos
+                {
+                    $estudiant = array (
+                        'personasid'=> $result,
+                        'CodigoEstudiante'=> $codigo_estudiante,
+                        'parentescoid'=> $parentesco_estudiante,
+                        'tutorid'=> $tutor_estudiante	
+                    );
+                    $result_estudi = $estudiante->insert($estudiant);// pedicion para insertar nuevo grado
+                }
+                
+                return json_encode(1);
+    
+        }
+        else
+        {
+            return json_encode("El estudiante ya existe, favor revisar el codigo de estudiante que ha ingresado");
+        }
 
     }
 

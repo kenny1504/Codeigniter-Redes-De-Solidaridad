@@ -71,7 +71,7 @@ function nuevo_estudiante()
 
       //Verifica que le formulario no este vacio
       if($('#Codigo').val()!="" && $('#NombreE').val()!="" && $('#Apellido1').val()!="" && $('#Sexo').val()!=null && 
-      $('#telefono').val()!="" && $('#tutores').val()!=null && $('#parent').val()!=null && $('#dir').val()!="" && $('#datepicker3').val()!="")
+      $('#telefono').val()!="" && $('#tutores').val()!=null && $('#parent').val()!=null && $('#dir').val()!=null && $('#datepicker3').val()!="")
       {
 
             $.ajax({ // ajax para guardar estudiante
@@ -80,6 +80,7 @@ function nuevo_estudiante()
               data: $('#ingresar_Estudiante').serialize(), // manda el form donde se encuentra la modal ingresar_Estudiante
               dataType: "JSON", // tipo de respuesta del controlador
               success: function(data){ 
+                alert(data);
               
             }   
           });//Fin ajax Guardar estudiante
