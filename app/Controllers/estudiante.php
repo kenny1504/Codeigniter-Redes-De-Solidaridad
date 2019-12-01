@@ -46,7 +46,7 @@ class estudiante extends BaseController
           return json_encode($data->getResultArray());          
     }
 
-    public function agregar()
+    public function agregar() //ingresar un nuevo estudiante
     {
      
         $persona =new personas();
@@ -75,37 +75,37 @@ class estudiante extends BaseController
         
         $buscar= $estudiante->where('CodigoEstudiante',$codigo_estudiante)->find();
 
-        if($buscar==false)
+        if($buscar==false)//si el estudiante no existe ingresa en tabla persona y tabla estudiate
         {
 
                 $person = array (
-                    'Cedula'=> "000-000000-0000P",
+                    'Cedula'=> "000-000000-0000P", //valor por defecto, al ser estudiante
                     'Nombre'=> $nombre_estudiante,
                     'Apellido1'=> $Apellido1_estudiante,
                     'Apellido2'=> $Apellido2_estudiante,
                     'Sexo'=> $Sexo_estudiante,
                     'Direccion'=> $direccion_estudiante,
                     'Telefono'=> $telefono_estudiante,
-                    'Correo'=> "Estudiante@estudiante.com",
-                    'FechaNacimiento'=> "$anio-$mes-$dia"
+                    'Correo'=> "Estudiante@estudiante.com",//valor por defecto, al ser estudiante
+                    'FechaNacimiento'=> "$anio-$mes-$dia" //ingresando dato de fecha segun formato de base de datos
                 );
-                $result = $persona->insert($person);// pedicion para insertar una nueva persona
+                $result = $persona->insert($person);// peticion para insertar una nueva persona
                 
-                if($result==true) // si actualiza los datos
+                if($result==true) // si ingresa persona entonces ingresa en estudiante
                 {
                     $estudiant = array (
-                        'personasid'=> $result,
+                        'personasid'=> $result, //ingresa el id retornado por el insertas persona
                         'CodigoEstudiante'=> $codigo_estudiante,
                         'parentescoid'=> $parentesco_estudiante,
                         'tutorid'=> $tutor_estudiante	
                     );
-                    $result_estudi = $estudiante->insert($estudiant);// pedicion para insertar nuevo grado
+                    $result_estudi = $estudiante->insert($estudiant);// pedicion para insertar un nuevo estudiante
                 }
                 
                 return json_encode(1);
     
         }
-        else
+        else // si el estudiante ya existe entonces retorna mensaje de error
         {
             return json_encode("El estudiante ya existe, favor revisar el codigo de estudiante que ha ingresado");
         }
