@@ -59,7 +59,7 @@ function nuevo_estudiante()
 
       //Verifica que le formulario no este vacio
       if($('#Codigo').val()!="" && $('#NombreE').val()!="" && $('#Apellido1').val()!="" && $('#Sexo').val()!=null && 
-      $('#telefono').val()!="" && $('#tutores').val()!=null && $('#parent').val()!=null && $('#direccion').val()!="" && $('#fechanaci').val()!="" )
+      $('#telefono').val()!="" && $('#tutores').val()!=null && $('#parent').val()!=null && $('#direccion').val()!="" && $('#datepicker3').val()!="")
       {
 
             $.ajax({ // ajax para guardar estudiante

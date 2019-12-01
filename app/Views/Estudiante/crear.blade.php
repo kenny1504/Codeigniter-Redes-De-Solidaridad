@@ -59,7 +59,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input placeholder="Fecha de Nacimiento" name="fechanaci" type="text" class="form-control pull-right requerido" id="datepicker3" required>            
+                                        <input placeholder="Fecha de Nacimiento" name="fechanacient" type="text" class="form-control pull-right requerido" id="datepicker3" required>            
                                     </div> 
                         </div>  
                 <div class="modal-footer">
