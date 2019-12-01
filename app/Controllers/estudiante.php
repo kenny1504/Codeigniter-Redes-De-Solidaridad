@@ -52,5 +52,14 @@ class estudiante extends BaseController
         return json_encode($data->getResultArray());
 
     }
+    public function parentesco() //metodo para cargar todos los tutores
+    {
+        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $consulta="SELECT p.id , p.Parentesco FROM parentescos as p";
+       
+        $data = $db->query($consulta);//Envia la consulta a la base de datos 
+        return json_encode($data->getResultArray());
+
+    }
 
 }

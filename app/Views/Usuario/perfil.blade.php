@@ -14,16 +14,16 @@
 
                                 <ul class="list-group list-group-unbordered">
                                     <li class="list-group-item">
-                                    <small class="text-primary" >Nombre usuario</small> <b id="nombre_user" class="pull-right"></b>                                
+                                    <small class="text-primary" >Nombre usuario</small> <b style="color: gray;" id="nombre_user" class="pull-right"></b>                                
                                     </li>
                                     <li class="list-group-item">
-                                    <small class="text-primary" >Contraseña</small> <b id="Contraseña_user" class="pull-right"></b> 
+                                    <small class="text-primary" >Contraseña</small> <b style="color: gray;" id="Contraseña_user" class="pull-right"></b> 
                                     </li>                                    
                                     <li class="list-group-item">
-                                    <small class="text-primary" >Cedula</small> <b id="cedula_user" class="pull-right"></b> 
+                                    <small class="text-primary" >Cedula</small> <b style="color: gray;" id="cedula_user" class="pull-right"></b> 
                                     </li>
                                     <li class="list-group-item">                                  
-                                    <small class="text-primary" >Vencimiento</small> <b id="vencimiento_user" class="pull-right"></b> 
+                                    <small class="text-primary" >Vencimiento</small> <b style="color: gray;" id="vencimiento_user" class="pull-right"></b> 
                                     </li>
                                 </ul>
                                 <button type="reset"  class="btn btn-primary btn-block" data-dismiss="modal">Cerrar</button>

@@ -108,6 +108,7 @@ $routes->get('/oficios','oficio::index');
 $routes->post('/eliminar/oficio', 'oficio::eliminar');
 $routes->post('/actualizar/oficio', 'oficio::actualizar');
 $routes->post('/agregar/oficio', 'oficio::agregar');
+$routes->post('/cargar/oficio', 'oficio::cargar');
 
 //Rutas Turnos
 $routes->get('/turnos', 'turno::index');
@@ -150,6 +151,7 @@ $routes->get('/estudiantes', 'estudiante::index');
 $routes->post('/estudiante/cargar', 'estudiante::cargar');
 			//Rutas para cargar en combox-box
 			$routes->post('/estudiante/tutores', 'estudiante::tutores');
+			$routes->post('/estudiante/parentesco', 'estudiante::parentesco');
 
 
 

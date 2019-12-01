@@ -12,19 +12,19 @@
                         <div class="register-box-body" style="background-color:#eee;" >
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/estudiante.png" class="user-image" alt="User Image">
                                 <div class="form-group has-feedback">
-                                    <input type="text" id="Nombre-completo" class="form-control" placeholder="Codigo estudiante">
+                                    <input type="text" name="Codigo" id="Codigo" class="form-control requerido" required placeholder="Codigo estudiante">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" id="Nombre-completo" class="form-control" placeholder="Nombre">
+                                    <input type="text" name="Nombre"id="Nombre" class="form-control requerido" required placeholder="Nombre">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="email"  id="Nombre-de-usuario" class="form-control" placeholder="Primer apellido">
+                                    <input type="text" name="Apellido1" id="Apellido1" class="form-control requerido" required placeholder="Primer apellido">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" id="contraseña" class="form-control" placeholder="Segundo apellido">
+                                    <input type="text" name="Apellido2" id="Apellido2" class="form-control " placeholder="Segundo apellido">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <select style="width: 20%; padding-top: 2.3%; " name="roles" id="roles" aria-placeholder="sexo"> 
+                                    <select class="requerido" style="width: 20%; padding-top: 2.3%; " name="Sexo" id="Sexo" required aria-placeholder="sexo"> 
                                     <option value=" " disabled selected>Sexo</option>
                                     <option value="F">F</option>
                                     <option value="M">M</option>
@@ -42,32 +42,32 @@
                                     }
                                     </style>
                                     </select>                                     
-                                    <input  style="width: 75%;" type="text" id="contraseña" class="form-control pull-right" placeholder="Telefono">
+                                    <input  style="width: 75%;" type="text" name="telefono" id="telefono" class="form-control pull-right requerido" placeholder="Telefono" required>
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <select  style="width: 80%; padding-top: 2.7%; " name="tutores" id="tutores">
+                                    <select class="requerido" style="width: 80%; padding-top: 2.7%; " name="tutores" id="tutores">
                                             <option value=" " disabled selected>Tutor</option>
                                     </select>
-                                    <small style="padding-top: 2%;" class=" btn-sm pull-right btn-warning  ver-tutor">Ingresar Tutor</small>
+                                    <small onclick="ingresar_tutor();" style="padding-top: 1.3%;" class=" btn-sm pull-right btn-warning ">Ingresar Tutor</small>
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <select  style="width: 100%; padding-top: 2.5%; " name="roles" id="roles">
-                                            <option value=" " disabled selected>Parentesco</option>
+                                    <select class="requerido"  style="width: 100%; padding-top: 2.5%; " name="parent" id="parent">
+                                    <option value=" " disabled selected>Parentesco</option>
                                     </select>
                                 </div>
                                 <div class="form-group has-feedback">
-                                <textarea class="form-control text-primary" rows="3" id="dir" placeholder="Direccion"></textarea> 
+                                <textarea class="form-control text-primary" name="direccion" rows="3" id="dir" placeholder="Direccion" required></textarea> 
                                 </div>
                                 <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input placeholder="Fecha de Nacimiento" type="text" class="form-control pull-right" id="datepicker">            
+                                        <input placeholder="Fecha de Nacimiento" name="fechanaci" type="text" class="form-control pull-right requerido" id="datepicker3" required>            
                                     </div> 
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="return ValidarCedula(cedula.value);" class="btn btn-outline"  >Guardar</button>          
+                    <button type="submit" onclick="" class="btn btn-outline"  >Guardar</button>          
                 </div>
                 <!-- /.modal-content -->
               </div>
