@@ -140,6 +140,9 @@ $routes->post('/cargargrados/oferta', 'docente::cargargrados');
 //Rutas Ofertas
 $routes->get('/ofertas', 'oferta::index');
 $routes->post('/guardar/oferta', 'oferta::guardar');
+$routes->post('/oferta/cargar', 'oferta::cargar');
+$routes->post('/actualizar/oferta', 'oferta::actualizar');
+$routes->post('/eliminar/oferta', 'oferta::eliminar');
 			//Rutas para cargar en combox-box
 			$routes->post('/cargarsecciones/seccion', 'seccion::cargarsecciones');
 			$routes->post('/cargargrupos/grupo', 'grupo::cargargrupos');

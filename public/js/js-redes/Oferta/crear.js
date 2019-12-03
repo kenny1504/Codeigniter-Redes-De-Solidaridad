@@ -1,8 +1,13 @@
 $('#datepickerOferta').datepicker({ //sirve para mostrar Datepicker
+  format: 'yyyy-mm-dd',
+  autoclose: true
+})
+$('#datepickerOfertaEditar').datepicker({ //sirve para mostrar Datepicker
+  format: 'yyyy-mm-dd',
   autoclose: true
 })
 
-$("#cargar").click(function() { //ajax para cargar combobox Grados
+$("#cargar,#cargar2").click(function() { //ajax para cargar combobox Grados
     $.ajax({
         type: 'POST',
         url: 'cargargrados/oferta', // llamada a ruta para cargar combobox con datos de tabla grados
@@ -15,6 +20,7 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
             var datos='<option  value="'+element.id+'">'+element.Grado+'</option>';
 
               $('#Grado').append(datos);//ingresa valores al combobox
+              $('#Grado').val(''); // limpiar el grado
           });
           
       }
@@ -32,6 +38,7 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
             var datos='<option  value="'+element.id+'">'+element.Codigo+'</option>';
 
               $('#Seccion').append(datos);//ingresa valores al combobox
+              $('#Seccion').val(''); // limpiar la seccion
           });
           
       }
@@ -49,6 +56,7 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
             var datos='<option  value="'+element.id+'">'+element.Grupo+'</option>';
 
               $('#Grupo').append(datos);//ingresa valores al combobox
+              $('#Grupo').val(''); // limpiar el grupo
           });
           
       }
@@ -65,35 +73,49 @@ $("#cargar").click(function() { //ajax para cargar combobox Grados
             datos+='<option  value="'+data[i].id+'">'+data[i].Nombre+'</option>';
           }
           $('#Docente').append(datos);//ingresa valores al combobox
+          $('#Docente').val(''); // limpiar el docente
       }
     });//Fin ajax combobox Docentes
 });
 
 $("#nueva_oferta").click(function() { // ajax para guardar en la tabla oferta
-
+  if($('input[name=Descripcion-Oferta]').val()!="") // si el input contiene valores entra 
+  {
   $.ajax({
     type: 'POST', 
     url: 'guardar/oferta', // llamada a ruta para cargar combobox con datos de tabla materia
     data: $('#ingresar_oferta').serialize(), // manda el form donde se encuentra la modal dataType: "JSON", // tipo de respuesta del controlador
     dataType: "JSON", // tipo de respuesta del controlador
     success: function(data){ 
-      if(data==1) // si la aun no se asigna  a ese grado manda mensaje de exito
-      {
-        //$("#nueva_oferta").modal("hide"); // cierra modal confirmar
-        $("#exito").modal("show"); //abre modal de exito
-        $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
-                 $("#exito").modal("hide"); // cierra modal exito
-                 } );
-      }
-      if(data==100) // si la materia ya existe se manda mensaje de error
-      {
-        var error="La Materia que intenta ingresar ya esta asignada a este grado"
-        $('#mensaje').text(error);   //manda el error a la modal
-        $("#Mensaje-error").modal("show"); //abre modal de error
-        $("#Mensaje-error").fadeTo(2000,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
-                 $("#Mensaje-error").modal("hide"); // cierra modal error
-                 } );
-      }      
+      if ((data==null)) { // si el ajax contiene errores agrega un label indicando el error 
+        $('.error').removeClass('hidden');
+        $("#Nombre-error").addClass('hidden');
+        $('.error').text("Error: "+ data.Nombre); 
+      } else { // si no contiene errores agrega el dato a la tabla asignaturas
+        $('.error').addClass('hidden'); //elimina el mensaje de error
+        for(var i=0; i<data.length;i++){
+          var datos= "<tr id=" + data[i].idOferta + ">"+"<td>"+data[i].Descripcion+"</td>"+"<td>"+data[i].FechaOferta+"</td>"+"<td>"+data[i].Nombre+"</td>"+"<td>"+data[i].Grado+"</td>"+"<td>"+data[i].Grupo+"</td>"+"<td>"+data[i].Codigo+"</td>"
+      + "<td style='padding-top:0.1%; padding-bottom:0.1%;'>"+"<button class='btn btn-success' onclick='editar_Oferta(this);' data-id="+ data[i].idOferta +" data-Nombre="+data[i].Descripcion+"  ><i class=' fa fa-fw fa-pencil'></i></button>"        
+      + "<button class='btn btn-info' data-id="+ data[i].idOferta +" onclick='eliminar_oferta(this);'><i class='fa fa-fw fa-trash '></i></button>"                                   
+      +"</td>"+"</tr>"; }// variable guarda el valor 
+     $('#ofertas').append(datos); // agrega nuevo registro a tabla
+    
+     $("#exito").modal("show"); //abre modal de exito
+     $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
+              $("#exito").modal("hide"); // cierra modal
+              } );
+     }      
   }   
-});//Fin ajax guardar materia asignada
+});
+$('#Descripcion-Oferta').val(''); // limpiar el input Descripcion Oferta
+$('#datepickerOferta').val(''); // limpiar el input Fecha Oferta
+$('#Grado').val(''); // limpiar el grado
+$('#Grupo').val(''); // limpiar el grupo
+$('#Seccion').val(''); // limpiar la seccion
+$('#Docente').val(''); // limpiar el docente
+  }
+  else { // si el input esta vacio
+    $("#Nombre-error").removeClass('hidden'); //muestra el campo Validacion (validacion-cliente)
+    $('.error').addClass('hidden'); // oculta error del servidor(validacion-servidor)
+  }
 });

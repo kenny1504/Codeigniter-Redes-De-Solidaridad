@@ -11,13 +11,14 @@
                   <div class="modal-body ">
                         <div class="register-box-body" style="background-color:#eee;" >
                             <div class="form-group has-feedback">
-                                <input type="text" id="Descripcion-Oferta" class="form-control" placeholder="Descripcion de Oferta">
+                                <input type="text" name="Descripcion-Oferta" id="Descripcion-Oferta" class="form-control" placeholder="Descripcion de Oferta">
                             </div>
                             <div class="form-group input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input placeholder="Fecha Oferta" type="text" class="form-control pull-right" id="datepickerOferta">
+                                <input placeholder="Fecha Oferta" type="text" class="form-control pull-right" name="datepickerOferta" id="datepickerOferta">
+                                
                             </div> 
                             <label for="Nombre"  style="padding-right:14%;" class="col-sm-2 control-label requerido">Grado</label>   
                             <div class="form-group ">                 

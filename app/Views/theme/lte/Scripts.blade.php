@@ -56,6 +56,9 @@
         <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script ingresar usuario-->
         <!--********************* script  "Oferta" *************************-->
         <script type="text/javascript" src="js/js-redes/Oferta/crear.js"></script> <!-- escript para ingresar datos por ajax-->
+        <script type="text/javascript" src="js/js-redes/Oferta/editar.js"></script><!-- script editar oferta-->
+        <script type="text/javascript" src="js/js-redes/Oferta/eliminar.js"></script> <!-- script eliminar oferta-->
+
         <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script Buscar un usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/crear.js"></script> <!-- script ingresar un usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/editar.js"></script> <!-- script editar un usuario-->
