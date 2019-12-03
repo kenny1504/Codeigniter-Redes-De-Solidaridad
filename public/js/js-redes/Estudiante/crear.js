@@ -82,7 +82,7 @@ function nuevo_estudiante()
         var tutor=$('#tutores').text();
         
 
-          if($("#Codigo").val().length==8 && $("#telefono").val().length==8) //verifica que el input contenga 8 valores 
+          if($("#Codigo").val().length==8 && ($("#telefono").val().length==8  || $("#telefono").val().length==0 )) //verifica que el input contenga 8 valores 
           {
 
             $.ajax({ // ajax para guardar estudiante
