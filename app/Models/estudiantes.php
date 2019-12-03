@@ -9,4 +9,5 @@ class estudiantes extends Model
         protected $returnType = 'array';
         protected $allowedFields = ['personasid','CodigoEstudiante','parentescoid','tutorid'];
         protected $useTimestamps = false;
+
 }

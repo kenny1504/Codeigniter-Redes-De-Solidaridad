@@ -1,4 +1,4 @@
-$("#m,#m2").click(function(){ // agrega la clase hidden para ocultar label error
+$("#m,#m2,#m3").click(function(){ // agrega la clase hidden para ocultar label error
     $('.error').addClass('hidden');
     $("#Nombre_oficio-error").addClass('hidden');
 

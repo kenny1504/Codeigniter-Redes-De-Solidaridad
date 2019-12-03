@@ -7,9 +7,9 @@ Estudiantes
             <div class="box-header">
               <h2 class="box-title text-light-blue">Estudiantes</h2>
               <div class="pull-right box-tools">
-                <a href="#" onclick="ingresar_usuario();" class="btn btn-warning btn-sm pull-right b1" >Agregar Estudiante</a> 
+                <a href="#" onclick="ingresar_estudiante();" class="btn btn-warning btn-sm pull-right b1" >Agregar Estudiante</a> 
                 <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
-                <input type="text" id="buscarE"  name="table_search" class="form-control " placeholder="Buscar Nombre o">
+                <input type="text" id="buscarE"  name="table_search" class="form-control " placeholder="Buscar Nombre o codigo">
                   <div class="input-group-btn">
                     <span style="margin-right:2em;"  class="btn btn-default"><i class="fa fa-search"></i></span>
                   </div>

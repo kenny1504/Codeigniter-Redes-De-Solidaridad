@@ -1,15 +1,33 @@
 
 function editar_usuario(button)
 {   
+      $.ajax({ // ajax para cargar datos en el combobox
+        type: 'POST',
+        url: 'roles', // llamada a ruta para cargar combobox con datos de tabla usuario
+        dataType: "JSON", // tipo de respuesta del controlador
+        success: function(data){ 
+          $('#roles').empty();
+        //ciclo para recorrer el arreglo de roles
+          data.forEach(element => {
+              //variable para asignarle los valores al combobox
+            var datos='<option  value="'+element.Id_FuncionAcceso+'">'+element.Descripcion+'</option>'; 
+
+              $('#roles').append(datos); //ingresa valores al combobox
+          });
+          
+      }   
+    });//Fin ajax combobox roles
+
+
     $('#crear_usuario').modal('show'); // abre ventana modal
-    var contraseña=$(button).attr("data-password");//obtiene el id de la materia
-    var NombreUsuario=$(button).attr("data-user");//obtiene el id de la materia
-    var cedula=$(button).attr("data-cedula");//obtiene el id de la materia
-    var nombre_u=$(button).attr("data-Nombre");//obtiene el id de la materia
-    var rol_user=$(button).attr("data-rol");//obtiene el id de la materia
-    var vencimiento_user=$(button).attr("data-vencimiento");//obtiene el id de la materia
+    var contraseña=$(button).attr("data-password");//obtiene la contraseña del usuario
+    var NombreUsuario=$(button).attr("data-user");//obtiene el nombre completo del usuario
+    var cedula=$(button).attr("data-cedula");//obtiene la  cedula del  usuario
+    var nombre_u=$(button).attr("data-Nombre");//obtiene el nombre de usuario
+    var rol_user=$(button).attr("data-rol");//obtiene el rol del usuario
+    var vencimiento_user=$(button).attr("data-vencimiento");//obtiene el vencimiento de la cuenta del usuario
     $('#Nombre-completo').val(nombre_u); 
-    $('#roles').val(rol_user);
+    $("#roles option:contains("+rol_user+")").attr('selected', true);
     $('#Nombre-de-usuario').val(NombreUsuario);
     $('#contraseña').val(contraseña);
     $('#cedula').val(cedula);
@@ -21,22 +39,7 @@ function editar_usuario(button)
     $("#rolau").removeClass('hidden');
     $("#vencimientou").removeClass('hidden');
 
-    $.ajax({ // ajax para cargar datos en el combobox
-        type: 'POST',
-        url: 'roles', // llamada a ruta para cargar combobox con datos de tabla materia
-        dataType: "JSON", // tipo de respuesta del controlador
-        success: function(data){ 
-          $('#roles').empty();
-        //ciclo para recorrer el arreglo de roles
-          data.forEach(element => {
-              //variable para asignarle los valores al combobox
-             var datos='<option  value="'+element.Id_FuncionAcceso+'">'+element.Descripcion+'</option>'; 
-  
-              $('#roles').append(datos); //ingresa valores al combobox
-          });
-          
-      }   
-    });//Fin ajax combobox roles
+   
 }//fin del metodo Ingresar_usuario
 
 

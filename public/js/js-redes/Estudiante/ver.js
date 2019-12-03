@@ -17,29 +17,30 @@ $(".mostrar").click(function() { // ajax para eliminar un grado
         $(id1).addClass('hidden'); // oculta botones
         n=0;
     }
-}); 
+  }); 
 
-//datos estudiante
-var codigo;
-var nombre;
-var apellido1;
-var apellido2;
-var fecha;
-var tutor;
-var parentesco;
-var telefono;
-var dirreccion;
-var sexo;
-//datos tutor
-var  cedula;
-var nombret;
-var apellido1t;
-var apellido2t;
-var fechat;
-var correot;
-var telefonot;
-var dirrecciont;
-var sexot;
+  //datos estudiante
+  var codigo;
+  var nombre;
+  var apellido1;
+  var apellido2;
+  var fecha;
+  var tutor;
+  var parentesco;
+  var telefono;
+  var dirreccion;
+  var sexo;
+  //datos tutor
+  var  cedula;
+  var nombret;
+  var apellido1t;
+  var apellido2t;
+  var fechat;
+  var correot;
+  var telefonot;
+  var dirrecciont;
+  var sexot;
+  var oficiot;
 
 function ver_estudiante(button){ 
 
@@ -58,11 +59,25 @@ function ver_estudiante(button){
      apellido1=data[0].Apellido1;
      apellido2=data[0].Apellido2;
      fecha=data[0].FechaNacimiento;
-     tutor=data[0].Nombret+" "+data[0].apellido1t+" "+data[0].Apellido2; // nombre completo del tutor
+     tutor=data[0].Nombret+" "+data[0].apellido1t+" "+data[0].apellido2t; // nombre completo del tutor
      parentesco=data[0].Parentesco; 
      telefono=data[0].Telefono;
      dirreccion=data[0].Direccion;
      sexo=data[0].Sexo;
+
+
+    //obtiene datos del tutor
+    cedula=data[0].Cedula;
+    nombret=data[0].Nombret;
+    apellido1t=data[0].apellido1t;
+    apellido2t=data[0].apellido2t;
+    fechat=data[0].fechat;
+    correot=data[0].correot;
+    telefonot=data[0].telefonot;
+    dirrecciont=data[0].dirrecciont;
+    sexot=data[0].sexot;
+    oficiot=data[0].oficiot;
+
 
    //asignar valores obtenidos en el ajax aventana modal
    $('#N1').text(nombre);
@@ -83,6 +98,36 @@ function ver_estudiante(button){
    });//Fin cargar datos estudiante y tutor
    
   };//fin metodo
+
+
+  $(".ver-tutor").click(function() { 
+    
+    $("#perfil_tutor").modal("show"); //abre modal ver usuario
+
+    if(sexot!='M')//si el tutor es mujer muestra imagen femenina
+    {
+      $('#mujer').removeClass('hidden'); //muestra imagen
+      $('#varon').addClass('hidden'); // oculta imagen
+    }
+    else
+    {
+      $('#varon').removeClass('hidden'); //muestra imagen
+      $('#mujer').addClass('hidden'); // oculta oculta imagen 
+    }
+    
+    $('#N1t').text(nombret);
+    $('#p1t').text(apellido1t);
+    $('#p2t').text(apellido2t);
+    $('#st').text(sexot);
+    $('#fnt').text(fechat);
+    $('#ot').text(oficiot);
+    $('#ct').text(correot);
+    $('#tet').text(telefonot);
+    $('#dirt').text(dirrecciont);
+    $('#cet').text(cedula);
+
+  }); 
+
 
 
 

@@ -8,7 +8,7 @@
                                 <div class="box-body box-profile">
                                 <img class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/estudiante.png" class="user-image" alt="User Image">
 
-                                <h3 id="nombre_u" class="profile-username text-center"></h3>
+                                <h3 class="profile-username text-center">Estudiante</h3>
 
                                 <p id="rol_user" class="text-muted text-center"></p>
                         
@@ -66,8 +66,9 @@
                                                 <li style="padding-top:0.1%; padding-bottom:0.1%;" class="list-group-item">                                  
                                                 <h6 class="text-primary" id="fn"></h6> 
                                                 </li>
-                                                <li style="padding-top:0.1%; padding-bottom:0.1%;" class="list-group-item">                                  
-                                                <h6 class="text-primary" id="t" ></h6> 
+                                                <li class="list-group-item">                                  
+                                                <small class="text-primary" id="t" > </small>   
+                                                  <small class=" btn-sm pull-right bg-green ver-tutor">Ver tutor</small>
                                                 </li>
                                                 <li style="padding-top:0.1%; padding-bottom:0.1%;" class="list-group-item">                                  
                                                 <h6 class="text-primary" id="p"></h6> 

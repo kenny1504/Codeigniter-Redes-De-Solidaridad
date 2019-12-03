@@ -29,7 +29,7 @@ Oficios
 						              <?php endforeach; ?>
                         </tbody>                        
               </table>
-              <?= $pager->links() ?> <!--Paginacion-->
+              <?= $pager-> links()?> <!--Paginacion-->
             </div>
             <div class="panel box box-primary"></div><!-- /.box-body -->
           </div>  

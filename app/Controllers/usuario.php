@@ -33,24 +33,59 @@ class usuario extends BaseController
                      $anio=$fechaUser[0].$fechaUser[1].$fechaUser[2].$fechaUser[3]; // variable que guarda año
                      $mes=$fechaUser[5].$fechaUser[6]; // variable que guarda mes
                      $dia=$fechaUser[8].$fechaUser[9];// variable que guarda dia
- 
-                        if(date("Y")>$anio  || date("m")>=$mes && date("d")>$dia ){ // si la fecha No es valida retorna 0 
-                              $valor=0;
-                           }                              
-                        else{ // de lo contrario retorna 1 para muestra ventana Inicio
+                     
+                        if($anio>date("Y")){ // si el año es mayor a la fecha actual entra
                            
-                              $newdata = array( // asigna los valores del arreglo a la varible de SESSION
-                                 'NombreDeUsuario'=> $users['NombreDeUsuario'],
-                                 'Nombre'  => $users['Nombre'],
-                                 'Cedula'     => $users['Cedula'],
-                                 'Descripcion'     => $users['Descripcion'],
-                                 'FechaDeVencimiento'     => $users['FechaDeVencimiento'],
-                                 'login_in' =>  TRUE
-                              ); 
-                              $session->set($newdata); //Guarda valores en la variable SESSION 
-                           
-                              $valor=1; // retorna 1 si el usuario existe y esta con la fecha de vencimiento valida
-                        }                    
+                           $newdata = array( // asigna los valores del arreglo a la varible de SESSION
+                              'NombreDeUsuario'=> $users['NombreDeUsuario'],
+                              'Nombre'  => $users['Nombre'],
+                              'Cedula'     => $users['Cedula'],
+                              'Descripcion'     => $users['Descripcion'],
+                              'FechaDeVencimiento'     => $users['FechaDeVencimiento'],
+                              'login_in' =>  TRUE
+                           ); 
+                           $session->set($newdata); //Guarda valores en la variable SESSION 
+                        
+                           $valor=1; // retorna 1 si el usuario existe y esta con la fecha de vencimiento valida
+                          
+                        }
+                        else
+                        {
+                           if($anio==date("Y"))//si el año es igual a la fecha actual valida mes y dia
+                           {
+                              if($mes>date("m") || $mes==date("m")) //validacion del mes
+                              {
+                                 if($dia>date("d") || $dia==date("d")) //validacion del dia
+                                 {
+                                    $newdata = array( // asigna los valores del arreglo a la varible de SESSION
+                                       'NombreDeUsuario'=> $users['NombreDeUsuario'],
+                                       'Nombre'  => $users['Nombre'],
+                                       'Cedula'     => $users['Cedula'],
+                                       'Descripcion'     => $users['Descripcion'],
+                                       'FechaDeVencimiento'     => $users['FechaDeVencimiento'],
+                                       'login_in' =>  TRUE
+                                    ); 
+                                    $session->set($newdata); //Guarda valores en la variable SESSION 
+                                 
+                                    $valor=1; // retorna 1 si el usuario existe y esta con la fecha de vencimiento valida
+                                 }
+                                 else //si esl dia es menor no ingresa
+                                 {
+                                    $valor=0;
+                                 }
+
+                              }else //si el mes es menor no ingresa
+                              {
+                                 $valor=0;
+                              }
+                           }
+                           else //si el año es menor no ingresa
+                           {
+                             $valor=0;
+                           }
+                        }
+                        
+                                
                } //foreach  
         }// primer if 
          return json_encode($valor);

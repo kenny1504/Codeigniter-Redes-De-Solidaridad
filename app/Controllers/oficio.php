@@ -99,4 +99,13 @@ class oficio extends BaseController
 		}
 	
 	}
+   public function cargar() //Obtiene todos los oficios
+   {
+
+	$db = \Config\Database::connect(); // concexion con la basse de datos
+	$consulta="SELECT * FROM oficios";
+	$data = $db->query($consulta);//Envia la consulta a la base de datos 
+	return json_encode($data->getResultArray());
+
+   }	
 }

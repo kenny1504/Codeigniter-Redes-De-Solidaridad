@@ -1,5 +1,7 @@
 <?php namespace App\Controllers;
 
+use App\Models\estudiantes;
+use App\Models\personas;
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use CodeIgniter\HTTP\Request;
@@ -28,7 +30,7 @@ class estudiante extends BaseController
              }
 
     }
-    public function cargar($id) //funcion para guardar en la tabla detalleAsignatura
+    public function cargar($id) //funcion para recuperar datos del estudiante y el tutor en la tabla detalleAsignatura
 	{
          $db = \Config\Database::connect(); // concexion con la basse de datos
    
@@ -42,6 +44,72 @@ class estudiante extends BaseController
  
           $data = $db->query($consulta); //Envia la consulta a la base de datos 
           return json_encode($data->getResultArray());          
-	}
+    }
+
+    public function agregar() //ingresar un nuevo estudiante
+    {
+     
+        $persona =new personas();
+        $estudiante =new estudiantes();
+
+        //Datos a insertar en la tabla estudiante
+        $codigo_estudiante=$this->request->getPost('Codigo');
+        $tutor_estudiante=$this->request->getPost('tutores');
+        $parentesco_estudiante=$this->request->getPost('parent');
+
+        //Datos insertar tabla persona
+        $nombre_estudiante=$this->request->getPost('NombreE');
+        $Apellido1_estudiante=$this->request->getPost('Apellido1');
+        $Apellido2_estudiante=$this->request->getPost('Apellido2');
+        $Sexo_estudiante=$this->request->getPost('Sexo');
+        $telefono_estudiante=$this->request->getPost('telefono');
+        $direccion_estudiante=$this->request->getPost('direccion');
+        $nacimiento_estudiante=$this->request->getPost('fechanacient'); 
+        
+
+        //convertiendo el formato de fecha para poder insertar en persona 
+                     $anio=$nacimiento_estudiante[6].$nacimiento_estudiante[7].$nacimiento_estudiante[8].$nacimiento_estudiante[9]; // variable que guarda año
+                     $dia=$nacimiento_estudiante[3].$nacimiento_estudiante[4]; // variable que guarda mes
+                     $mes=$nacimiento_estudiante[0].$nacimiento_estudiante[1];// variable que guarda dia
+           
+        
+        $buscar= $estudiante->where('CodigoEstudiante',$codigo_estudiante)->find();
+
+        if($buscar==false)//si el estudiante no existe ingresa en tabla persona y tabla estudiate
+        {
+
+                $person = array (
+                    'Cedula'=> "000-000000-0000P", //valor por defecto, al ser estudiante
+                    'Nombre'=> $nombre_estudiante,
+                    'Apellido1'=> $Apellido1_estudiante,
+                    'Apellido2'=> $Apellido2_estudiante,
+                    'Sexo'=> $Sexo_estudiante,
+                    'Direccion'=> $direccion_estudiante,
+                    'Telefono'=> $telefono_estudiante,
+                    'Correo'=> "Estudiante@estudiante.com",//valor por defecto, al ser estudiante
+                    'FechaNacimiento'=> "$anio-$mes-$dia" //ingresando dato de fecha segun formato de base de datos
+                );
+                $result = $persona->insert($person);// peticion para insertar una nueva persona
+                
+                if($result==true) // si ingresa persona entonces ingresa en estudiante
+                {
+                    $estudiant = array (
+                        'personasid'=> $result, //ingresa el id retornado por el insertas persona
+                        'CodigoEstudiante'=> $codigo_estudiante,
+                        'parentescoid'=> $parentesco_estudiante,
+                        'tutorid'=> $tutor_estudiante	
+                    );
+                    $result_estudi = $estudiante->insert($estudiant);// pedicion para insertar un nuevo estudiante
+                }
+                
+                return json_encode(1);
+    
+        }
+        else // si el estudiante ya existe entonces retorna mensaje de error
+        {
+            return json_encode("El estudiante ya existe, favor revisar el codigo de estudiante que ha ingresado");
+        }
+
+    }
 
 }

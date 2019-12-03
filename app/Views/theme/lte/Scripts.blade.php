@@ -65,4 +65,9 @@
         <!--********************* script  "Estudiantes" *************************-->
         <script type="text/javascript" src="js/js-redes/Estudiante/buscar.js"></script> <!-- script Buscar un estudiante-->
         <script type="text/javascript" src="js/js-redes/Estudiante/ver.js"></script> <!-- script ver un estudiante-->
+        <script type="text/javascript" src="js/js-redes/Estudiante/crear.js"></script> <!-- script crear un nuevo estudiante-->
+        <script type="text/javascript" src="js/js-redes/Estudiante/select2.full.min.js"></script> <!-- Plugins para busacr en combobox-->
+        <!--********************* script  "Tutores" *************************-->
+        <script type="text/javascript" src="js/js-redes/Tutor/crear.js"></script> <!-- script crear un nuevo Tutor-->
+
 </div>
