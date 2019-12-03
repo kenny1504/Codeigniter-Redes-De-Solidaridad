@@ -71,7 +71,9 @@
                     <?= $this->include("Usuario/crear.blade.php") ?><!-- Modal crear usuario-->
                     <?= $this->include("Usuario/perfil.blade.php") ?><!-- Modal perfil de usuario-->
                      <!--******** include de Ofertas ********-->  
-                     <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->  
+                     <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->
+                     <?= $this->include("Oferta/editar.blade.php") ?><!-- Modal editar oferta-->
+                     <?= $this->include("Oferta/eliminar.blade.php") ?><!-- Modal eliminar Oferta-->  
                      <!--******** include de Estudiantes ********--> 
                      <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal crear oferta--> 
                     <!--******** include de Generales ********-->   

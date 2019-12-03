@@ -149,7 +149,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#" data-toggle="modal" data-target="#" id="">
+                <li><a href="#" data-toggle="modal" data-target="#crear_oferta" id="cargar">
                   <i class="fa fa-circle-o text-yellow" ></i> Agregar </a>
                 </li>
                 <li class="treeview">

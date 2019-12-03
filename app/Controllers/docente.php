@@ -13,7 +13,7 @@ class docente extends BaseController
         $clave=$this->request->getPost('datepickerOferta'); 
         
         $consulta="SELECT docentes.id AS id,CONCAT (personas.Nombre,' ',personas.Apellido1,' ',personas.Apellido2) AS Nombre FROM docentes 
-        JOIN personas on personas.id=docentes.personasid WHERE NOT EXISTS(SELECT * FROM ofertas WHERE ofertas.Docenteid=docentes.id AND YEAR(ofertas.FechaOferta)=2019)";
+        JOIN personas on personas.id=docentes.personasid WHERE NOT EXISTS(SELECT * FROM ofertas WHERE ofertas.Docenteid=docentes.id AND YEAR(ofertas.FechaOferta)=2018)";
 
  
                         $data = $db->query($consulta); //Envia la consulta a la base de datos     
