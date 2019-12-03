@@ -26,7 +26,7 @@ function ingresar_estudiante()
 
     $.ajax({ // ajax para cargar datos en el combobox
         type: 'POST',
-        url: '/tutor/tutores', // llamada a ruta para cargar combobox con datos de tabla tutores
+        url: 'tutor/tutores', // llamada a ruta para cargar combobox con datos de tabla tutores
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
           $('#tutores').empty();
@@ -42,7 +42,7 @@ function ingresar_estudiante()
 
     $.ajax({ // ajax para cargar datos en el combobox
       type: 'POST',
-      url: '/parentesco/parentescos', // llamada a ruta para cargar combobox con datos de tabla parentesco
+      url: 'parentesco/parentescos', // llamada a ruta para cargar combobox con datos de tabla parentesco
       dataType: "JSON", // tipo de respuesta del controlador
       success: function(data){ 
         $('#parent').empty();
@@ -87,7 +87,7 @@ function nuevo_estudiante()
 
             $.ajax({ // ajax para guardar estudiante
               type: 'POST',
-              url: '/estudiante/agregar', // llamada a ruta para guardar un nuesvo estudiante
+              url: 'estudiante/agregar', // llamada a ruta para guardar un nuesvo estudiante
               data: $('#ingresar_Estudiante').serialize(), // manda el form donde se encuentra la modal ingresar_Estudiante
               dataType: "JSON", // tipo de respuesta del controlador
               success: function(data){ 

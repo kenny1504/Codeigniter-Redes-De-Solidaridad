@@ -65,17 +65,19 @@
                      <!--******** include de Ofertas ********-->  
                      <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->
                      <?= $this->include("Oferta/editar.blade.php") ?><!-- Modal editar oferta-->
-                     <?= $this->include("Oferta/eliminar.blade.php") ?><!-- Modal eliminar Oferta-->  
+                     <?= $this->include("Oferta/eliminar.blade.php") ?><!-- Modal eliminar Oferta-->   
                      <!--******** include de Estudiantes ********--> 
                      <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal ver estudiante-> 
-                     <?= $this->include("Estudiante/crear.blade.php") ?><!-- Modal ver estudiante-> 
+                     <?= $this->include("Estudiante/crear.blade.php") ?>  <!--Modal ver estudiante--> 
                      <!--******** include de Tutor ********--> 
                      <?= $this->include("Tutor/ver.blade.php") ?><!-- Modal ver tutor--> 
                      <?= $this->include("Tutor/crear.blade.php") ?><!-- Modal ingresar un tutor-->       
                     <!--******** include de Oficios ********-->   
                     <?= $this->include("Oficio/crear.blade.php") ?><!-- Modal ingresar un oficio-->     
                     <?= $this->include("Oficio/eliminar.blade.php") ?><!-- Modal eliminar oficio-->    
-                    <?= $this->include("Oficio/editar.blade.php") ?><!-- Modal editar oficio-->  
+                    <?= $this->include("Oficio/editar.blade.php") ?><!-- Modal editar oficio--> 
+                    <!--******** include de Docente ********--> 
+                    <?= $this->include("Docente/ver.blade.php") ?><!-- Modal ver estudiante-> 
                     <!--******** include de Generales ********-->   
                     <?= $this->include("Alertas/exito.blade.php") ?><!-- Modal mensaje "Exito" -->
                     <?= $this->include("Alertas/error.blade.php") ?><!-- Modal mensaje "errores" -->   

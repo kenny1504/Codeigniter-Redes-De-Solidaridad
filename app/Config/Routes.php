@@ -157,7 +157,9 @@ $routes->post('/estudiante/agregar', 'estudiante::agregar');
 			$routes->post('/tutor/tutores', 'tutor::tutores');
 			$routes->post('/parentesco/parentescos', 'parentesco::parentescos');
 
-
+//Rutas Docentes
+$routes->get('/docentes','docente::index');
+$routes->post('/cargar/docente', 'docente::cargar');
 
 /**
  * --------------------------------------------------------------------

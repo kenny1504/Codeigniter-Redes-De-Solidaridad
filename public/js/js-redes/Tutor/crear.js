@@ -11,7 +11,7 @@ function ingresar_tutor()
     $('#crear_tutor').modal('show'); // abre ventana modal
     $.ajax({ // ajax para cargar datos en el combobox
         type: 'POST',
-        url: '/cargar/oficio', // llamada a ruta para cargar combobox oficio
+        url: 'cargar/oficio', // llamada a ruta para cargar combobox oficio
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
           $('#oficios').empty();
