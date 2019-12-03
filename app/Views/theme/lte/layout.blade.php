@@ -63,16 +63,12 @@
                     <?= $this->include("Usuario/crear.blade.php") ?><!-- Modal ingresar un usuario-->
                     <?= $this->include("Usuario/perfil.blade.php") ?><!-- Modal perfil de usuario-->
                      <!--******** include de Ofertas ********-->  
-<<<<<<< HEAD
                      <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal crear oferta-->
                      <?= $this->include("Oferta/editar.blade.php") ?><!-- Modal editar oferta-->
                      <?= $this->include("Oferta/eliminar.blade.php") ?><!-- Modal eliminar Oferta-->  
-=======
-                     <?= $this->include("Oferta/crear.blade.php") ?><!-- Modal ingresar una oferta-->  
->>>>>>> 5e8170fb97bf71126a3ae9abe1c48b328cb0de2c
                      <!--******** include de Estudiantes ********--> 
                      <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal ver estudiante-> 
-                     <?= $this->include("Estudiante/crear.blade.php") ?><!-- Modal ver estudiante-> 
+                     <?= $this->include("Estudiante/crear.blade.php") ?><!-- Modal ver estudiante--> 
                      <!--******** include de Tutor ********--> 
                      <?= $this->include("Tutor/ver.blade.php") ?><!-- Modal ver tutor--> 
                      <?= $this->include("Tutor/crear.blade.php") ?><!-- Modal ingresar un tutor-->       
