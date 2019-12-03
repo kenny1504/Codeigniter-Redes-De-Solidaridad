@@ -67,13 +67,6 @@ class estudiante extends BaseController
         $direccion_estudiante=$this->request->getPost('direccion');
         $nacimiento_estudiante=$this->request->getPost('fechanacient'); 
         
-
-        //convertiendo el formato de fecha para poder insertar en persona 
-                     $anio=$nacimiento_estudiante[6].$nacimiento_estudiante[7].$nacimiento_estudiante[8].$nacimiento_estudiante[9]; // variable que guarda año
-                     $dia=$nacimiento_estudiante[3].$nacimiento_estudiante[4]; // variable que guarda mes
-                     $mes=$nacimiento_estudiante[0].$nacimiento_estudiante[1];// variable que guarda dia
-           
-        
         $buscar= $estudiante->where('CodigoEstudiante',$codigo_estudiante)->find();
 
         if($buscar==false)//si el estudiante no existe ingresa en tabla persona y tabla estudiate
@@ -88,7 +81,7 @@ class estudiante extends BaseController
                     'Direccion'=> $direccion_estudiante,
                     'Telefono'=> $telefono_estudiante,
                     'Correo'=> "Estudiante@estudiante.com",//valor por defecto, al ser estudiante
-                    'FechaNacimiento'=> "$anio-$mes-$dia" //ingresando dato de fecha segun formato de base de datos
+                    'FechaNacimiento'=>  $nacimiento_estudiante //ingresando dato de fecha segun formato de base de datos
                 );
                 $result = $persona->insert($person);// peticion para insertar una nueva persona
                 

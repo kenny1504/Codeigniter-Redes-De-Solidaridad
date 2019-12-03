@@ -5,6 +5,7 @@ $(function() //funcion para buscar dentro del combobox
 });
 
 $('#datepicker3').datepicker({ //sirve para mostrar Datepicker
+  format: 'yyyy-mm-dd',
   autoclose: true
 })
 
