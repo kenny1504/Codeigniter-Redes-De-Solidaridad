@@ -53,20 +53,20 @@
         <script type="text/javascript" src="js/js-redes/ValidarCedula.js"></script> <!-- script ingresar usuario-->
         <script type="text/javascript" src="js/jquery.mask.js"></script> <!-- script ingresar usuario-->
         <script type="text/javascript" src="js/js-redes/usuario/ver.js"></script> <!-- script ingresar usuario-->
-        <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script ingresar usuario-->
+        <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script ingresar usuario-->  
+        <script type="text/javascript" src="js/js-redes/usuario/crear.js"></script> <!-- script ingresar un usuario-->
+        <script type="text/javascript" src="js/js-redes/usuario/editar.js"></script> <!-- script editar un usuario-->
         <!--********************* script  "Oferta" *************************-->
         <script type="text/javascript" src="js/js-redes/Oferta/crear.js"></script> <!-- escript para ingresar datos por ajax-->
         <script type="text/javascript" src="js/js-redes/Oferta/editar.js"></script><!-- script editar oferta-->
         <script type="text/javascript" src="js/js-redes/Oferta/eliminar.js"></script> <!-- script eliminar oferta-->
-
-        <script type="text/javascript" src="js/js-redes/usuario/buscar.js"></script> <!-- script Buscar un usuario-->
-        <script type="text/javascript" src="js/js-redes/usuario/crear.js"></script> <!-- script ingresar un usuario-->
-        <script type="text/javascript" src="js/js-redes/usuario/editar.js"></script> <!-- script editar un usuario-->
         <!--********************* script  "Estudiantes" *************************-->
         <script type="text/javascript" src="js/js-redes/Estudiante/buscar.js"></script> <!-- script Buscar un estudiante-->
         <script type="text/javascript" src="js/js-redes/Estudiante/ver.js"></script> <!-- script ver un estudiante-->
         <script type="text/javascript" src="js/js-redes/Estudiante/crear.js"></script> <!-- script crear un nuevo estudiante-->
-        <script type="text/javascript" src="js/js-redes/Estudiante/select2.full.min.js"></script> <!-- Plugins para busacr en combobox-->
+        <script type="text/javascript" src="js/js-redes/Estudiante/eliminar.js"></script> <!-- script eliminar un nuevo estudiante-->
+        <script type="text/javascript" src="js/js-redes/Estudiante/editar.js"></script> <!-- script editar un nuevo estudiante-->
+        <script type="text/javascript" src="js/js-redes/Estudiante/select2.full.min.js"></script> <!-- Plugins para buscar en combobox-->
         <!--********************* script  "Tutores" *************************-->
         <script type="text/javascript" src="js/js-redes/Tutor/crear.js"></script> <!-- script crear un nuevo Tutor-->
         <!--********************* script  "Tutores" *************************-->

@@ -1,42 +1,32 @@
 $(function() //funcion para buscar dentro del combobox
 {
-  $('#tutores').select2({width:"80%"}) // agrega el select2 a combobox tutores para buscar 
-  $('#parent').select2({width:"100%"})// agrega el select2 a combobox parentesco para buscar 
+  $('#edit_tutores').select2({width:"80%"}) // agrega el select2 a combobox tutores para buscar 
+  $('#edit_parent').select2({width:"100%"})// agrega el select2 a combobox parentesco para buscar 
 });
 
-$('#datepicker3').datepicker({ //sirve para mostrar Datepicker
+$('#datepicker4').datepicker({ //sirve para mostrar Datepicker
   format: 'yyyy-mm-dd',
   autoclose: true
 })
-
-function ingresar_estudiante()
+var id=0;
+function editar_estudiante(button)
 {   
-    $('#crear_estudiante').modal('show'); // abre ventana modal
-    //limpia campos
-    $('#Codigo').val("");
-    $('#NombreE').val("");
-    $('#Apellido1').val("");
-    $('#Apellido2').val("");
-    $('#Sexo').val(null);
-    $('#telefono').val("");
-    $('#tutores').val(null);
-    $('textarea').val ('');
-    $('#parent').val(null);
-    $('#datepicker3').val(null);
+    $('#edit_estudiante').modal('show'); // abre ventana modal
+    id=$(button).attr("data-id"); // captura el id_materia "id" del estudiante
+    
 
     $.ajax({ // ajax para cargar datos en el combobox
         type: 'POST',
         url: 'tutor/tutores', // llamada a ruta para cargar combobox con datos de tabla tutores
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
-          $('#tutores').empty();
+          $('#tutores').empty(); var datos=0;
         //ciclo para recorrer el arreglo de tutores
-          var datos ="<option value='' disabled selected>Tutor</option>";
           data.forEach(element => {
               //variable para asignarle los valores al combobox
               datos+='<option  value="'+element.id+'">'+element.Nombre+'</option>';
           });
-        $('#tutores').append(datos); //ingresa valores al combobox
+        $('#edit_tutores').append(datos); //ingresa valores al combobox
       }   
     });//Fin ajax combobox tutores
 
@@ -45,23 +35,42 @@ function ingresar_estudiante()
       url: 'parentesco/parentescos', // llamada a ruta para cargar combobox con datos de tabla parentesco
       dataType: "JSON", // tipo de respuesta del controlador
       success: function(data){ 
-        $('#parent').empty();
+        $('#parent').empty(); var datos2=0;
       //ciclo para recorrer el arreglo de parentesco
-        var datos2 ="<option value='' disabled selected>Parentesco</option>";
         data.forEach(element => {
             //variable para asignarle los valores al combobox
            datos2+='<option  value="'+element.id+'">'+element.Parentesco+'</option>'; 
         });
         
-        $('#parent').append(datos2); //ingresa valores al combobox
+        $('#edit_parent').append(datos2); //ingresa valores al combobox
     }   
   });//Fin ajax combobox parentesco
+
+  
+  $.ajax({
+    type: 'POST',
+    url: '/estudiante/cargar_editar/'+id, // llamada a la consulta
+    dataType: "JSON", // tipo de respuesta del controlador
+    success: function(data){
+        $('#edit_Codigo').val(data[0].CodigoEstudiante);
+        $('#edit_NombreE').val(data[0].Nombre);
+        $('#edit_Apellido1').val(data[0].Apellido1);
+        $('#edit_Apellido2').val(data[0].Apellido2);
+        $('#edit_Sexo').val(data[0].Sexo);
+        $('#edit_telefono').val(data[0].Telefono);
+        $('#edit_tutores').select2("val",data[0].tutorid);
+        $('#edit_direccion_estudiante').val(data[0].Direccion);
+        $('#edit_parent').select2("val",data[0].parentescoid);
+        $('#datepicker4').val(data[0].FechaNacimiento);
+              
+      }
+   });//Fin cargar datos estudiante
 
 }//fin del metodo Ingresar_usuario
 
 
 
-function nuevo_estudiante()
+function guardad_editar_estudiante()
 { 
 
     //este codigo cancela el evento submit en el form donde esta la modal ingresar_Estudiante
@@ -144,7 +153,6 @@ function nuevo_estudiante()
                  
       }
 }
-
 
 
 

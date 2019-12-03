@@ -68,7 +68,9 @@
                      <?= $this->include("Oferta/eliminar.blade.php") ?><!-- Modal eliminar Oferta-->   
                      <!--******** include de Estudiantes ********--> 
                      <?= $this->include("Estudiante/ver.blade.php") ?><!-- Modal ver estudiante-> 
-                     <?= $this->include("Estudiante/crear.blade.php") ?>  <!--Modal ver estudiante--> 
+                     <?= $this->include("Estudiante/crear.blade.php") ?>  <!--Modal ingresar un nuevo estudiante--> 
+                     <?= $this->include("Estudiante/eliminar.blade.php") ?>  <!--Modal eliminar un estudiante--> 
+                     <?= $this->include("Estudiante/editar.blade.php") ?>  <!--Modal editar un estudiante--> 
                      <!--******** include de Tutor ********--> 
                      <?= $this->include("Tutor/ver.blade.php") ?><!-- Modal ver tutor--> 
                      <?= $this->include("Tutor/crear.blade.php") ?><!-- Modal ingresar un tutor-->       
