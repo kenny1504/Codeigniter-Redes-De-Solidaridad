@@ -51,6 +51,7 @@ class estudiante extends BaseController
      
         $persona =new personas();
         $estudiante =new estudiantes();
+        $db = \Config\Database::connect(); // concexion con la basse de datos
 
         //Datos a insertar en la tabla estudiante
         $codigo_estudiante=$this->request->getPost('Codigo');
@@ -66,13 +67,6 @@ class estudiante extends BaseController
         $direccion_estudiante=$this->request->getPost('direccion');
         $nacimiento_estudiante=$this->request->getPost('fechanacient'); 
         
-
-        //convertiendo el formato de fecha para poder insertar en persona 
-                     $anio=$nacimiento_estudiante[6].$nacimiento_estudiante[7].$nacimiento_estudiante[8].$nacimiento_estudiante[9]; // variable que guarda año
-                     $dia=$nacimiento_estudiante[3].$nacimiento_estudiante[4]; // variable que guarda mes
-                     $mes=$nacimiento_estudiante[0].$nacimiento_estudiante[1];// variable que guarda dia
-           
-        
         $buscar= $estudiante->where('CodigoEstudiante',$codigo_estudiante)->find();
 
         if($buscar==false)//si el estudiante no existe ingresa en tabla persona y tabla estudiate
@@ -87,7 +81,7 @@ class estudiante extends BaseController
                     'Direccion'=> $direccion_estudiante,
                     'Telefono'=> $telefono_estudiante,
                     'Correo'=> "Estudiante@estudiante.com",//valor por defecto, al ser estudiante
-                    'FechaNacimiento'=> "$anio-$mes-$dia" //ingresando dato de fecha segun formato de base de datos
+                    'FechaNacimiento'=>  $nacimiento_estudiante //ingresando dato de fecha segun formato de base de datos
                 );
                 $result = $persona->insert($person);// peticion para insertar una nueva persona
                 
@@ -101,13 +95,24 @@ class estudiante extends BaseController
                     );
                     $result_estudi = $estudiante->insert($estudiant);// pedicion para insertar un nuevo estudiante
                 }
+                $consulta="SELECT p.Telefono FROM tutores as t JOIN personas as p on t.personasid=p.id WHERE t.id=$tutor_estudiante"; //consulta a la base de datos
+                $telefono_tutor = $db->query($consulta); //Envia la consulta a la base de datos para conocer el telefono del tutor
                 
-                return json_encode(1);
+                foreach ($telefono_tutor->getResultArray() as $telefono) { //recorro el arreglo de la consulta
+
+                        $newdata = array( // asigna los valores del arreglo a la varible de SESSION
+                            'Telefono'=> $telefono['Telefono'], //telefono del tutor
+                            'id'  => $result_estudi //id estudiante
+                            
+                        ); 
+                }
+
+                return json_encode($newdata); //retorna arreflo con parametros del nuevo estudiante para insertarlos a la tabla
     
         }
         else // si el estudiante ya existe entonces retorna mensaje de error
         {
-            return json_encode("El estudiante ya existe, favor revisar el codigo de estudiante que ha ingresado");
+            return json_encode(0);
         }
 
     }

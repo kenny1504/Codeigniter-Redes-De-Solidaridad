@@ -12,7 +12,7 @@
                         <div class="register-box-body" style="background-color:#eee;" >
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/estudiante.png" class="user-image" alt="User Image">
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Codigo" id="Codigo" class="form-control requerido" required placeholder="Codigo estudiante">
+                                    <input type="text" minlength="8" name="Codigo" id="Codigo" class="form-control requerido" required placeholder="Codigo estudiante">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <input type="text" name="NombreE"id="NombreE" class="form-control requerido" required placeholder="Nombre">
@@ -39,7 +39,7 @@
                                     }
                                     </style>
                                     </select>                                     
-                                    <input  style="width: 75%;" type="text" name="telefono" id="telefono" class="form-control pull-right requerido" placeholder="Telefono" required>
+                                    <input  minlength="8" style="width: 75%;" type="text" name="telefono" id="telefono" class="form-control pull-right requerido" placeholder="Telefono">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <select aria-required="true" required  style="width: 80%; padding-top: 2.7%; " name="tutores" id="tutores">
@@ -53,7 +53,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group has-feedback">
-                                <textarea class="form-control text-primary" name="direccion" rows="3" id="dir" placeholder="Direccion" required></textarea> 
+                                <textarea class="form-control text-primary" name="direccion" rows="3" id="direccion_estudiante" placeholder="Direccion" required></textarea> 
                                 </div>
                                 <div class="input-group date">
                                         <div class="input-group-addon">

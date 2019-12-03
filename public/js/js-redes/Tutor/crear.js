@@ -1,6 +1,6 @@
 $(function() //funcion para buscar dentro del combobox
 {
-  $('#oficios').select2({width:"80%"}) // agrega el select2 a combobox tutores para buscar
+  $('#oficio').select2({width:"80%"}) // agrega el select2 a combobox tutores para buscar
 });
 $('#datepicker4').datepicker({ //sirve para mostrar Datepicker
     autoclose: true

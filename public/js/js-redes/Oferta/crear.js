@@ -6,6 +6,10 @@ $('#datepickerOfertaEditar').datepicker({ //sirve para mostrar Datepicker
   format: 'yyyy-mm-dd',
   autoclose: true
 })
+$(function() //funcion para buscar dentro del combobox
+{
+  $('#Docente').select2({width:"80%"}) // agrega el select2 a combobox docentes para buscar 
+});
 
 $("#cargar,#cargar2").click(function() { //ajax para cargar combobox Grados
     $.ajax({

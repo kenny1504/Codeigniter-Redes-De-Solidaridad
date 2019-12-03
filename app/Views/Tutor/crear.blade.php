@@ -45,7 +45,7 @@
                                     <input  style="width: 75%;" type="text" id="contraseña" class="form-control pull-right requerido" required placeholder="Telefono">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <select class="requerido" style="width: 80%; padding-top: 2.7%; " required name="oficios" id="oficios">
+                                    <select class="requerido" style="width: 80%; padding-top: 2.7%; " required name="oficios" id="oficio">
                                             <option value=" " disabled selected>Oficio</option>
                                     </select>
                                     <small style="padding-top: 1.3%;" data-toggle="modal" data-target="#modal_Oficio" id="m3" class=" btn-sm pull-right btn-warning ">Ingresar Oficio</small>
