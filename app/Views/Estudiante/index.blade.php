@@ -23,7 +23,7 @@ Estudiantes
                        <tr > 
                          <th>Codigo estudiante</th>
                          <th>Nombre completo</th>
-                         <th>sexo</th>
+                         <th>Sexo</th>
                          <th>Direccion</th>
                          <th>Tutor</th>
                          <th>Tutor Telefono</th>
@@ -41,10 +41,10 @@ Estudiantes
                                                 <button class="btn btn-primary"  onclick="ver_estudiante(this);"  data-id="<?php echo $Estudiante['id']; ?>" id="Ver-estudiante">ver</button>      
                                                 <button class="btn btn-success " onclick="" ><i class=" fa fa-fw fa-pencil"></i></button> 
                                                 <button class="btn btn-info" onclick=""><i class="fa fa-fw fa-trash "></i></button>
-                                                <i class="fa fa-angle-double-right pull-right mostrar" data-id="<?php echo $Estudiante['id']; ?>"></i>                             
+                                                <i class="fa fa-angle-double-right pull-right" onclick="mostrar(this);" data-id="<?php echo $Estudiante['id']; ?>"></i>                             
                                     </td>
                                     </td>  <!--fin columna botones-->
-                                    <td id="<?php echo $Estudiante['id']; ?>a" ><?php echo $Estudiante['Telefono'];?> <i class="fa fa-angle-double-right pull-right mostrar" data-id="<?php echo $Estudiante['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
+                                    <td id="<?php echo $Estudiante['id']; ?>a" ><?php echo $Estudiante['Telefono'];?> <i class="fa fa-angle-double-right pull-right" onclick="mostrar(this);"  data-id="<?php echo $Estudiante['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
                                
                                 </tr>                         
 						              <?php endforeach; ?> 

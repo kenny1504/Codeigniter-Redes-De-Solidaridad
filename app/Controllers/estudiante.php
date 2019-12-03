@@ -51,6 +51,7 @@ class estudiante extends BaseController
      
         $persona =new personas();
         $estudiante =new estudiantes();
+        $db = \Config\Database::connect(); // concexion con la basse de datos
 
         //Datos a insertar en la tabla estudiante
         $codigo_estudiante=$this->request->getPost('Codigo');
@@ -101,13 +102,24 @@ class estudiante extends BaseController
                     );
                     $result_estudi = $estudiante->insert($estudiant);// pedicion para insertar un nuevo estudiante
                 }
+                $consulta="SELECT p.Telefono FROM tutores as t JOIN personas as p on t.personasid=p.id WHERE t.id=$tutor_estudiante"; //consulta a la base de datos
+                $telefono_tutor = $db->query($consulta); //Envia la consulta a la base de datos para conocer el telefono del tutor
                 
-                return json_encode(1);
+                foreach ($telefono_tutor->getResultArray() as $telefono) { //recorro el arreglo de la consulta
+
+                        $newdata = array( // asigna los valores del arreglo a la varible de SESSION
+                            'Telefono'=> $telefono['Telefono'], //telefono del tutor
+                            'id'  => $result_estudi //id estudiante
+                            
+                        ); 
+                }
+
+                return json_encode($newdata); //retorna arreflo con parametros del nuevo estudiante para insertarlos a la tabla
     
         }
         else // si el estudiante ya existe entonces retorna mensaje de error
         {
-            return json_encode("El estudiante ya existe, favor revisar el codigo de estudiante que ha ingresado");
+            return json_encode(0);
         }
 
     }
