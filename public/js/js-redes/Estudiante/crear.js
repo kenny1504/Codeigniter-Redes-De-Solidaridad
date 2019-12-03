@@ -11,6 +11,18 @@ $('#datepicker3').datepicker({ //sirve para mostrar Datepicker
 function ingresar_estudiante()
 {   
     $('#crear_estudiante').modal('show'); // abre ventana modal
+    //limpia campos
+    $('#Codigo').val("");
+    $('#NombreE').val("");
+    $('#Apellido1').val("");
+    $('#Apellido2').val("");
+    $('#Sexo').val(null);
+    $('#telefono').val("");
+    $('#tutores').val(null);
+    $('textarea').val ('');
+    $('#parent').val(null);
+    $('#datepicker3').val(null);
+
     $.ajax({ // ajax para cargar datos en el combobox
         type: 'POST',
         url: '/tutor/tutores', // llamada a ruta para cargar combobox con datos de tabla tutores
@@ -59,7 +71,7 @@ function nuevo_estudiante()
 
       //Verifica que le formulario no este vacio
       if($('#Codigo').val()!="" && $('#NombreE').val()!="" && $('#Apellido1').val()!="" && $('#Sexo').val()!=null && 
-      $('#telefono').val()!="" && $('#tutores').val()!=null && $('#parent').val()!=null && $('#direccion').val()!="" && $('#datepicker3').val()!="")
+      $('#telefono').val()!="" && $('#tutores').val()!=null && $('#parent').val()!=null && $('#dir').val()!="" && $('#datepicker3').val()!="")
       {
 
             $.ajax({ // ajax para guardar estudiante

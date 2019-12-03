@@ -27,6 +27,7 @@ function showThankYou(){
       data: $('#login').serialize(), // pasamos el id del formulario para poder usar campos en el controlador
       success: function(data)
       {
+        alert(data);
         var usuario=data; // varible que recive lo que retorna el controlador
           if(usuario==1){ // si la variable es 1 entonces el usuario existe
               prism.style.transform = "translateZ(-100px) rotateX( 90deg)"; // muetsra el mensaje de BIENVENIDO

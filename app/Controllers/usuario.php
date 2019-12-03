@@ -33,11 +33,28 @@ class usuario extends BaseController
                      $anio=$fechaUser[0].$fechaUser[1].$fechaUser[2].$fechaUser[3]; // variable que guarda año
                      $mes=$fechaUser[5].$fechaUser[6]; // variable que guarda mes
                      $dia=$fechaUser[8].$fechaUser[9];// variable que guarda dia
-                        if(date("Y")<=$anio){
-                              
-                              if(date("m")<=$mes){ // si la fecha No es valida retorna 0 
-                                 
-                                 if(date("d")>$dia)
+                        if($anio>date("Y")){
+                           
+                           $newdata = array( // asigna los valores del arreglo a la varible de SESSION
+                              'NombreDeUsuario'=> $users['NombreDeUsuario'],
+                              'Nombre'  => $users['Nombre'],
+                              'Cedula'     => $users['Cedula'],
+                              'Descripcion'     => $users['Descripcion'],
+                              'FechaDeVencimiento'     => $users['FechaDeVencimiento'],
+                              'login_in' =>  TRUE
+                           ); 
+                           $session->set($newdata); //Guarda valores en la variable SESSION 
+                        
+                           $valor=1; // retorna 1 si el usuario existe y esta con la fecha de vencimiento valida
+                          
+                        }
+                        else
+                        {
+                           if($anio==date("Y"))
+                           {
+                              if($mes>date("m") || $mes==date("m"))
+                              {
+                                 if($dia>date("d") || $dia==date("d"))
                                  {
                                     $newdata = array( // asigna los valores del arreglo a la varible de SESSION
                                        'NombreDeUsuario'=> $users['NombreDeUsuario'],
@@ -52,20 +69,22 @@ class usuario extends BaseController
                                     $valor=1; // retorna 1 si el usuario existe y esta con la fecha de vencimiento valida
                                  }
                                  else
-                                 {                                
-                                  $valor=0;
+                                 {
+                                    $valor="dia";
                                  }
-                              }   
-                              else{ // de lo contrario retorna 1 para muestra ventana Inicio
-                                 $valor=0;
-                                 }           
+
+                              }else
+                              {
+                                 $valor="mes";
+                              }
                            }
                            else
                            {
-                              $valor=0;
+                             $valor="ano";
                            }
-                                                  
-                               
+                        }
+                        
+                                
                } //foreach  
         }// primer if 
          return json_encode($valor);
