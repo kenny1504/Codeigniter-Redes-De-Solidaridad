@@ -90,9 +90,6 @@ class oferta extends BaseController
     public function cargar($ide)
     {
         $db = \Config\Database::connect(); // concexion con la basse de datos
-
-        $idoferta=$this->request->getPost("data-id");
-
         $carga="SELECT ofertas.id AS idOferta,ofertas.Descripcion,ofertas.FechaOferta,ofertas.Seccionid AS Seccion,ofertas.Gradoid AS Grado,ofertas.Grupoid AS Grupo,ofertas.Docenteid AS Docente FROM docentes 
         JOIN personas on personas.id=docentes.personasid JOIN ofertas on ofertas.Docenteid=docentes.id JOIN grupos ON
         grupos.id=ofertas.Grupoid JOIN grados ON grados.id=ofertas.Gradoid JOIN secciones ON secciones.id

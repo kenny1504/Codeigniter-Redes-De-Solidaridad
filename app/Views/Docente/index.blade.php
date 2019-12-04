@@ -7,7 +7,7 @@ Docentes
             <div class="box-header">
               <h2 class="box-title text-light-blue">Docentes</h2>
               <div class="pull-right box-tools">
-                <a href="#" onclick="ingresar_estudiante();" class="btn btn-warning btn-sm pull-right b1" >Agregar Docente</a> 
+                <a href="#" onclick="ingresar_docente();" class="btn btn-warning btn-sm pull-right b1" >Agregar Docente</a> 
                 <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
                 <input type="text" id="buscarE"  name="table_search" class="form-control " placeholder="Buscar Nombre o codigo">
                   <div class="input-group-btn">
@@ -37,12 +37,12 @@ Docentes
                                     <td><?php echo $Docente['Correo'];?>  <!--inicio columna que contienen botones-->
                                     <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Docente['id']; ?>" >
                                                 <button class="btn btn-primary"  onclick="ver_docente(this);"  data-id="<?php echo $Docente['id']; ?>" id="Ver-docente">ver</button>      
-                                                <button class="btn btn-success " onclick="" ><i class=" fa fa-fw fa-pencil"></i></button> 
-                                                <button class="btn btn-info" onclick=""><i class="fa fa-fw fa-trash "></i></button>
-                                                <i class="fa fa-angle-double-right pull-right mostrar1" data-id="<?php echo $Docente['id']; ?>"></i>                             
+                                                <button class="btn btn-success " onclick="editar_Docente(this);" data-id="<?php echo $Docente['id']; ?>"><i class=" fa fa-fw fa-pencil"></i></button> 
+                                                <button class="btn btn-info" onclick="eliminar_oferta(this);" data-id="<?php echo $Docente['id']; ?>"><i class="fa fa-fw fa-trash "></i></button>
+                                                <i class="fa fa-angle-double-right pull-right "onclick="ver_completo(this);" data-id="<?php echo $Docente['id']; ?>"></i>                             
                                     </td>
                                     </td>  <!--fin columna botones-->
-                                    <td id="<?php echo $Docente['id']; ?>a" ><?php echo $Docente['Telefono'];?> <i class="fa fa-angle-double-right pull-right mostrar1" data-id="<?php echo $Docente['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
+                                    <td id="<?php echo $Docente['id']; ?>a" ><?php echo $Docente['Telefono'];?> <i class="fa fa-angle-double-right pull-right"onclick="ver_completo(this);" data-id="<?php echo $Docente['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
                                
                                 </tr>                         
 						              <?php endforeach; ?> 

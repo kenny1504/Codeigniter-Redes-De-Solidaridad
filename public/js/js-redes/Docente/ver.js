@@ -1,9 +1,9 @@
  //Metodo para mostrar u ocultar botones en index Estudiantes
 var n=0; var fila; var it1; var it2;
-$(".mostrar1").click(function() { // ajax para eliminar un grado
-    fila=$(this).parents("tr"); //captura fila para ponerle color
-    fila.attr("style","background-color:#9FF9C0;"); // le pones color a la fila seleccionada
-    var iden=$(this).attr("data-id"); // captura el id_grado "id" del grado
+function ver_completo(button){ 
+    fila=$(button).parents("tr"); //captura fila para ponerle color
+    fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
+    var iden=$(button).attr("data-id"); // captura el id_grado "id" del grado
      it1="#"+iden;//captura id de la celda de botones
      it2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
     if(n==0){
@@ -16,8 +16,8 @@ $(".mostrar1").click(function() { // ajax para eliminar un grado
         $(it2).removeClass('hidden'); //muestra celda
         $(it1).addClass('hidden'); // oculta botones
         n=0;
-    }
-  });    
+    } 
+};  
 
 function ver_docente(button){ 
 
@@ -41,7 +41,14 @@ function ver_docente(button){
       var telefono=data[0].Telefono;
       var fecha=data[0].FechaNacimiento;
       var estado=data[0].Estado;
- 
+ if(data[0].Estado==1)
+ {
+    $('#estad').text("Activo");
+ }
+ else
+ {
+    $('#estad').text("Inactivo");
+ }
     //asignar valores obtenidos en el ajax aventana modal
     $('#cedul').text(cedula);
     $('#nombr').text(nombre);
@@ -50,7 +57,7 @@ function ver_docente(button){
     $('#sex').text(sexo);
     $('#fechanaci').text(fecha);
     $('#telefon').text(telefono);
-    $('#estad').text(estado);
+    
     $('#corre').text(correo);
     $('#direccio').text(direccion);
    

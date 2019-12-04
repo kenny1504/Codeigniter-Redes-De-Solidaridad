@@ -87,7 +87,7 @@ $("#nueva_oferta").click(function() { // ajax para guardar en la tabla oferta
   {
   $.ajax({
     type: 'POST', 
-    url: 'guardar/oferta', // llamada a ruta para cargar combobox con datos de tabla materia
+    url: 'guardar/oferta', // llamada a ruta para cargar combobox con datos de tabla oferta
     data: $('#ingresar_oferta').serialize(), // manda el form donde se encuentra la modal dataType: "JSON", // tipo de respuesta del controlador
     dataType: "JSON", // tipo de respuesta del controlador
     success: function(data){ 
@@ -95,7 +95,7 @@ $("#nueva_oferta").click(function() { // ajax para guardar en la tabla oferta
         $('.error').removeClass('hidden');
         $("#Nombre-error").addClass('hidden');
         $('.error').text("Error: "+ data.Nombre); 
-      } else { // si no contiene errores agrega el dato a la tabla asignaturas
+      } else { // si no contiene errores agrega el dato a la tabla ofertas
         $('.error').addClass('hidden'); //elimina el mensaje de error
         for(var i=0; i<data.length;i++){
           var datos= "<tr id=" + data[i].idOferta + ">"+"<td>"+data[i].Descripcion+"</td>"+"<td>"+data[i].FechaOferta+"</td>"+"<td>"+data[i].Nombre+"</td>"+"<td>"+data[i].Grado+"</td>"+"<td>"+data[i].Grupo+"</td>"+"<td>"+data[i].Codigo+"</td>"

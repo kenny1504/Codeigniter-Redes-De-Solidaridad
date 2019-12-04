@@ -70,6 +70,8 @@
         <!--********************* script  "Tutores" *************************-->
         <script type="text/javascript" src="js/js-redes/Tutor/crear.js"></script> <!-- script crear un nuevo Tutor-->
         <!--********************* script  "Tutores" *************************-->
-        <script type="text/javascript" src="js/js-redes/Docente/ver.js"></script> <!-- script ver un estudiante-->
-
+        <script type="text/javascript" src="js/js-redes/Docente/ver.js"></script> <!-- script ver un Docente-->
+        <script type="text/javascript" src="js/js-redes/Docente/crear.js"></script> <!-- script crear un nuevo Docente-->
+        <script type="text/javascript" src="js/js-redes/Docente/eliminar.js"></script> <!-- script eliminar Docente-->
+        <script type="text/javascript" src="js/js-redes/Docente/editar.js"></script> <!-- script eliminar Docente-->
 </div>

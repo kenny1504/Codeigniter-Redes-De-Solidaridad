@@ -160,6 +160,9 @@ $routes->post('/estudiante/agregar', 'estudiante::agregar');
 //Rutas Docentes
 $routes->get('/docentes','docente::index');
 $routes->post('/cargar/docente', 'docente::cargar');
+$routes->post('/docente/agregar', 'docente::agregar');
+$routes->post('/actualizar/docente', 'docente::actualizar');
+$routes->post('/eliminar/docente', 'docente::eliminar');
 
 /**
  * --------------------------------------------------------------------

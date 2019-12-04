@@ -45,12 +45,24 @@ $(function(){ // mascara de ingresar usuario
 $(function(){// mascara de ingresar tutor
     $("#Cedulat").mask("000-000000-0000S");
 });
+$(function(){// mascara de ingresar docente
+    $("#Cedula_Docente").mask("000-000000-0000S");
+});
+$(function(){// mascara de editar docente
+    $("#Cedula_Docente_Editar").mask("000-000000-0000S");
+});
 $(function(){// mascara de ingresar Codigo Estudiante
     $("#Codigo").mask("00000000");
 });
 
 $(function(){// mascara de ingresar telefono Estudiante
     $("#telefono").mask("00000000");
+});
+$(function(){// mascara de ingresar telefono docente
+    $("#Telefono_Docente").mask("00000000");
+});
+$(function(){// mascara de editar telefono docente
+    $("#Telefono_Docente_Editar").mask("00000000");
 });
 
 
