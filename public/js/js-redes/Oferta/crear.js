@@ -2,7 +2,7 @@ $('#datepickerOferta').datepicker({ //sirve para mostrar Datepicker
   format: 'yyyy-mm-dd',
   autoclose: true
 })
-$('#datepickerOfertaEditar').datepicker({ //sirve para mostrar Datepicker
+$('#datepickerOfertaEditar').datepicker({ //sirve para mostrar Datepicker editar
   format: 'yyyy-mm-dd',
   autoclose: true
 })
@@ -11,7 +11,7 @@ $(function() //funcion para buscar dentro del combobox
   $('#Docente').select2({width:"80%"}) // agrega el select2 a combobox docentes para buscar 
 });
 
-$("#cargar,#cargar2").click(function() { //ajax para cargar combobox Grados
+$("#cargar,#cargar2").click(function() { //ajax para cargar datos en el combobox Grados
     $.ajax({
         type: 'POST',
         url: 'cargargrados/oferta', // llamada a ruta para cargar combobox con datos de tabla grados
@@ -87,7 +87,7 @@ $("#nueva_oferta").click(function() { // ajax para guardar en la tabla oferta
   {
   $.ajax({
     type: 'POST', 
-    url: 'guardar/oferta', // llamada a ruta para cargar combobox con datos de tabla oferta
+    url: 'guardar/oferta', // llamada a ruta para guardar la nueva oferta
     data: $('#ingresar_oferta').serialize(), // manda el form donde se encuentra la modal dataType: "JSON", // tipo de respuesta del controlador
     dataType: "JSON", // tipo de respuesta del controlador
     success: function(data){ 

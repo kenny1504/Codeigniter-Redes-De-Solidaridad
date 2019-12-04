@@ -73,7 +73,7 @@ function editar_Oferta(button)
     
     $.ajax({
         type: 'POST',
-        url: 'oferta/cargar/'+ide,
+        url: 'oferta/cargar/'+ide,//ruta para cargar datos de la oferta seleccionada a editar
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
           for(var a=0; a<data.length;a++){

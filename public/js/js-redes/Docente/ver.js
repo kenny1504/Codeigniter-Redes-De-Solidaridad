@@ -1,9 +1,9 @@
- //Metodo para mostrar u ocultar botones en index Estudiantes
+ //Metodo para mostrar u ocultar botones en index Docentes
 var n=0; var fila; var it1; var it2;
 function ver_completo(button){ 
     fila=$(button).parents("tr"); //captura fila para ponerle color
     fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
-    var iden=$(button).attr("data-id"); // captura el id_grado "id" del grado
+    var iden=$(button).attr("data-id"); // captura el id_docente "id" del docente
      it1="#"+iden;//captura id de la celda de botones
      it2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
     if(n==0){
@@ -21,7 +21,7 @@ function ver_completo(button){
 
 function ver_docente(button){ 
 
-    $("#perfil_docente").modal("show"); //abre modal ver usuario
+    $("#perfil_docente").modal("show"); //abre modal ver docente
     var id=$(button).attr("data-id");
  
     $.ajax({
@@ -30,7 +30,7 @@ function ver_docente(button){
      dataType: "JSON", // tipo de respuesta del controlador
      success: function(data){
      
-     //obtiene datos del estudiante
+     //obtiene datos del docente
       var cedula=data[0].Cedula;
       var nombre=data[0].Nombre;
       var apellido1=data[0].Apellido1;
@@ -66,6 +66,6 @@ function ver_docente(button){
     $(it2).removeClass('hidden'); //muestra celda
     $(it1).addClass('hidden'); // oculta botones
    }
-    });//Fin cargar datos estudiante y tutor
+    });
     
    };//fin metodo

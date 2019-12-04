@@ -11,7 +11,7 @@ class oferta extends BaseController
 	{ 
         $session = \Config\Services::session();    // instancia de la libreria SESSION
         $session->start(); // Inicio de varibles SESSION
-        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $db = \Config\Database::connect(); // conexion con la basse de datos
   
      $consulta="SELECT ofertas.id, ofertas.Descripcion,ofertas.FechaOferta,secciones.Codigo,grupos.Grupo,grados.Grado, CONCAT (personas.Nombre,' ',personas.Apellido1,' ',personas.Apellido2) AS Nombre_Docente
      FROM grupos INNER JOIN ofertas ON grupos.id = ofertas.Grupoid INNER JOIN grados ON grados.id=ofertas.Gradoid
@@ -76,10 +76,10 @@ class oferta extends BaseController
 		$matricula = new matriculas();//creacion de instancia matricula para hacer la busqueda en la tabla		
 		$buscar = $matricula->where('Ofertaid',$id)->find();//buscar si la Ofertaid no existe en la tabla matricula
 
-		if($buscar==false)//si no existe en la tabla matricula
+		if($buscar==false)//si no existe en la tabla matricula se eliminar
 		{		
 			$ofertas = new ofertas();//creacion de instancia ofertas	
-			$result = $ofertas->where('id',$id)->delete();//eliminar grado
+			$result = $ofertas->where('id',$id)->delete();//eliminar oferta
 			if(!empty($result))
 				{
 					$valor=1;//retornamos 1 para verificar que a sido eliminado
@@ -89,7 +89,7 @@ class oferta extends BaseController
     }
     public function cargar($ide)
     {
-        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $db = \Config\Database::connect(); // conexion con la basse de datos
         $carga="SELECT ofertas.id AS idOferta,ofertas.Descripcion,ofertas.FechaOferta,ofertas.Seccionid AS Seccion,ofertas.Gradoid AS Grado,ofertas.Grupoid AS Grupo,ofertas.Docenteid AS Docente FROM docentes 
         JOIN personas on personas.id=docentes.personasid JOIN ofertas on ofertas.Docenteid=docentes.id JOIN grupos ON
         grupos.id=ofertas.Grupoid JOIN grados ON grados.id=ofertas.Gradoid JOIN secciones ON secciones.id
@@ -102,12 +102,12 @@ class oferta extends BaseController
 	{
 
         
-        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $db = \Config\Database::connect(); // conexion con la basse de datos
 
         $ofertas = new ofertas();
 		  //varible que recive los valores de input PASSWORD
         $descripcion=$this->request->getPost('Descripcion_Oferta1');   //variable que recibe los valores del iddescripcion
-        $idfecha=$this->request->getPost('datepickerOfertaEditar');   //variable que recibe la fecha del datepicker
+        $idfecha=$this->request->getPost('datepickerOfertaEditar');   //variable que recibe la fecha del datepickerOfertaEditar
         $iddocente=$this->request->getPost('Docente1');   //variable que recibe los valores del iddocente
         $idseccion=$this->request->getPost('Seccion1');   //variable que recibe los valores del idseccion
         $idgrado=$this->request->getPost('Grado1');   //variable que recibe los valores del idgrado

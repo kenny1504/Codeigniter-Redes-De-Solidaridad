@@ -1,9 +1,9 @@
 
-$('#datepickerDocente').datepicker({ //sirve para mostrar Datepicker
+$('#datepickerDocente').datepicker({ //mostrar Datepicker
   format: 'yyyy-mm-dd',
   autoclose: true
 })
-$('#datepickerDocenteEditar').datepicker({ //sirve para mostrar Datepicker
+$('#datepickerDocenteEditar').datepicker({ //mostrar Datepicker editar
   format: 'yyyy-mm-dd',
   autoclose: true
 })
@@ -28,10 +28,10 @@ function nuevo_docente()
           if($("#Telefono_Docente").val().length==8) //verifica que el input contenga 8 valores 
           {
 
-            $.ajax({ // ajax para guardar estudiante
+            $.ajax({ // ajax para guardar docente
               type: 'POST',
-              url: 'docente/agregar', // llamada a ruta para guardar un nuesvo estudiante
-              data: $('#ingresar_Docente').serialize(), // manda el form donde se encuentra la modal ingresar_Estudiante
+              url: 'docente/agregar', // llamada a ruta para guardar un nuevo docente
+              data: $('#ingresar_Docente').serialize(), // manda el form donde se encuentra la modal ingresar_Docente
               dataType: "JSON", // tipo de respuesta del controlador
               success: function(data){ 
                if(data==0) // muestra mensaje de error
@@ -46,7 +46,7 @@ function nuevo_docente()
                }
                else
                {
-                 ///// Capturamos datos a insertar en la tabla estudiantes
+                 ///// Capturamos datos a insertar en la tabla docente
                  var cedula=$('#Cedula_Docente').val();
                  var nombre=$('#Nombre_Docente').val()+" "+$('#Apellido1_Docente').val()+" "+$('#Apellido2_Docente').val();
                  var sexo=$('#Sexo_Docente').val();
@@ -67,7 +67,7 @@ function nuevo_docente()
                   "</td>"+
                   "</td>"+
                   "<td id="+id+"a>"+telefono+ "<i class='fa fa-angle-double-right pull-right' onclick='ver_completo(this);' data-id="+id+"></i> </td>"            
-                "</tr>"  //Datos a ingresar en la tabla estudiantes
+                "</tr>"  //Datos a ingresar en la tabla docente
 
                 $('#docentes').append(datos); // agrega nuevo registro a tabla
                   

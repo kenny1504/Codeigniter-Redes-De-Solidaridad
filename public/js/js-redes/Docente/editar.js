@@ -84,7 +84,7 @@ $("#editar_confirmar_Docente").click(function() {
         }
         else 
             {
-                    var error="Error Al Actualizar, verifique xfa"
+                    var error="Error Al Actualizar, verifique datos ingresado"
                     $('#mensaje').text(error);   //manda el error a la modal
                     $("#Mensaje-error").modal("show"); //abre modal de error
                     $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  

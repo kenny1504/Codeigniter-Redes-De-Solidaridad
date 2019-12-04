@@ -1,4 +1,4 @@
-<!--form para poder activar la ruta y poder guardar el registro de docente--><!-- -->
+<!--form para poder activar la ruta y poder editar el registro de docente--><!-- -->
 <form id="editar_docente"  >
     <div class="modal  modal-info fade"  id="editar_Docente" >
               <div class="modal-dialog" >

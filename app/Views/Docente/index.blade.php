@@ -2,7 +2,7 @@
 <?=  $this -> section ( 'titulo' )  ?> 
 Docentes
 <?=  $this -> endSection () ?> 
-<?=  $this -> section ( 'contenido' )  ?>   <!--agrega codigo a la seccion contenido del layout-->        
+<?=  $this -> section ( 'contenido' )  ?>   <!--agrega datos del docente a contenido del layout-->        
             <div class="box">
             <div class="box-header">
               <h2 class="box-title text-light-blue">Docentes</h2>

@@ -32,7 +32,7 @@ class docente extends BaseController
              }
 
     }
-    public function cargar($id) //funcion para recuperar datos del estudiante 
+    public function cargar($id) //funcion para recuperar datos del docente y mostrar(ya sea despues de agregar o editar) 
 	{
          $db = \Config\Database::connect(); // concexion con la basse de datos
    
@@ -71,7 +71,7 @@ class docente extends BaseController
      
         $persona =new personas();
         $docente =new docentes();
-        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $db = \Config\Database::connect(); // concexion con la base de datos
 
         //Datos a insertar en la tabla docente
         $estado=$this->request->getPost('Estado');
@@ -106,7 +106,7 @@ class docente extends BaseController
                 );
                 $result = $persona->insert($person);// peticion para insertar una nueva persona
                 
-                if($result==true) // si ingresa persona entonces ingresa en estudiante
+                if($result==true) // si ingresa persona entonces ingresa en docente
                 {
                     $docent = array (
                         'personasid'=> $result, //ingresa el id retornado por el insertas persona
@@ -133,30 +133,28 @@ class docente extends BaseController
 	{
         $valor=0;  
         $docentes = new docentes();
-		$id=$this->request->getPost('valor_id_docente');//variable que recibe el id de la oferta a eliminar
-		//$matricula = new matriculas();//creacion de instancia matricula para hacer la busqueda en la tabla		
-		//$buscar = $matricula->where('Ofertaid',$id)->find();//buscar si la Ofertaid no existe en la tabla matricula
-        $data = array (
+		$id=$this->request->getPost('valor_id_docente');//variable que recibe el id del docente a eliminar
+		$data = array (
 			'Estado' => 0	
 		);
 
 		$result = $docentes->update($id,$data);// pedicion para validar el dato
-		if($result==true) // si actualiza los datos
+		if($result==true) // si actualiza el estado del docente
 		{
 			$datos = array (
 				'msg'=> true	// si el dato es actualizado la variable de retorna TRUE	
 			);
-			return json_encode($datos); //retorna el arreglo con los nuevos valores
+			return json_encode($datos); //retorna msg con valor true
 		}
 		else
 		{
-			$errors = $oficios->errors(); //recuperar errores de validacion
+			$errors = $docentes->errors(); //recuperar errores de validacion
 			return json_encode( $errors); // retorna los errores
         }		
     }
     public function actualizar()
 	{
-        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $db = \Config\Database::connect(); // conexion con la basse de datos
         $retorno=0;
         $docentes = new docentes();
         $personas = new personas();
@@ -174,7 +172,7 @@ class docente extends BaseController
         $direccion=$this->request->getPost('Direccion_Docente_Editar'); //variable que recibe direccion docente
         $fecha=$this->request->getPost('datepickerDocenteEditar');  //variable que recibe fechanacimiento docente
 
-        //insertar en Persona
+        //actualizar en Persona
 		$data1 = array (
             'Cedula' => $cedula,
             'Nombre' => $nombre,		
@@ -186,7 +184,7 @@ class docente extends BaseController
             'Telefono' => $telefono,
             'FechaNacimiento' => $fecha
             );
-        //insertar en Docente
+        //actualizar en Docente
         $data2 = array (
             'Estado' => $estado
             );    

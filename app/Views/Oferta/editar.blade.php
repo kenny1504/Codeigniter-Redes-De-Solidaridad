@@ -1,4 +1,4 @@
-<!--form para poder activar la ruta y poder guardar el registro--><!-- -->
+<!--form para poder activar la ruta y poder editar el registro--><!-- -->
 <form id="editar-oferta"  >
         <div class="modal  modal-info fade"  id="editar_Oferta" >
                   <div class="modal-dialog" >
