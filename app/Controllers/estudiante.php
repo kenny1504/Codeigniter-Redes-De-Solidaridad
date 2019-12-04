@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 
+use App\Models\matriculas;
 use App\Models\estudiantes;
 use App\Models\personas;
 use CodeIgniter\Controller;
@@ -116,5 +117,46 @@ class estudiante extends BaseController
         }
 
     }
+    
 
+         
+      public function eliminar($id)///eliminar un estudiante
+        {
+
+            $valor=0;  $id_persona=0;
+            $persona =new personas();
+            $estudiante =new estudiantes();
+            $matricula = new matriculas();//creacion de instancia matricula para hacer la busqueda en la tabla	
+
+            $buscar = $matricula->where('Estudianteid',$id)->find();//buscar si el id estudiante no existe en la tabla matricula
+    
+            if($buscar==false)//si no existe en la tabla matricula
+            {		
+                $buscar_estudiante=  $estudiante->where('id',$id)->find();
+                foreach ($buscar_estudiante as $estudiant) { 
+                  $id_persona= $estudiant['personasid'];
+
+                }
+
+                $eliminar_estudiante = $estudiante->where('id',$id)->delete();
+                $eliminar_persona = $persona->where('id',$id_persona)->delete();
+                if(!empty($eliminar_estudiante) &&  !empty($eliminar_persona) )
+                {
+                    $valor=1;
+                }
+            }
+            return  json_encode($valor);
+
+        }
+
+
+        public function cargar_editar($id)
+        {
+            $db = \Config\Database::connect(); // concexion con la basse de datos
+            $consulta=" SELECT e.CodigoEstudiante,p.Nombre,p.Apellido1,p.Apellido2,p.Sexo,p.Telefono,e.tutorid,e.parentescoid,p.Direccion,p.FechaNacimiento 
+            FROM estudiantes as e JOIN personas as p on p.id=e.personasid WHERE e.id=$id";
+             $data = $db->query($consulta); //Envia la consulta a la base de datos 
+             return json_encode($data->getResultArray());      
+
+        }
 }
