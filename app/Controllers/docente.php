@@ -115,7 +115,7 @@ class docente extends BaseController
                     $result_docente = $docente->insert($docent);// pedicion para insertar el nuevo docente
                     
                 }
-                    $nuevodata = array( // asigna los valores del arreglo a la varible de SESSION
+                    $nuevodata = array( // asigna los valores del arreglo a la varible 
                         'id'  => $result_docente //id docente
                         
                     ); 

@@ -16,7 +16,7 @@ class estudiante extends BaseController
         $session->start(); // Inicio de varibles SESSION  
         $db = \Config\Database::connect(); // concexion con la basse de datos
         
-        $consulta="SELECT e.id,e.CodigoEstudiante,CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre, p.Sexo,p.Direccion,CONCAT(pe.Nombre,' ',pe.Apellido1,' ',pe.Apellido2) as Nombre_tutor,pe.Telefono
+        $consulta="SELECT e.personasid,e.id,e.CodigoEstudiante,CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre, p.Sexo,p.Direccion,CONCAT(pe.Nombre,' ',pe.Apellido1,' ',pe.Apellido2) as Nombre_tutor,pe.Telefono
         FROM estudiantes as e JOIN personas as p on p.id=e.personasid
         join tutores as t on e.tutorid=t.id join personas as pe on pe.id=t.personasid";
 
@@ -149,6 +149,94 @@ class estudiante extends BaseController
 
         }
 
+
+
+        public function actualizar($id,$idper) // metodo para actualizar un estudiante
+        {
+            $persona =new personas();
+            $estudiante =new estudiantes();
+            $db = \Config\Database::connect(); // conexion con la basse de datos
+                  
+ 
+            //Datos a insertar en la tabla estudiante
+            $codigo_estudiante=$this->request->getPost('edit_Codigo');
+            $tutor_estudiante=$this->request->getPost('edit_tutores');
+            $parentesco_estudiante=$this->request->getPost('edit_parent');
+    
+            //Datos insertar tabla persona
+            $nombre_estudiante=$this->request->getPost('edit_NombreE');
+            $Apellido1_estudiante=$this->request->getPost('edit_Apellido1');
+            $Apellido2_estudiante=$this->request->getPost('edit_Apellido2');
+            $Sexo_estudiante=$this->request->getPost('edit_Sexo');
+            $telefono_estudiante=$this->request->getPost('edit_telefono');
+            $direccion_estudiante=$this->request->getPost('edit_Direccion');
+            $nacimiento_estudiante=$this->request->getPost('edit_fechanacient'); 
+             
+            $buscar= $estudiante->where('CodigoEstudiante',$codigo_estudiante)->find();
+    
+            if($buscar==false)//si el estudiante no existe ingresa en tabla persona y tabla estudiate
+            {
+    
+                    $person = array (
+                        'Cedula'=> "000-000000-0000P", //valor por defecto, al ser estudiante
+                        'Nombre'=> $nombre_estudiante,
+                        'Apellido1'=> $Apellido1_estudiante,
+                        'Apellido2'=> $Apellido2_estudiante,
+                        'Sexo'=> $Sexo_estudiante,
+                        'Direccion'=> $direccion_estudiante,
+                        'Telefono'=> $telefono_estudiante,
+                        'Correo'=> "Estudiante@estudiante.com",//valor por defecto, al ser estudiante
+                        'FechaNacimiento'=>  $nacimiento_estudiante //ingresando dato de fecha segun formato de base de datos
+                    );
+                    $result = $persona->update($idper,$person);// peticion para insertar una nueva persona
+                    
+                    if($result==true) // si ingresa persona entonces ingresa en estudiante
+                    {
+                        if($codigo_estudiante=="0")
+                        {
+                            $estudiant = array (
+                                'parentescoid'=> $parentesco_estudiante,
+                                'tutorid'=> $tutor_estudiante	
+                            );
+                        }
+                        else
+                        {
+                            $estudiant = array (
+                                'CodigoEstudiante'=> $codigo_estudiante,
+                                'parentescoid'=> $parentesco_estudiante,
+                                'tutorid'=> $tutor_estudiante	
+                            );
+                        }
+                       
+                        $result_estudi = $estudiante->update($id,$estudiant);// pedicion para insertar un nuevo estudiante
+                    }
+                    $consulta="SELECT p.Telefono FROM tutores as t JOIN personas as p on t.personasid=p.id WHERE t.id=$tutor_estudiante"; //consulta a la base de datos
+                    $telefono_tutor = $db->query($consulta); //Envia la consulta a la base de datos para conocer el telefono del tutor
+                    
+                    if($result_estudi==true) // si actualiza el estudiante 
+                    {
+                        foreach ($telefono_tutor->getResultArray() as $telefono) { //recorro el arreglo de la consulta
+    
+                            $newdata = array( // asigna los valores del arreglo a la varible de SESSION
+                                'Telefono'=> $telefono['Telefono'], //telefono del tutor
+                                'id'  => $id //id estudiante
+                                
+                            ); 
+                         }
+    
+                        return json_encode($newdata); //retorna arreflo con parametros del nuevo estudiante para insertarlos a la tabla
+                    }
+                  
+        
+            }
+            else // si el estudiante ya existe entonces retorna mensaje de error
+            {
+                return json_encode(0);
+            }
+    
+
+
+        }
 
         public function cargar_editar($id)
         {

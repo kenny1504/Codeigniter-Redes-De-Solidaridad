@@ -53,15 +53,17 @@ $(function(){// mascara de editar docente
 });
 $(function(){// mascara de ingresar Codigo Estudiante
     $("#Codigo").mask("00000000");
+    $("#edit_Codigo").mask("00000000");
 });
 
 $(function(){// mascara de ingresar telefono Estudiante
     $("#telefono").mask("00000000");
+    $("#edit_telefono").mask("00000000");
 });
 $(function(){// mascara de ingresar telefono docente
     $("#Telefono_Docente").mask("00000000");
 });
-$(function(){// mascara de editar telefono docente
+$(function(){// mascara de editar telefono docente 
     $("#Telefono_Docente_Editar").mask("00000000");
 });
 

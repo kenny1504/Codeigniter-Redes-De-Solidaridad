@@ -8,12 +8,13 @@ $('#datepicker4').datepicker({ //sirve para mostrar Datepicker
   format: 'yyyy-mm-dd',
   autoclose: true
 })
-var id=0;
+var id=0; var idper=0;  var dat=0; var cod=0;
 function editar_estudiante(button)
 {   
+    dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Editar)
     $('#edit_estudiante').modal('show'); // abre ventana modal
     id=$(button).attr("data-id"); // captura el id_materia "id" del estudiante
-    
+    idper=$(button).attr("data-idper"); // captura el id_materia "id" de persona (estudiante)
 
     $.ajax({ // ajax para cargar datos en el combobox
         type: 'POST',
@@ -52,6 +53,7 @@ function editar_estudiante(button)
     url: '/estudiante/cargar_editar/'+id, // llamada a la consulta
     dataType: "JSON", // tipo de respuesta del controlador
     success: function(data){
+          cod=data[0].CodigoEstudiante;
         $('#edit_Codigo').val(data[0].CodigoEstudiante);
         $('#edit_NombreE').val(data[0].Nombre);
         $('#edit_Apellido1').val(data[0].Apellido1);
@@ -68,41 +70,37 @@ function editar_estudiante(button)
 
 }//fin del metodo Ingresar_usuario
 
-
-
-function guardad_editar_estudiante()
+function guardar_editar_estudiante()
 { 
-
+ 
+      var codigo1=$('#edit_Codigo').val();
+     if(cod==$('#edit_Codigo').val()) //si no se detectan cambios en el input
+     {
+      $('#edit_Codigo').val("0"); //agregar un valor nulo
+     }
     //este codigo cancela el evento submit en el form donde esta la modal ingresar_Estudiante
-      $("#ingresar_Estudiante").on('submit', function(evt){
+      $("#editar_Estudiante").on('submit', function(evt){
         evt.preventDefault();  
       });
 
 
       //Verifica que le formulario no este vacio
-      if($('#Codigo').val()!="" && $('#NombreE').val()!="" && $('#Apellido1').val()!="" && $('#Sexo').val()!=null 
-       && $('#tutores').val()!=null && $('#parent').val()!=null && $('#direccion_estudiante').val()!="" && $('#datepicker3').val()!="")
+      if($('#edit_Codigo').val()!="" && $('#edit_NombreE').val()!="" && $('#edit_Apellido1').val()!="" && $('#edit_Sexo').val()!=null 
+       && $('#edit_tutores').val()!=null && $('#edit_parent').val()!=null && $('#edit_direccion_estudiante').val()!="" && $('#datepicker4').val()!="")
       {
-        ///// Capturamos datos a insertar en la tabla estudiantes
-        var codigo=$('#Codigo').val();
-        var nombre=$('#NombreE').val()+$('#Apellido1').val()+$('#Apellido2').val();
-        var sexo=$('#Sexo').val();
-        var dirreccion=$('#direccion_estudiante').val();
-        var tutor=$('#tutores').text();
         
-
-          if($("#Codigo").val().length==8 && ($("#telefono").val().length==8  || $("#telefono").val().length==0 )) //verifica que el input contenga 8 valores 
+          if(($("#edit_Codigo").val().length==1 || $("#edit_Codigo").val().length==8) && ($("#edit_telefono").val().length==8  || $("#edit_telefono").val().length==0 )) //verifica que el input contenga 8 valores 
           {
 
             $.ajax({ // ajax para guardar estudiante
               type: 'POST',
-              url: 'estudiante/agregar', // llamada a ruta para guardar un nuesvo estudiante
-              data: $('#ingresar_Estudiante').serialize(), // manda el form donde se encuentra la modal ingresar_Estudiante
+              url: '/estudiante/actualizar/'+id+'/'+idper, // llamada a ruta para guardar actualizar nuesvo estudiante
+              data: $('#editar_Estudiante').serialize(), // manda el form donde se encuentra la modal ingresar_Estudiante
               dataType: "JSON", // tipo de respuesta del controlador
               success: function(data){ 
                if(data==0) // muestra mensaje de error
                {
-                  var error="El estudiante ya existe, favor revisar el codigo de estudiante que ha ingresado"
+                  var error="Imposible actualizar el estudiante, Verifique El Numero de Estudiante"
                   $('#mensaje').text(error);   //manda el error a la modal
                   $("#Mensaje-error").modal("show"); //abre modal de error
                   $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
@@ -113,11 +111,11 @@ function guardad_editar_estudiante()
                else
                {
                  ///// Capturamos datos a insertar en la tabla estudiantes
-                  var codigo=$('#Codigo').val();
-                  var nombre=$('#NombreE').val()+" "+$('#Apellido1').val()+" "+$('#Apellido2').val();
-                  var sexo=$('#Sexo').val();
-                  var dirreccion=$('#direccion_estudiante').val();
-                  var tutor=$('#tutores').find('option:selected').text();
+                  var codigo=codigo1;
+                  var nombre=$('#edit_NombreE').val()+" "+$('#edit_Apellido1').val()+" "+$('#edit_Apellido2').val();
+                  var sexo=$('#edit_Sexo').val();
+                  var dirreccion=$('#edit_direccion_estudiante').val();
+                  var tutor=$('#edit_tutores').find('option:selected').text();
                   var telefono_tutor=data.Telefono;
                   var id=data.id;
 
@@ -129,7 +127,7 @@ function guardad_editar_estudiante()
                   "<td>"+tutor+"</td>"+
                   "<td style='padding-top:0.1%; padding-bottom:0.1%;' class='hidden' id="+id+" >"+
                               "<button class='btn btn-primary'  onclick='ver_estudiante(this);'  data-id="+id+" id='Ver-estudiante'>ver</button>"+
-                              "<button class='btn btn-success'><i class='fa fa-fw fa-pencil'></i></button>"+
+                              "<button class='btn btn-success' data-id="+id+" data-idper="+idper+"  onclick='editar_estudiante(this);'><i class='fa fa-fw fa-pencil'></i></button>"+
                               "<button class='btn btn-info' data-id="+id+" onclick='eliminar_estudiante(this);' ><i class='fa fa-fw fa-trash '></i></button>"+
                              " <i class='fa fa-angle-double-right pull-right' onclick='mostrar(this);'  data-id="+id+"></i>"+                             
                   "</td>"+
@@ -137,10 +135,10 @@ function guardad_editar_estudiante()
                   "<td id="+id+"a>"+telefono_tutor+ "<i class='fa fa-angle-double-right pull-right' onclick='mostrar(this);' data-id="+id+"></i> </td>"            
                 "</tr>"  //Datos a ingresar en la tabla estudiantes
 
-                $('#estudiantes').append(datos); // agrega nuevo registro a tabla
+                dat.replaceWith(datos); // Reemplaza nuevo registro a tabla
                   
                 $("#exito").modal("show"); //abre modal de exito
-                $("#crear_estudiante").modal("hide"); // cierra modal
+                $("#edit_estudiante").modal("hide"); // cierra modal
                 $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
                           $("#exito").modal("hide"); // cierra modal
                           } );

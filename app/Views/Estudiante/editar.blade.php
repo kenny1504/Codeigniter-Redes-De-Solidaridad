@@ -66,7 +66,7 @@
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" onclick="editar_estudiante();" class="btn btn-outline" >Guardar</button>      
+                    <button type="submit" onclick="guardar_editar_estudiante();" class="btn btn-outline" >Guardar</button>      
                 </div>
                 <!-- /.modal-content -->
               </div>

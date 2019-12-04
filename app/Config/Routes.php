@@ -155,6 +155,7 @@ $routes->post('/estudiante/cargar', 'estudiante::cargar');
 $routes->post('/estudiante/agregar', 'estudiante::agregar');
 $routes->post('/estudiante/eliminar', 'estudiante::eliminar');
 $routes->post('/estudiante/cargar_editar', 'estudiante::cargar_editar');
+$routes->post('/estudiante/actualizar', 'estudiante::actualizar');
 			//Rutas para cargar en combox-box
 			$routes->post('/tutor/tutores', 'tutor::tutores');
 			$routes->post('/parentesco/parentescos', 'parentesco::parentescos');
