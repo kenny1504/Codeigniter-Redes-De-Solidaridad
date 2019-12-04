@@ -40,8 +40,17 @@ function editar_Docente(button)
     });//Fin ajax 
     
 }
+function editar_confirmar_Docente() {
 
-$("#editar_confirmar_Docente").click(function() {
+    $("#editar_docente").on('submit', function(evt){
+        evt.preventDefault();  
+      });
+    //Verifica que le formulario no este vacio
+    if($('#Cedula_Docente_Editar').val().length==16 && $('#Nombre_Docente_Editar').val()!="" && $('#Apellido1_Docente_Editar').val()!="" && $('#Telefono_Docente_Editar').val()!="" && $('#Sexo_Docente_Editar').val()!=null && $('#Estado_Editar').val()!=null 
+    && $('#Correo_Docente_Editar').val()!=null && $('#Direccion_Docente_Editar').val()!="" && $('#datepickerDocenteEditar').val()!="")
+  {
+      if($("#Telefono_Docente_Editar").val().length==8 && ValidarCedulaDocenteEditar($('#Cedula_Docente_Editar').val())==true) //verifica que el input contenga 8 valores 
+      {
     $.ajax({
                 
         type: 'POST',
@@ -93,4 +102,10 @@ $("#editar_confirmar_Docente").click(function() {
             }     
         }
         });
-    });
+    }
+    else{
+        return ValidarCedulaDocenteEditar($('#Cedula_Docente_Editar').val());
+      }
+}
+    }
+    

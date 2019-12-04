@@ -38,7 +38,7 @@ Docentes
                                     <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Docente['id']; ?>" >
                                                 <button class="btn btn-primary"  onclick="ver_docente(this);"  data-id="<?php echo $Docente['id']; ?>" id="Ver-docente">ver</button>      
                                                 <button class="btn btn-success " onclick="editar_Docente(this);" data-id="<?php echo $Docente['id']; ?>"><i class=" fa fa-fw fa-pencil"></i></button> 
-                                                <button class="btn btn-info" onclick="eliminar_oferta(this);" data-id="<?php echo $Docente['id']; ?>"><i class="fa fa-fw fa-trash "></i></button>
+                                                <button class="btn btn-info" onclick="eliminar_docente(this);" data-id="<?php echo $Docente['id']; ?>"><i class="fa fa-fw fa-trash "></i></button>
                                                 <i class="fa fa-angle-double-right pull-right "onclick="ver_completo(this);" data-id="<?php echo $Docente['id']; ?>"></i>                             
                                     </td>
                                     </td>  <!--fin columna botones-->

@@ -19,7 +19,7 @@ class docente extends BaseController
         $db = \Config\Database::connect(); // concexion con la basse de datos
         
         $consulta="SELECT d.id,p.Cedula, CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre, p.Sexo,p.Correo,p.Telefono
-        FROM docentes as d JOIN personas as p on p.id=d.personasid WHERE d.Estado=1";
+        FROM docentes as d JOIN personas as p on p.id=d.personasid ";
 
         if(isset($_SESSION['login_in']) && !empty($_SESSION['login_in']) && $_SESSION['login_in']==true)  //si no existe una sesion No ingresa
 	     {
@@ -50,7 +50,7 @@ class docente extends BaseController
         $clave=$this->request->getPost('datepickerOferta'); 
         
         $consulta="SELECT docentes.id AS id,CONCAT (personas.Nombre,' ',personas.Apellido1,' ',personas.Apellido2) AS Nombre FROM docentes 
-        JOIN personas on personas.id=docentes.personasid WHERE NOT EXISTS(SELECT * FROM ofertas WHERE ofertas.Docenteid=docentes.id AND YEAR(ofertas.FechaOferta)=2018)";
+        JOIN personas on personas.id=docentes.personasid WHERE NOT EXISTS(SELECT * FROM ofertas WHERE ofertas.Docenteid=docentes.id AND YEAR(ofertas.FechaOferta)=2019 )and docentes.Estado=1";
 
  
                         $data = $db->query($consulta); //Envia la consulta a la base de datos     
@@ -141,15 +141,13 @@ class docente extends BaseController
 		$result = $docentes->update($id,$data);// pedicion para validar el dato
 		if($result==true) // si actualiza el estado del docente
 		{
-			$datos = array (
-				'msg'=> true	// si el dato es actualizado la variable de retorna TRUE	
-			);
-			return json_encode($datos); //retorna msg con valor true
+			$valor=1;
+			return json_encode($valor); //retorna msg con valor true
 		}
 		else
 		{
-			$errors = $docentes->errors(); //recuperar errores de validacion
-			return json_encode( $errors); // retorna los errores
+			
+			return json_encode( $valor); // retorna los errores
         }		
     }
     public function actualizar()

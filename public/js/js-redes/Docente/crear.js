@@ -22,10 +22,10 @@ function nuevo_docente()
         evt.preventDefault();  
       });
       //Verifica que le formulario no este vacio
-      if($('#Cedula_Docente').val()!="" && $('#Nombre_Docente').val()!="" && $('#Apellido1_Docente').val()!="" && $('#Telefono_Docente').val()!="" && $('#Sexo_Docente').val()!=null && $('#Estado').val()!=null 
+      if($('#Cedula_Docente').val().length==16 && $('#Nombre_Docente').val()!="" && $('#Apellido1_Docente').val()!="" && $('#Telefono_Docente').val()!="" && $('#Sexo_Docente').val()!=null && $('#Estado').val()!=null 
         && $('#Correo_Docente').val()!=null && $('#Direccion_Docente').val()!="" && $('#datepickerDocente').val()!="")
       {
-          if($("#Telefono_Docente").val().length==8) //verifica que el input contenga 8 valores 
+          if($("#Telefono_Docente").val().length==8 && ValidarCedulaDocente($('#Cedula_Docente').val())==true) //verifica que el input contenga 8 valores 
           {
 
             $.ajax({ // ajax para guardar docente
@@ -89,6 +89,9 @@ function nuevo_docente()
               
             }   
           });//Fin ajax Guardar docente
+          }
+          else{
+            return ValidarCedulaDocente($('#Cedula_Docente').val());
           }
                  
       }

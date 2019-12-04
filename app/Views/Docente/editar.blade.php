@@ -14,7 +14,7 @@
                                 <div class="form-group has-feedback">
                                     <input type="text" name="iddocente_editar" id="iddocente_editar" class="hidden">
                                     <input type="text" name="idpersona_editar" id="idpersona_editar" class="hidden">
-                                    <input type="text" minlength="8" name="Cedula_Docente_Editar" id="Cedula_Docente_Editar" readonly=»readonly» class="form-control requerido" required placeholder="Numero de Cedula">
+                                    <input type="text" minlength="14" name="Cedula_Docente_Editar" id="Cedula_Docente_Editar" class="form-control requerido" required placeholder="Numero de Cedula">
                                     <small>Cedula de Identidad</small>
                                 </div>
                                 <div class="form-group has-feedback">
@@ -26,7 +26,7 @@
                                     <small>Primer Apellido</small>
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Apellido2_Docente_Editar" id="Apellido2_Docente_Editar" class="form-control " placeholder="Segundo apellido">
+                                    <input type="text" name="Apellido2_Docente_Editar" id="Apellido2_Docente_Editar" class="form-control " required placeholder="Segundo apellido">
                                     <small>Segundo Apellido</small>
                                 </div>
                                 <div class="form-group has-feedback row">
@@ -45,14 +45,14 @@
                                                 <small>Estado</small>
                                             </div>
                                         <div class="col-md-5">                                    
-                                            <input  minlength="8" type="text" name="Telefono_Docente_Editar" id="Telefono_Docente_Editar" class="form-control pull-right requerido" placeholder="Telefono">
+                                            <input  minlength="8" type="text" name="Telefono_Docente_Editar" id="Telefono_Docente_Editar" class="form-control pull-right requerido"required placeholder="Telefono">
                                             <br/>    
                                             <small>Telefono</small>
                                         </div>
                                         
                                     </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Correo_Docente_Editar" id="Correo_Docente_Editar" class="form-control " placeholder="Correo Electronico">
+                                    <input type="text" name="Correo_Docente_Editar" id="Correo_Docente_Editar" class="form-control "required placeholder="Correo Electronico">
                                     <small>Correo Electronico</small>
                                 </div>
                                 <div class="form-group has-feedback">
@@ -69,7 +69,7 @@
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-outline" id="editar_confirmar_Docente">Guardar</button> 
+                    <button type="submit" onclick="editar_confirmar_Docente();" class="btn btn-outline" >Guardar</button> 
                 </div>
                 <!-- /.modal-content -->
               </div>
