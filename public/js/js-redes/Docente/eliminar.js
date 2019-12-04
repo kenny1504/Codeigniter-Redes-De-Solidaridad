@@ -6,7 +6,7 @@ $(".eliminar-docente").click(function() { // ajax para eliminar un docente
     $('#valor_id_docente').val(iden);   //manda valor_id_docente "id" a ventana modal
 }); 
 
-function eliminar_oferta(button)
+function eliminar_docente(button)
 {
     dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Eliminar)
     var ide=$(button).attr("data-id"); // captura el valor_id_docente "id" del docente
@@ -22,9 +22,9 @@ $("#confirmar_eliminar_docente").click(function() {
                data: $('#delete_docente').serialize(), // manda el form donde se encuentra la modal docente
                dataType: "JSON",
                success: function(data){ 
-                   if(data.msg==true)
+                   if(data==1)
                    {
-                       dat.remove(); //remueve la fila eliminado 
+                       
                        $("#exito").modal("show"); //abre modal de exito
                        $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
                                    $("#exito").modal("hide"); // cierra modal

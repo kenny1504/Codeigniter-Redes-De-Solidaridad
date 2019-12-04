@@ -12,7 +12,7 @@
                         <div class="register-box-body" style="background-color:#eee;" >
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/avatar-02.png" class="user-image" alt="User Image">
                                 <div class="form-group has-feedback">
-                                    <input type="text" minlength="8" name="Cedula_Docente" id="Cedula_Docente" class="form-control requerido" required placeholder="Cedula de Identidad">
+                                    <input type="text" minlength="14" name="Cedula_Docente" id="Cedula_Docente" class="form-control requerido" required placeholder="Cedula de Identidad">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <input type="text" name="Nombre_Docente"id="Nombre_Docente" class="form-control requerido" required placeholder="Nombre">
