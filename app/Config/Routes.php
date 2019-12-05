@@ -166,14 +166,10 @@ $routes->post('/cargar/docente', 'docente::cargar');
 $routes->post('/docente/agregar', 'docente::agregar');
 $routes->post('/actualizar/docente', 'docente::actualizar');
 $routes->post('/eliminar/docente', 'docente::eliminar');
-
-<<<<<<< HEAD
 //Rutas Matricula
 $routes->get('/Matricula', 'matricula::index');
-=======
 //Rutas Tutor
 $routes->post('/tutor/agregar', 'tutor::agregar');
->>>>>>> fe7b17783321ec7a8f090b52924e74f0259b87a7
 
 /**
  * --------------------------------------------------------------------

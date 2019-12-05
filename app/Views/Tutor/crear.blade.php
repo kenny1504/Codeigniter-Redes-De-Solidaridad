@@ -21,7 +21,7 @@
                                     <input type="text"  name="apellido1-tutor" id="apellido1-tutor" class="form-control requerido" required placeholder="Primer apellido">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="apellido2-tutor" id="apellido2-tutor" class="form-control" required placeholder="Segundo apellido">
+                                    <input type="text" name="apellido2-tutor" id="apellido2-tutor" class="form-control"  placeholder="Segundo apellido">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <select class="requerido" style="width: 20%; padding-top: 2.3%; " name="sexot" id="sexot" required aria-placeholder="sexo"> 

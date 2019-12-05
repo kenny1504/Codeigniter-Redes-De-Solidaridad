@@ -5,6 +5,17 @@ Matricula
 <?=  $this -> section ( 'contenido' )  ?>   <!--agrega codigo a la seccion contenido del layout-->  
 
 <style>
+    .btn-default{
+        
+    border-color: #075f75;
+    }
+    .btn-primary {
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+    color: white;
+    border-color: white;
+    }
+
     .stepwizard-step p {
         margin-top: 10px;
     }
@@ -15,7 +26,7 @@ Matricula
 
     .stepwizard {
         display: table;
-        width: 50%;
+        width: 100%;
         position: relative;
     }
 
@@ -30,8 +41,8 @@ Matricula
         position: absolute;
         content: " ";
         width: 100%;
-        height: 1px;
-        background-color: #ccc;
+        height: 2.5px;
+        background-color: #075f75;
         z-order: 0;
     }
 
@@ -52,14 +63,14 @@ Matricula
     }
 </style>
 <div class="container">
-    <div class="stepwizard col-md-offset-2">
+    <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step col-xs-6">
                 <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
                 <p>Estudiantes</p>
             </div>
             <div class="stepwizard-step col-xs-6">
-                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <a href="#step-2" type="button" class="btn btn-default btn-circle">2</a>
                 <p>Tutores</p>
             </div>
         </div>
