@@ -52,7 +52,7 @@
                                         
                                     </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Correo_Docente_Editar" id="Correo_Docente_Editar" class="form-control "required placeholder="Correo Electronico">
+                                    <input type="email" name="Correo_Docente_Editar" id="Correo_Docente_Editar" class="form-control "required placeholder="Correo Electronico">
                                     <small>Correo Electronico</small>
                                 </div>
                                 <div class="form-group has-feedback">

@@ -12,16 +12,16 @@
                         <div class="register-box-body" style="background-color:#eee;" >
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/avatar-07.png" class="user-image" alt="User Image">
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Cedulat" id="Cedulat" class="form-control requerido" required placeholder="Cedula">
+                                    <input minlength="14" type="text" name="Cedulat" id="Cedulat" class="form-control requerido" required placeholder="Cedula">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <input type="text"  name="Nombre-tutor" id="Nombre-tutor" class="form-control requerido" required placeholder="Nombre">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="email"  name="apellido1-tutor" id="apellido1-tutor" class="form-control requerido" required placeholder="Primer apellido">
+                                    <input type="text"  name="apellido1-tutor" id="apellido1-tutor" class="form-control requerido" required placeholder="Primer apellido">
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="apellido2-tutor" id="apellido2-tutor" class="form-control" placeholder="Segundo apellido">
+                                    <input type="text" name="apellido2-tutor" id="apellido2-tutor" class="form-control" required placeholder="Segundo apellido">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <select class="requerido" style="width: 20%; padding-top: 2.3%; " name="sexot" id="sexot" required aria-placeholder="sexo"> 
@@ -42,27 +42,29 @@
                                     }
                                     </style>
                                     </select>                                     
-                                    <input  style="width: 75%;" type="text" id="contraseña" class="form-control pull-right requerido" required placeholder="Telefono">
-                                </div>
+                                    <input minlength="8"  style="width: 75%;" type="text" id="telefonot" name="telefonot" class="form-control pull-right requerido" required placeholder="Telefono">
+                                </div>                           
                                 <div class="form-group has-feedback">
-                                    <select class="requerido" style="width: 80%; padding-top: 2.7%; " required name="oficios" id="oficio">
-                                            <option value=" " disabled selected>Oficio</option>
+                                    <select style="width: 80%; padding-top: 2.7%; " required name="oficiot" id="oficiot">
                                     </select>
                                     <small style="padding-top: 1.3%;" data-toggle="modal" data-target="#modal_Oficio" id="m3" class=" btn-sm pull-right btn-warning ">Ingresar Oficio</small>
                                 </div>
                                 <div class="form-group has-feedback">
-                                <textarea class="form-control text-primary requerido" rows="3" id="dir" required placeholder="Direccion"></textarea> 
+                                    <input type="email"  name="correot" id="correot" class="form-control requerido" required placeholder="Correo Electronico">
+                                </div>
+                                <div class="form-group has-feedback">
+                                <textarea class="form-control text-primary requerido" rows="3" id="direcciont" name="direcciont" required placeholder="Direccion"></textarea> 
                                 </div>
                                 <div class="input-group date">
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input required placeholder="Fecha de Nacimiento" type="text" class="form-control pull-right requerido" id="datepicker4">            
+                                        <input required placeholder="Fecha de Nacimiento" type="text" class="form-control pull-right requerido" name="datepickertutor" id="datepickertutor">            
                                     </div> 
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="submit"  onclick="return  ValidarCedulaTutor(Cedulat.value);" class="btn btn-outline"  >Guardar</button>          
+                    <button type="submit"  onclick="guardar_Tutor();" class="btn btn-outline"  >Guardar</button>          
                 </div>
                 <!-- /.modal-content -->
               </div>

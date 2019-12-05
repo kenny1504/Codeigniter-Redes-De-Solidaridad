@@ -167,6 +167,9 @@ $routes->post('/docente/agregar', 'docente::agregar');
 $routes->post('/actualizar/docente', 'docente::actualizar');
 $routes->post('/eliminar/docente', 'docente::eliminar');
 
+//Rutas Tutor
+$routes->post('/tutor/agregar', 'tutor::agregar');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

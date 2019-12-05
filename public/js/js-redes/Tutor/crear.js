@@ -2,7 +2,8 @@ $(function() //funcion para buscar dentro del combobox
 {
   $('#oficio').select2({width:"80%"}) // agrega el select2 a combobox tutores para buscar
 });
-$('#datepicker4').datepicker({ //sirve para mostrar Datepicker
+$('#datepickertutor').datepicker({ //sirve para mostrar Datepicker
+    format: 'yyyy-mm-dd',
     autoclose: true
   })
 
@@ -14,101 +15,75 @@ function ingresar_tutor()
         url: 'cargar/oficio', // llamada a ruta para cargar combobox oficio
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){ 
-          $('#oficios').empty();
+          $('#oficiot').empty();
         //ciclo para recorrer el arreglo de oficios
           data.forEach(element => {
               //variable para asignarle los valores al combobox
-             var datos='<option  value="'+element.Id+'">'+element.Nombre+'</option>'; 
+             var datos='<option  value="'+element.id+'">'+element.Nombre+'</option>'; 
   
-              $('#oficios').append(datos); //ingresa valores al combobox
+              $('#oficiot').append(datos); //ingresa valores al combobox
           });
           
       }   
     });//Fin ajax combobox oficios
-}//fin del metodo Ingresar_usuario
+}//fin del metodo Ingresar_tutor
 
+function guardar_Tutor()
+{ 
+      $("#ingresar_tutor").on('submit', function(evt){
+        evt.preventDefault();  
+      });
+      //Verifica que le formulario no este vacio
+      if($('#Cedulat').val().length==16 && $('#Nombre-tutor').val()!="" && $('#apellido1-tutor').val()!="" && $('#telefonot').val()!="" && $('#sexot').val()!=null && $('#oficiot').val()!=null 
+      && $('#correot').val()!=null&& $('#direcciont').val()!="" && $('#datepickertutor').val()!="")
+      {
+          if($("#telefonot").val().length==8 && ValidarCedulaTutor($('#Cedulat').val())==true) //verifica que el input contenga 8 valores 
+          {
 
-function EsCedula(elTexto) {
-  var es = true;
-  var cadena = elTexto.replace(new RegExp('-','g'),""); // elimina guiones de la cadena
-  //validar longitud
-  if (elTexto.length != 16) {
-      es = false;
-  } else {
-      //verificar si tiene el formato correcto
-      var RegExPattern = /^\d{13}[A-Z]{1}$/;
-      if (!cadena.match(RegExPattern)) {
-          es = false;
-      } else {
-          //verificar si contiene una fecha válida
-          var sFecha = cadena.substring(3, 9);  
-          var sDia = cadena.substring(3, 5); 
-          var sMes = cadena.substring(5, 7);
-          var sAnio = cadena.substring(7, 9);
-          var aa = parseInt(sAnio);
-          var mm = parseInt(sMes);
-          var dd = parseInt(sDia);
-          if (aa >= 0 && aa <= 29) {
-              aa += 2000;
-          } else {
-              aa += 1900;
+            $.ajax({ // ajax para guardar docente
+              type: 'POST',
+              url: 'tutor/agregar', // llamada a ruta para guardar un nuevo tutor
+              data: $('#ingresar_tutor').serialize(), // manda el form donde se encuentra la modal ingresar_tutor
+              dataType: "JSON", // tipo de respuesta del controlador
+              success: function(data){ 
+               if(data==0) // muestra mensaje de error
+               {
+                  var error="El tutor ya existe, favor reingresar Cedula"
+                  $('#mensaje').text(error);   //manda el error a la modal
+                  $("#Mensaje-error").modal("show"); //abre modal de error
+                  $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
+                      $("#Mensaje-error").modal("hide"); // cierra modal error
+                      } );
+
+               }
+               else if(data==2) // muestra mensaje de error
+               {
+                  var error="Error al insertar"
+                  $('#mensaje').text(error);   //manda el error a la modal
+                  $("#Mensaje-error").modal("show"); //abre modal de error
+                  $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
+                      $("#Mensaje-error").modal("hide"); // cierra modal error
+                      } );
+
+               }
+               else
+               {
+                $("#exito").modal("show"); //abre modal de exito
+                               
+                $("#crear_tutor").modal("hide"); // cierra modal
+                $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
+                          $("#exito").modal("hide"); // cierra modal
+                          } );
+
+               }
+               
+            }   
+          });//Fin ajax Guardar tutor
+          
           }
-          var bisiesto = false;
-          if (aa % 2 == 0) {
-              if (aa % 4 == 0) {
-                  bisiesto = true;
-              }
+          else{
+            return ValidarCedulaTutor($('#Cedulat').val());
           }
-          if (mm < 1 || mm > 12) {
-              es = false;
-          } else {
-              switch (mm) {
-                  case 1:
-                  case 3:
-                  case 5:
-                  case 7:
-                  case 8:
-                  case 10:
-                  case 12:
-                      if (dd < 1 || dd > 31) {
-                          return false;
-                      }
-                      break;
-                  case 2:
-                      if (bisiesto) {
-                          if (dd < 1 || dd > 29) {
-                              es = false;
-                          }
-                      } else {
-                          if (dd < 1 || dd > 28) {
-                              es = false;
-                          }
-                      }
-                      break;
-                  default:
-                      if (dd < 1 || dd > 30) {
-                          es = false;
-                      }
-                      break;
-              }
-          }
+                 
       }
-  }
-  return es;
 }
-
-function ValidarCedulaTutor(cadena) {
-  if (EsCedula(cadena)) {
-      alert('Es n° cedula es correcto!');
-      //guardar_usuario();
-  } else {
-      var error="¡El n° de cédula no es válido. Deben ser trece dígitos mas una letra al final, los caracteres del 4to al 9no deben representar una fecha válida!"
-      $('#mensaje').text(error);   //manda el error a la modal
-      $("#Mensaje-error").modal("show"); //abre modal de error
-      $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
-          $("#Mensaje-error").modal("hide"); // cierra modal error
-          } );
-  }
-  return false;
-}
-

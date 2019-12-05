@@ -66,7 +66,9 @@ $(function(){// mascara de ingresar telefono docente
 $(function(){// mascara de editar telefono docente 
     $("#Telefono_Docente_Editar").mask("00000000");
 });
-
+$(function(){// mascara de crear telefono tutor 
+    $("#telefonot").mask("00000000");
+});
 
 
 
