@@ -14,7 +14,7 @@
                                 <div class="form-group has-feedback">
                                     <input type="text" name="iddocente_editar" id="iddocente_editar" class="hidden">
                                     <input type="text" name="idpersona_editar" id="idpersona_editar" class="hidden">
-                                    <input type="text" minlength="14" name="Cedula_Docente_Editar" id="Cedula_Docente_Editar" class="form-control requerido" required placeholder="Numero de Cedula">
+                                    <input type="text"  minlength="16" name="Cedula_Docente_Editar" id="Cedula_Docente_Editar" class="form-control requerido" required placeholder="Numero de Cedula">
                                     <small>Cedula de Identidad</small>
                                 </div>
                                 <div class="form-group has-feedback">
@@ -26,7 +26,7 @@
                                     <small>Primer Apellido</small>
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Apellido2_Docente_Editar" id="Apellido2_Docente_Editar" class="form-control " required placeholder="Segundo apellido">
+                                    <input type="text" name="Apellido2_Docente_Editar" id="Apellido2_Docente_Editar" class="form-control " placeholder="Segundo apellido">
                                     <small>Segundo Apellido</small>
                                 </div>
                                 <div class="form-group has-feedback row">

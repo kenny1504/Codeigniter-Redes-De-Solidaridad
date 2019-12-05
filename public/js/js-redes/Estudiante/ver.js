@@ -1,24 +1,55 @@
 //Metodo para mostrar u ocultar botones en index Estudiantes
-var n=0; var fila; var id1; var id2;
-function mostrar(button){ // ajax para eliminar un grado
-    
-    fila=$(button).parents("tr"); //captura fila para ponerle color
+var n=0; var fila=$("#estudiantes").closest('table').children('tbody').children('tr:first');/* captura el primer tr de la tabla*/   var id1; var id2; var i=0; var a=0; var fila1;
+function mostrar(button){ // funcion para mostrar y o ocultar botones
+  
+  fila.attr("style"," ");
+  fila=$(button).parents("tr"); //captura fila para ponerle color
+  if(fila.index()==a)
+  {
     fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
     var iden=$(button).attr("data-id"); // captura el id_grado "id" del grado
     id1="#"+iden;//captura id de la celda de botones
     id2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
         if(n==0){
-          $(id1).removeClass('hidden'); 
+          
+          $(id1).removeClass('hidden');
           $(id2).addClass('hidden');
           n=1; // oculta error del servidor(validacion-servidor)
         }
         else{
             fila.attr("style"," ");//remueve el color a fila
-            $(id2).removeClass('hidden'); //muestra celda
-            $(id1).addClass('hidden'); // oculta botones
-            n=0;
+            $(id2).removeClass('hidden '); //muestra celda
+            $(id1).addClass('hidden '); // oculta botones
+            n=0; a=0; 
         }
+  }
+  else
+  {
+    $(id2).removeClass('hidden '); //muestra celda
+    $(id1).addClass('hidden '); // oculta botones
+    n=0; a=0;
+    a=fila.index();
+    fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
+    var iden=$(button).attr("data-id"); // captura el id_grado "id" del grado
+    id1="#"+iden;//captura id de la celda de botones
+    id2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
+        if(n==0){
+          
+          $(id1).removeClass('hidden');
+          $(id2).addClass('hidden');
+          n=1; // oculta error del servidor(validacion-servidor)
+        }
+        else{
+            fila.attr("style"," ");//remueve el color a fila
+            $(id2).removeClass('hidden '); //muestra celda
+            $(id1).addClass('hidden '); // oculta botones
+            n=0; a=0;
+        }
+
+  }
+   
   }; 
+
 
   //datos estudiante
   var codigo;
