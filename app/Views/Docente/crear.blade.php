@@ -59,7 +59,7 @@
 
                                 </div>
                                 <div class="form-group has-feedback">
-                                    <input type="text" name="Correo_Docente" id="Correo_Docente" class="form-control " placeholder="Correo Electronico">
+                                    <input type="email" name="Correo_Docente" id="Correo_Docente" class="form-control " placeholder="Correo Electronico">
                                 </div>
                                 <div class="form-group has-feedback">
                                 <textarea class="form-control text-primary" name="Direccion_Docente" rows="3" id="Direccion_Docente" placeholder="Direccion" required></textarea> 

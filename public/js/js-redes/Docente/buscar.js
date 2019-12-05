@@ -1,6 +1,12 @@
 $(document).ready(function () {
     var contenido_fila;
+<<<<<<< HEAD
     var coincidencias;
+=======
+    var contenido_fila2;
+    var coincidencias;
+    var coincidencias2;
+>>>>>>> fe7b17783321ec7a8f090b52924e74f0259b87a7
     var exp;
 //Este metodo es el evento keyup del campo de búsqueda
 $("#buscarD").keyup(function () { //captura los valores del imput segun escriba
@@ -30,5 +36,9 @@ $("#docentes tbody tr").each(function () {
     //$(this).addClass('muestra');
 })
 };
+<<<<<<< HEAD
 }) //Aquí termina el document.ready
 
+=======
+}) //Aquí termina el document.ready
+>>>>>>> fe7b17783321ec7a8f090b52924e74f0259b87a7
