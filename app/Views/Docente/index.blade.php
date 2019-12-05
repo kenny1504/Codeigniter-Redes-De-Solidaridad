@@ -9,7 +9,7 @@ Docentes
               <div class="pull-right box-tools">
                 <a href="#" onclick="ingresar_docente();" class="btn btn-warning btn-sm pull-right b1" >Agregar Docente</a> 
                 <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
-                <input type="text" id="buscarE"  name="table_search" class="form-control " placeholder="Buscar Nombre o codigo">
+                <input type="text" id="buscarD"  name="table_search" class="form-control " placeholder="Buscar Nombre o cedula">
                   <div class="input-group-btn">
                     <span style="margin-right:2em;"  class="btn btn-default"><i class="fa fa-search"></i></span>
                   </div>

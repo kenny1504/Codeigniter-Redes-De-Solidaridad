@@ -11,39 +11,39 @@
                   <div class="modal-body ">
                         <div class="register-box-body" style="background-color:#eee;" >
                             <div class="form-group has-feedback">
-                                <input type="text" name="Descripcion-Oferta" id="Descripcion-Oferta" class="form-control" placeholder="Descripcion de Oferta">
+                                <input type="text" name="Descripcion-Oferta" id="Descripcion-Oferta" class="form-control requerido" required placeholder="Descripcion de Oferta" >
                             </div>
                             <div class="form-group input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input placeholder="Fecha Oferta" type="text" class="form-control pull-right" name="datepickerOferta" id="datepickerOferta">
+                                <input placeholder="Fecha Oferta" type="text" class="form-control pull-right" name="datepickerOferta" id="datepickerOferta" required>
                                 
                             </div> 
                             <label for="Nombre"  style="padding-right:14%;" class="col-sm-2 control-label requerido">Grado</label>   
                             <div class="form-group ">                 
-                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Grado" id="Grado" >
+                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Grado" id="Grado" required>
                                 </select>                   
                             </div>
                             <label for="Nombre"  style="padding-right:14%;" class="col-sm-2 control-label requerido">Grupo</label>   
                             <div class="form-group ">                 
-                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Grupo" id="Grupo" >
+                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Grupo" id="Grupo" required>
                                 </select>                   
                             </div>
                             <label for="Nombre"   class="col-sm-2 control-label requerido">Seccion</label>   
                             <div class="form-group">                 
-                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Seccion" id="Seccion" >
+                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Seccion" id="Seccion" required >
                                 </select>                   
                             </div>
                             <label for="Nombre"   class="col-sm-2 control-label requerido">Docente</label>   
                             <div class="form-group">                 
-                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Docente" id="Docente" >
+                                <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Docente" id="Docente" required>
                                 </select>                   
                             </div>                               
                         </div>  
                 <div class="modal-footer">
                     <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                    <button type="button"  class="btn btn-outline" id="nueva_oferta" >Guardar</button>          
+                    <button type="submit"  class="btn btn-outline" onclick="nueva_oferta();" >Guardar</button>          
                 </div>
                 <!-- /.modal-content -->
               </div>

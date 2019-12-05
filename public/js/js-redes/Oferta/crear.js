@@ -82,8 +82,13 @@ $("#cargar,#cargar2").click(function() { //ajax para cargar datos en el combobox
     });//Fin ajax combobox Docentes
 });
 
-$("#nueva_oferta").click(function() { // ajax para guardar en la tabla oferta
-  if($('input[name=Descripcion-Oferta]').val()!="") // si el input contiene valores entra 
+function nueva_oferta() { // ajax para guardar en la tabla oferta
+  $("#ingresar_oferta").on('submit', function(evt){
+    evt.preventDefault();  
+  });
+
+
+  if($('#Descripcion-Oferta').val()!="" && $('#datepickerOferta').val()!="" && $('#Grado').val()!=null && $('#Grupo').val()!=null && $('#Seccion').val()!=null  && $('#Docente').val()!=null) // si el input contiene valores entra 
   {
   $.ajax({
     type: 'POST', 
@@ -122,4 +127,4 @@ $('#Docente').val(''); // limpiar el docente
     $("#Nombre-error").removeClass('hidden'); //muestra el campo Validacion (validacion-cliente)
     $('.error').addClass('hidden'); // oculta error del servidor(validacion-servidor)
   }
-});
+}

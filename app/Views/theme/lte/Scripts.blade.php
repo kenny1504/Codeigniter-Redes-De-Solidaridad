@@ -69,7 +69,8 @@
         <script type="text/javascript" src="js/js-redes/Estudiante/select2.full.min.js"></script> <!-- Plugins para buscar en combobox-->
         <!--********************* script  "Tutores" *************************-->
         <script type="text/javascript" src="js/js-redes/Tutor/crear.js"></script> <!-- script crear un nuevo Tutor-->
-        <!--********************* script  "Tutores" *************************-->
+        <!--********************* script  "Docente" *************************-->
+        <script type="text/javascript" src="js/js-redes/Docente/buscar.js"></script> <!-- script Buscar un docente-->
         <script type="text/javascript" src="js/js-redes/Docente/ver.js"></script> <!-- script ver un Docente-->
         <script type="text/javascript" src="js/js-redes/Docente/crear.js"></script> <!-- script crear un nuevo Docente-->
         <script type="text/javascript" src="js/js-redes/Docente/eliminar.js"></script> <!-- script eliminar Docente-->
