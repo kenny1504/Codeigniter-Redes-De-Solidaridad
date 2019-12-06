@@ -1,4 +1,9 @@
 var dat; //variable global que guarda el dato "tr" (Fila a editar)
+
+$(function() //funcion para buscar dentro del combobox
+{
+  $('#Docente1').select2({width:"80%"}) // agrega el select2 a combobox docentes para buscar 
+});
 function editar_Oferta(button)
 {
     dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Editar)
@@ -88,7 +93,7 @@ function editar_Oferta(button)
           $('#Descripcion_Oferta1').val(Descrip);
           $('#datepickerOfertaEditar').val(fecha);
           $('#idoferta').val(id);
-          $('#Docente1').val(docente);
+          $('#Docente1').select2("val",docente);
           $('#Grupo1').val(grupo);
           $('#Grado1').val(grado);
           $('#Seccion1').val(seccion); 
