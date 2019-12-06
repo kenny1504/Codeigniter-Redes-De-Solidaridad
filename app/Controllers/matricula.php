@@ -17,10 +17,14 @@ class matricula extends BaseController
         FROM estudiantes as e JOIN personas as p on p.id=e.personasid
         join tutores as t on e.tutorid=t.id join personas as pe on pe.id=t.personasid";
 
+        $consulta1="SELECT t.id,p.Cedula, CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre, p.Sexo,p.Correo,p.Telefono,o.Nombre AS Oficio
+        FROM tutores as t JOIN personas as p on p.id=t.personasid JOIN oficios as o ON o.id=t.Oficiosid";
+
         if(isset($_SESSION['login_in']) && !empty($_SESSION['login_in']) && $_SESSION['login_in']==true)  //si no existe una sesion No ingresa
 	     {
-                        $data['Estudiantes'] = $db->query($consulta); //Envia la consulta a la base de datos
-                        return view('/Matricula/index.blade.php',$data);// retorna vista y se envian datos 
+                        $data['Estudiantes'] = $db->query($consulta);
+                        $data1['Tutores'] = $db->query($consulta1); //Envia la consulta a la base de datos
+                        return view('/Matricula/index.blade.php',$data+$data1);// retorna vista y se envian datos 
               }
              else
              {

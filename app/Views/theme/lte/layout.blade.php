@@ -73,7 +73,9 @@
                      <?= $this->include("Estudiante/editar.blade.php") ?>  <!--Modal editar un estudiante--> 
                      <!--******** include de Tutor ********--> 
                      <?= $this->include("Tutor/ver.blade.php") ?><!-- Modal ver tutor--> 
-                     <?= $this->include("Tutor/crear.blade.php") ?><!-- Modal ingresar un tutor-->       
+                     <?= $this->include("Tutor/crear.blade.php") ?><!-- Modal ingresar un tutor-->
+                     <?= $this->include("Tutor/eliminar.blade.php") ?>  <!--Modal eliminar un tutor-->    
+                     <?= $this->include("Tutor/editar.blade.php") ?><!-- Modal editar Docente-->    
                     <!--******** include de Oficios ********-->   
                     <?= $this->include("Oficio/crear.blade.php") ?><!-- Modal ingresar un oficio-->     
                     <?= $this->include("Oficio/eliminar.blade.php") ?><!-- Modal eliminar oficio-->    
