@@ -45,6 +45,9 @@ $(function(){ // mascara de ingresar usuario
 $(function(){// mascara de ingresar tutor
     $("#Cedulat").mask("000-000000-0000S");
 });
+$(function(){// mascara de editar tutor
+    $("#Cedula_Tutor_Editar").mask("000-000000-0000S");
+});
 $(function(){// mascara de ingresar docente
     $("#Cedula_Docente").mask("000-000000-0000S");
 });
@@ -68,6 +71,9 @@ $(function(){// mascara de editar telefono docente
 });
 $(function(){// mascara de crear telefono tutor 
     $("#telefonot").mask("00000000");
+});
+$(function(){// mascara de editar telefono tutor 
+    $("#Telefono_Tutor_Editar").mask("00000000");
 });
 
 

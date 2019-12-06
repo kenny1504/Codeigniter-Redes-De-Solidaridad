@@ -125,6 +125,54 @@ Matricula
           </div>
     <div class="box setup-content" id="step-2"> <!--aqui vas a poner todo lo qeu tiene que ver con tutor -->
          <!--AQUI -->
+         <div class="box-header">
+            <h2 class="box-title text-light-blue">Tutor</h2>
+            <div class="pull-right box-tools"> 
+                <a href="#" onclick="ingresar_tutor();" class="btn btn-warning btn-sm pull-right b1" >Agregar Tutor</a>
+              <div class="input-group input-group-sm hidden-xs" style="width: 350px;">
+              <input type="text" id="buscarT"  name="table_search" class="form-control " placeholder="Buscar Nombre o cedula">
+                <div class="input-group-btn">
+                  <span style="margin-right:2em;"  class="btn btn-default"><i class="fa fa-search"></i></span>
+                </div>
+              </div>  
+            </div>     
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body panel box box-primary">
+            <table id="tutor" class="table table-bordered table-striped">
+                   <thead>  <!--Header de la tabla -->  
+                     <tr > 
+                       <th>Cedula</th>
+                       <th>Nombre completo</th>
+                       <th>Sexo</th>
+                       <th>Correo</th>
+                       <th>Oficio</th>
+                       <th>Telefono</th>
+                     </tr>
+                  </thead> 
+                      <tbody> <!--Cuerpo de la tabla --> 
+                      <?php foreach ($Tutores ->getResultArray() as $Tutor): ?><!--ciclo que recorre el arreglo retonrnado del controlador-->					
+                               <tr >  <!--abre fila-->                              
+                                  <td><?php echo $Tutor['Cedula'];?></td>  <!--agrega dato a la columna-->
+                                  <td><?php echo $Tutor['Nombre'];?></td>  <!--agrega dato a la columna-->
+                                  <td><?php echo $Tutor['Sexo'];?></td>  <!--agrega dato a la columna--> 
+                                  <td><?php echo $Tutor['Correo'];?></td>  <!--agrega dato a la columna-->
+                                  <td><?php echo $Tutor['Oficio'];?>  <!--inicio columna que contienen botones-->
+                                    <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Tutor['id']; ?>" >
+                                        <button class="btn btn-primary "  onclick="ver_tutor(this);"  data-id="<?php echo $Tutor['id']; ?>" id="Ver-tutor">ver</button>      
+                                        <button class="btn btn-success " onclick="editar_Tutor(this);" data-id="<?php echo $Tutor['id']; ?>"><i class=" fa fa-fw fa-pencil"></i></button> 
+                                        <button class="btn btn-info" onclick="eliminar_tutor(this);" data-id="<?php echo $Tutor['id']; ?>"><i class="fa fa-fw fa-trash "></i></button>
+                                        <i class="fa fa-angle-double-right pull-right "onclick="mostrarT(this);" data-id="<?php echo $Tutor['id']; ?>"></i>                             
+                            </td>
+                            </td>  <!--fin columna botones-->
+                                  <td id="<?php echo $Tutor['id']; ?>a" ><?php echo $Tutor['Telefono'];?> <i class="fa fa-angle-double-right pull-right" onclick="mostrarT(this);"  data-id="<?php echo $Tutor['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
+                                    
+                              </tr>                         
+                                    <?php endforeach; ?> 
+                      </tbody>                        
+            </table>   
+          </div>
+          <div class="panel box box-primary"></div><!-- /.box-body -->
      </div>  
 <style>
 .oculta {

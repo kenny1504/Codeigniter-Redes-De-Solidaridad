@@ -6,7 +6,10 @@ $('#datepickertutor').datepicker({ //sirve para mostrar Datepicker
     format: 'yyyy-mm-dd',
     autoclose: true
   })
-
+  $('#datepickerTutorEditar').datepicker({ //mostrar Datepicker editar
+    format: 'yyyy-mm-dd',
+    autoclose: true
+  })
 function ingresar_tutor()
 {   
     $('#crear_tutor').modal('show'); // abre ventana modal
@@ -56,18 +59,34 @@ function guardar_Tutor()
                       } );
 
                }
-               else if(data==2) // muestra mensaje de error
-               {
-                  var error="Error al insertar"
-                  $('#mensaje').text(error);   //manda el error a la modal
-                  $("#Mensaje-error").modal("show"); //abre modal de error
-                  $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
-                      $("#Mensaje-error").modal("hide"); // cierra modal error
-                      } );
-
-               }
                else
                {
+                var cedula=$('#Cedulat').val();
+                var nombre=$('#Nombre-tutor').val()+" "+$('#apellido1-tutor').val()+" "+$('#apellido2-tutor').val();
+                var sexo=$('#sexot').val();
+                var correo=$('#correot').val();
+                var oficio=$('#oficiot').find('option:selected').text();
+                var telefono=$('#telefonot').val();;
+                var id=data.id;
+
+              var datos=  "<tr>"+                            
+                "<td>"+cedula+"</td>"+
+                "<td>"+nombre+"</td>"+
+                "<td>"+sexo+"</td> "+
+                "<td>"+correo+"</td>"+
+                "<td>"+oficio+"</td>"+
+                "<td style='padding-top:0.1%; padding-bottom:0.1%;' class='hidden' id="+id+" >"+
+                            "<button class='btn btn-primary'  onclick='ver_tutor(this);'  data-id="+id+" id='Ver-tutor'>ver</button>"+
+                            "<button class='btn btn-success' onclick=''><i class='fa fa-fw fa-pencil'></i></button>"+
+                            "<button class='btn btn-info' data-id="+id+" onclick='eliminar_tutor(this);' ><i class='fa fa-fw fa-trash '></i></button>"+
+                           " <i class='fa fa-angle-double-right pull-right' onclick='mostrarT(this);'  data-id="+id+"></i>"+                             
+                "</td>"+
+                "</td>"+
+                "<td id="+id+"a>"+telefono+ "<i class='fa fa-angle-double-right pull-right' onclick='mostrarT(this);' data-id="+id+"></i> </td>"            
+              "</tr>"  //Datos a ingresar en la tabla estudiantes
+
+              $('#tutor').append(datos); // agrega nuevo registro a tabla
+
                 $("#exito").modal("show"); //abre modal de exito
                                
                 $("#crear_tutor").modal("hide"); // cierra modal
