@@ -51,7 +51,7 @@ function guardar_Tutor()
               success: function(data){ 
                if(data==0) // muestra mensaje de error
                {
-                  var error="El tutor ya existe, favor reingresar Cedula"
+                  var error="El tutor ya existe, favor verificar Cedula"
                   $('#mensaje').text(error);   //manda el error a la modal
                   $("#Mensaje-error").modal("show"); //abre modal de error
                   $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
@@ -83,9 +83,12 @@ function guardar_Tutor()
                 "</td>"+
                 "</td>"+
                 "<td id="+id+"a>"+telefono+ "<i class='fa fa-angle-double-right pull-right' onclick='mostrarT(this);' data-id="+id+"></i> </td>"            
-              "</tr>"  //Datos a ingresar en la tabla estudiantes
+              "</tr>"  //Datos a ingresar en la tabla tutor
+
+              var datos_combo='<option  value="'+id+'">'+nombre+'</option>'; //datos a ingresar en el combobox tutores
 
               $('#tutor').append(datos); // agrega nuevo registro a tabla
+              $('#tutores').append(datos_combo); //ingresa valores al combobox tutores
 
                 $("#exito").modal("show"); //abre modal de exito
                                

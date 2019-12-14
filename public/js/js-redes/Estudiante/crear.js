@@ -128,7 +128,24 @@ function nuevo_estudiante()
                   "<td id="+id+"a>"+telefono_tutor+ "<i class='fa fa-angle-double-right pull-right' onclick='mostrar(this);' data-id="+id+"></i> </td>"            
                 "</tr>"  //Datos a ingresar en la tabla estudiantes
 
-                $('#estudiantes').append(datos); // agrega nuevo registro a tabla
+                var  datos_="<tr>"+                            
+                "<td>"+codigo+"</td>"+
+                "<td>"+nombre+"</td>"+
+                "<td>"+sexo+"</td> "+
+                "<td>"+dirreccion+"</td>"+
+                "<td>"+tutor+"</td>"+
+                "<td style='padding-top:0.1%; padding-bottom:0.1%;' class='hidden' id="+id+" >"+
+                            "<button class='btn btn-primary'  onclick='ver_estudiante(this);'  data-id="+id+" id='Ver-estudiante'>Matricula</button>"+
+                           " <i class='fa fa-angle-double-right pull-right' onclick='mostrar(this);'  data-id="+id+"></i>"+                             
+                "</td>"+
+                "</td>"+
+                "<td id="+id+"a>"+telefono_tutor+ "<i class='fa fa-angle-double-right pull-right' onclick='mostrar(this);' data-id="+id+"></i> </td>"            
+              "</tr>"//Datos a ingresar en la tabla estudiantes matricula
+
+
+
+                $('#estudiantes_matricula').append(datos_); // agrega nuevo registro a tabla estudiante
+                $('#estudiantes').append(datos); // agrega nuevo registro a tabla estudiante
                   
                 $("#exito").modal("show"); //abre modal de exito
                 $("#crear_estudiante").modal("hide"); // cierra modal

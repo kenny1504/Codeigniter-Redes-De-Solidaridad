@@ -18,7 +18,7 @@
 <!-- Automatic element centering -->
 <div class="lockscreen-wrapper">
   <div class="lockscreen-logo" style="color: white;">
-  <b>Redes</b><a style="color: white;"> DE </a><b>Solidaridad</b>
+  <b>Redes</b><a style="color: white;"> de </a><b>Solidaridad</b>
   </div>
   <!-- User name -->
   <div class="lockscreen-name"> 
@@ -48,7 +48,7 @@
   </div><!-- /.lockscreen-item --> 
   <label id="error" class="help-block  hidden text-center" style="color: red;" >Contraseña Incorrecta</label>
   <div class="help-block text-center" style="color: white;">
-    Ingrese su contraseña para iniciar session
+    Ingrese su contraseña para iniciar sesion
   </div>
   <div class="text-center">
     <a href="<?php base_url()?>.">Ingresar con otra cuenta de usuario</a>

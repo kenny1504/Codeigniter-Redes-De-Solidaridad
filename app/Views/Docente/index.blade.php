@@ -23,6 +23,7 @@ Docentes
                        <tr > 
                          <th>Cedula</th>
                          <th>Nombre completo</th>
+                         <th>Estado</th>
                          <th>Sexo</th>
                          <th>Correo</th>
                          <th>Telefono</th>
@@ -33,7 +34,17 @@ Docentes
                                  <tr >  <!--abre fila-->                              
                                     <td><?php echo $Docente['Cedula'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $Docente['Nombre'];?></td>  <!--agrega dato a la columna-->
-                                    <td><?php echo $Docente['Sexo'];?></td>  <!--agrega dato a la columna-->
+                                    <td><?php
+                                     if(  $Docente['Estado']==0)
+                                    {
+                                      echo "Inactivo";
+                                    }
+                                    else
+                                    {
+                                      echo "Activo";
+                                    }
+                                    ?> </td>
+                                    <td ><?php echo $Docente['Sexo'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $Docente['Correo'];?>  <!--inicio columna que contienen botones-->
                                     <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Docente['id']; ?>" >
                                                 <button class="btn btn-primary"  onclick="ver_docente(this);"  data-id="<?php echo $Docente['id']; ?>" id="Ver-docente">ver</button>      

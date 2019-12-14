@@ -66,11 +66,21 @@ function editar_confirmar_Docente() {
             var nombre=$('#Nombre_Docente_Editar').val()+" "+$('#Apellido1_Docente_Editar').val()+" "+$('#Apellido2_Docente_Editar').val();            
             var sexo=$('#Sexo_Docente_Editar').val();
             var telefono=$('#Telefono_Docente_Editar').val();
-            var correo=$('#Correo_Docente_Editar').val(); 
+            var correo=$('#Correo_Docente_Editar').val();        
+            var estado=0;
+            if($('#Estado_Editar').val()==1)
+            {
+            estado="Activo";
+            }
+            else
+            {
+                estado="Inactivo";
+            }
             
             var datos=  "<tr>"+                            
                   "<td>"+cedula+"</td>"+
                   "<td>"+nombre+"</td>"+
+                  "<td>"+estado+"</td> "+
                   "<td>"+sexo+"</td> "+
                   "<td>"+correo+"</td>"+
                   "<td style='padding-top:0.1%; padding-bottom:0.1%;' class='hidden' id="+id+" >"+

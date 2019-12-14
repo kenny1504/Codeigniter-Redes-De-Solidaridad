@@ -12,7 +12,7 @@
                         <div class="register-box-body" style="background-color:#eee;" >
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/avatar-07.png" class="user-image" alt="User Image">
                                 <div class="form-group has-feedback">
-                                    <input minlength="14" type="text" name="Cedulat" id="Cedulat" class="form-control requerido" required placeholder="Cedula">
+                                    <input minlength="16" type="text" name="Cedulat" id="Cedulat" class="form-control requerido" required placeholder="Cedula">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <input type="text"  name="Nombre-tutor" id="Nombre-tutor" class="form-control requerido" required placeholder="Nombre">
@@ -59,7 +59,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input required placeholder="Fecha de Nacimiento" type="text" class="form-control pull-right requerido" name="datepickertutor" id="datepickertutor">            
+                                        <input autocomplete="off" required placeholder="Fecha de Nacimiento" type="text" class="form-control pull-right requerido" name="datepickertutor" id="datepickertutor">            
                                     </div> 
                         </div>  
                 <div class="modal-footer">
