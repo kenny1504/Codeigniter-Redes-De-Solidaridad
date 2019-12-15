@@ -177,9 +177,10 @@ $routes->post('/tutor/agregar', 'tutor::agregar');
 $routes->post('/eliminar/tutor', 'tutor::eliminar');
 $routes->post('/actualizar/tutor', 'tutor::actualizar');
 
-//Rutas Notas
-$routes->get('/notas', 'notas::index');
+//Rutas Notas 
+$routes->get('/notas', 'notas::index'); 
 $routes->post('/notas/cargar', 'notas::cargar');
+$routes->post('/cargar_detalles', 'notas::cargar_detalles');
 
 
 /**

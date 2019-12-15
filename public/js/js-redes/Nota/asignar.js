@@ -1,4 +1,13 @@
-$(document).ready(function(){ //ajax para cargar combo box en vista Notas
+$('#año_oferta').datepicker({ //Fecha Matricula
+    format: 'yyyy',
+    viewMode: "years",
+    minViewMode: "years",
+    autoclose: true,
+  })
+
+
+$(document).ready(function(){ //ajax para cargar combo box en vista Notas 
+    
     $.ajax({
         type: 'POST',
         url: 'cargargrados/oferta', // llamada a ruta para cargar combobox con datos de tabla grados
@@ -15,6 +24,23 @@ $(document).ready(function(){ //ajax para cargar combo box en vista Notas
           
       }
     });//Fin ajax combobox Grado
+
+    $.ajax({
+        type: 'POST',
+        url: '/cargar_detalles', // llamada a ruta para cargar combobox  Detalle de Nota
+        dataType: "JSON", // tipo de respuesta del controlador
+        success: function(data){ 
+        
+          $('#Detalle_nota').empty();//limpia el combobox
+          var datos ="<option value='' disabled selected>Semestre</option>";
+          data.forEach(element => { //ciclo para recorrer el arreglo de grados
+              //variable para asignarle los valores al combobox
+             datos+='<option  value="'+element.id+'">'+element.Descripcion+'</option>';
+          });
+          $('#Detalle_nota').append(datos);//ingresa valores al combobox
+          
+      }
+    });//Fin ajax combobox Detalle de Nota
 
     
     $.ajax({
@@ -41,7 +67,7 @@ function Mostar_Notas()
     var id_grado=$('#grado_nota').val();
     var id_grupo=$('#grupo_nota').val();
 
-    if($('#grado_nota').val()!=null && $('#grupo_nota').val()!=null)
+    if($('#grado_nota').val()!=null && $('#grupo_nota').val()!=null &&  $('#Detalle_nota').val()!=null )
     {
 
         $.ajax({ //ajax Mostra Notas

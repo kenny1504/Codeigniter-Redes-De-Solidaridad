@@ -1,3 +1,17 @@
+$('#datepickerOferta').datepicker({ //Fecha Matricula
+  format: 'yyyy',
+  viewMode: "years",
+  minViewMode: "years",
+  autoclose: true,
+}).datepicker("setDate", new Date());
+
+$('#datepickerOfertaEditar').datepicker({ //Fecha Matricula
+  format: 'yyyy',
+  viewMode: "years",
+  minViewMode: "years",
+  autoclose: true,
+})
+
 
 $(function() //funcion para buscar dentro del combobox
 {

@@ -6,15 +6,17 @@ Notas
             <div class="box">
             <div class="box-header">
               <h2 class="box-title text-light-blue">Notas</h2>
-              <div class="box-tools" id="filtros"> 
+              <div class="box-tools" id="filtros">
                 <div class="form-group has-feedback ">
-                                        <small>Año</small>
-                                        <input  minlength="4" style="width: 30%; padding-top: 1.3%;" value="<?php echo date("Y") ?>" type="number" name="año_oferta" id="año_oferta" >
-                                        <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grupo_nota" id="grupo_nota" > 
+                                        <input style="width: 20%; padding-top: 1.5%; " name="año_oferta" type="text" class="form-control pull-left requerido" id="año_oferta" required placeholder="Año">    
+                                        <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="grupo_nota" id="grupo_nota" > 
                                         </select>
-                                        <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grado_nota" id="grado_nota" >
-                                        </select>     
-                                        <a  onclick="Mostar_Notas();" class="btn btn-primary btn-sm pull-right" id="guardar_notas" ><i class="fa fa-search"></i></a>
+                                        <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="grado_nota" id="grado_nota" >
+                                        </select>
+                                        </select>
+                                        <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="Detalle_nota" id="Detalle_nota" >
+                                        </select>   
+                                        <a style="width: 10%; " onclick="Mostar_Notas();" class="btn btn-primary btn-sm pull-right" id="guardar_notas" ><i class="fa fa-search"></i></a>
                                         
                 </div>  
               </div>

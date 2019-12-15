@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 
+use App\Models\detallesNota;
 use CodeIgniter\Controller;
 use App\Models\ofertas;
 use App\Models\UserModel;
@@ -54,5 +55,15 @@ class notas extends BaseController
         }
 
     }
+
+    public function cargar_detalles()
+    {
+       $detalles =new detallesNota();
+       
+       $result= $detalles->findAll();
+	   return json_encode($result);
+   }	
+
+    
 	
 }
