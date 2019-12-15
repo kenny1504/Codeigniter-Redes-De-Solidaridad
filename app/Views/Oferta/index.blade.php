@@ -22,7 +22,7 @@ Ofertas
                      <thead>  <!--Header de la tabla -->  
                        <tr > 
                          <th>Descripcion</th>
-                         <th>Fecha de Oferta</th>
+                         <th>Año de Oferta</th>
                          <th>Docente</th>                       
                          <th>Grado</th>
                          <th>Grupo</th>

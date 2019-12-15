@@ -7,16 +7,14 @@ Notas
             <div class="box-header">
               <h2 class="box-title text-light-blue">Notas</h2>
               <div class="box-tools" id="filtros"> 
-                <div class="form-group has-feedback">
+                <div class="form-group has-feedback ">
                                         <small>Año</small>
                                         <input  minlength="4" style="width: 30%; padding-top: 1.3%;" value="<?php echo date("Y") ?>" type="number" name="telefono" id="telefono" >
-                                        <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grupo_nota" id="grupo_nota"  aria-placeholder="sexo"> 
-                                        <option value="" disabled selected>Grupo</option>
+                                        <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grupo_nota" id="grupo_nota" > 
                                         </select>
-                                        <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grado_nota" id="grado_nota"  aria-placeholder="sexo"> 
-                                        <option value="" disabled selected>Grado</option>
+                                        <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grado_nota" id="grado_nota" >
                                         </select>     
-                                        <button style="padding-top: 2.7%;" ><i class="fa fa-search"></i></button>         
+                                        <button id="buscar_Notas" style="padding-top: 2.7%;" ><i class="fa fa-search"></i></button>         
                                         
                 </div>  
               </div>

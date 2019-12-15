@@ -82,4 +82,7 @@
         <script type="text/javascript" src="js/js-redes/Docente/eliminar.js"></script> <!-- script eliminar Docente-->
         <script type="text/javascript" src="js/js-redes/Docente/editar.js"></script> <!-- script eliminar Docente-->
         <script type="text/javascript" src="js/js-redes/Docente/buscar.js"></script> <!-- script buscar un  Docente-->
+        <!--********************* script  "Notas" *************************-->
+        <script type="text/javascript" src="js/js-redes/Nota/asignar.js"></script> <!-- script Asignar Notas-->
+
 </div>
