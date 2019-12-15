@@ -13,12 +13,12 @@
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/hat-1674894_1280.png" class="user-image" alt="User Image">
                             <div class="form-group has-feedback row">
                                 <div class="col-md-9">
-                                    <label id="datepickerFechaMatricula">aqui deberia ir la fecha, pero no me carga SAD</label> 
+                                    <label><?php echo date("d") . "/" . date("m") . "/" . date("Y") ?></label> 
                                     <br/> 
                                     <small>Fecha Matricula</small>
                                 </div>
                                 <div class="col-md-3">
-                                    <input placeholder="Fecha de Nacimiento" name="datepickerMatricula" type="text" class="form-control pull-left requerido carga_oferta" id="datepickerMatricula" required>         
+                                    <input name="datepickerMatricula" type="text" class="form-control pull-left requerido" id="datepickerMatricula" required>         
                                     <br/> 
                                     <small>Año</small> 
                                 </div> 
@@ -36,7 +36,7 @@
                                         </div>  
                                 </div>
                                 <div class="form-group has-feedback"> 
-                                        <select class="form-control oferta_ver" required name="Oferta_M" id="Oferta_M" aria-placeholder="Oferta"> 
+                                        <select class="form-control " required name="Oferta_M" id="Oferta_M" aria-placeholder="Oferta"> 
                                             <option value="" disabled selected>Oferta Academica</option>
                                         </select>  
                                         <small>Oferta Academica</small> 
