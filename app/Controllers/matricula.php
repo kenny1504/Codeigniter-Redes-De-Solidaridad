@@ -5,6 +5,7 @@ use App\Models\UserModel;
 use CodeIgniter\HTTP\Request;
 use App\Models\situacionmatriculas;
 use App\Models\matriculas;
+use App\Models\detallematriculas;
 
 class matricula extends BaseController
 {
@@ -77,13 +78,28 @@ class matricula extends BaseController
                   'SituacionMatriculaid' => $idsituacionmatriculas,	
                   'Estudianteid' => $idestudiante,	
                   );
-            $matriculaid = $matriculas->insert($data1);// peticion para insertar la matricula en la tabla matricula        
-                  if(!empty($matriculaid))
-                  {
-                    $valor=1; 
-                  }
+            $matriculaid = $matriculas->insert($data1);// peticion para insertar la matricula en la tabla matricula   
+            
+            if($matriculaid==true)
+            {
+              $detallematriculas= new detallematriculas();
+              $idasignatura_M=$this->request->getPost('asignaturas_grado_M');
+              //for($i=0; $i < count($lista); $i++){
+
+                $data2 = array (
+                  'Asignaturaid' => $idasignatura_M,
+                  'Matriculaid' => $matriculaid,		
+                  );
+                  $detallematriculasid = $detallematriculas->insert($data2);
+              //}
+              if(!empty($detallematriculasid))
+            {
+              $valor=1; 
+            }
+            }    
+            
         }
         return json_encode($valor);
-              }
+  }
    
 }

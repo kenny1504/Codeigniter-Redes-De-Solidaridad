@@ -105,9 +105,9 @@ $("#Oferta_M").change(function () { //ajax para ver detalles de oferta
             success: function(data){ 
 
                     for(var a=0; a<data.length;a++){
-                        var datos=  "<tr id=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
+                        var datos=  "<tr value=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
                             + "<td>"+ "<button type='button' class='btn btn-danger' data-id="+ data[a].id +" onclick=''><i class='fa fa-fw fa-trash '></i></button>"                                   
-                            +"</td>"+"</tr>"; // variable guarda el valor del registro de materias
+                            +"</td>"+"</tr>"; 
                         $('#asignaturas_grado_M').append(datos); // agrega nuevo registro a tabla
                     }         
                 }      
@@ -120,6 +120,11 @@ $("#datepickerMatricula").change(function () { //esta funcion sirve para que las
 }); //fin de funcion
 
   function nueva_matricula() { // ajax para guardar en la tabla oferta
+
+
+    //var ty=$('#asignaturas_grado_M').attr("id");
+
+    
     $("#ingresar_Matricula").on('submit', function(evt){
       evt.preventDefault();  
     });
