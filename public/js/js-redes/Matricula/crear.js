@@ -20,8 +20,12 @@ function ingresar_matricula(button)
         $('#asignaturas_grado_M').empty();
         dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Matricular)
         $('#crear_matricula').modal('show'); // abre ventana modal
+
+        
         var ide=$(button).attr("data-id");//obtiene el id del estudiante a matricular
         $('#idestudiante_M').val(ide);   //manda valor "id" a ventana modal
+        cargar_oferta(); //llamado al metodo para que carga a la primera
+      
       $.ajax({
         type: 'POST',
         url: 'estudiante/cargar_editar/'+ide, // llamada a la consulta
@@ -51,10 +55,14 @@ function ingresar_matricula(button)
 
 }//fin del metodo
 
-$(".carga_oferta").click(function() { //ajax para ver  ofertas
-  
-  //if($('#datepickerMatricula').select()!="") // si se ha seleccionado una año
-  //{
+function cargar_oferta() //Metodo para cargar las ofertas segun el año seleccionado
+{   
+     //Limpia campos del detalle de oferta
+       $('#asignaturas_grado_M').empty(); //limpia la tabla
+        $('#Seccion_M').val("");
+        $('#Docente_M').val("");
+        $('#Grado_M').val("");
+        $('#Grupo_M').val("");
     $.ajax({
       type: 'POST',
       url: 'oferta/cargar_ofertas/'+$('#datepickerMatricula').val(),//ruta para cargar la descripcion de las ofertas
@@ -65,53 +73,51 @@ $(".carga_oferta").click(function() { //ajax para ver  ofertas
             var datos='<option  value="'+data[a].idOferta+'">'+data[a].Descripcion+'</option>';
             $('#Oferta_M').append(datos);//ingresa valores al combobox de ofertas
             $('#Oferta_M').val(''); // limpiar las ofertas
-        }               
+        }         
     }
-  });//Fin ajax 
+   });//Fin ajax 
+}
 
-  //}        
-}); //fin de funcion
-
-$(".oferta_ver").click(function() { //ajax para ver detalles de oferta
-  
-    if($('#Oferta_M').val()!=null) // si se ha seleccionado una oferta
+$("#Oferta_M").change(function () { //ajax para ver detalles de oferta
+  if($('#Oferta_M').val()!=null) // si se ha seleccionado una oferta
     {
-    $.ajax({
-      type: 'POST',
-      url: 'oferta/cargar/'+$('#Oferta_M').val(), //llamada a la ruta para mostrar detalles
-      dataType: "JSON", // tipo de respuesta del controlador
-      success: function(data){ //carga el detalle de la oferta
-        
-        for(var a=0; a<data.length;a++){          
-        $('#Seccion_M').val(data[0].Nombre_Seccion);
-        $('#Docente_M').val(data[0].Nombre_Docente);
-        $('#Grado_M').val(data[0].Nombre_Grado);
-        $('#Grupo_M').val(data[0].Nombre_Grupo);
-        }     
+        $.ajax({
+          type: 'POST',
+          url: 'oferta/cargar/'+$('#Oferta_M').val(), //llamada a la ruta para mostrar detalles
+          dataType: "JSON", // tipo de respuesta del controlador
+          success: function(data){ //carga el detalle de la oferta
+
+            for(var a=0; a<data.length;a++){          
+            $('#Seccion_M').val(data[0].Nombre_Seccion);
+            $('#Docente_M').val(data[0].Nombre_Docente);
+            $('#Grado_M').val(data[0].Nombre_Grado);
+            $('#Grupo_M').val(data[0].Nombre_Grupo);
+            }     
+        }
+        });//fin de ajax
+        //***************** AJAX PARA CARGAR ASIGNATURAS EN TABLA  ************* */
+        $('#asignaturas_grado_M').empty(); //limpia la tabla
+        $.ajax({
+            type: 'POST',
+            url: 'matricula/cargarmaterias_grado_M/'+$('#Oferta_M').val(), // llamada a ruta para cargar asignaturas en las tablas
+            //data: $('#ingresar_Matricula').serialize(), // manda el form donde se encuentra la modal 
+            dataType: "JSON", // tipo de respuesta del controlador
+            success: function(data){ 
+
+                    for(var a=0; a<data.length;a++){
+                        var datos=  "<tr id=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
+                            + "<td>"+ "<button type='button' class='btn btn-danger' data-id="+ data[a].id +" onclick=''><i class='fa fa-fw fa-trash '></i></button>"                                   
+                            +"</td>"+"</tr>"; // variable guarda el valor del registro de materias
+                        $('#asignaturas_grado_M').append(datos); // agrega nuevo registro a tabla
+                    }         
+                }      
+        });//Fin ajax cargar materias en tabla
+
     }
-    });//fin de ajax
-    //***************** AJAX PARA CARGAR ASIGNATURAS EN TABLA  ************* */
-    $('#asignaturas_grado_M').empty(); //limpia la tabla
-    $.ajax({
-        type: 'POST',
-        url: 'matricula/cargarmaterias_grado_M/'+$('#Oferta_M').val(), // llamada a ruta para cargar asignaturas en las tablas
-        //data: $('#ingresar_Matricula').serialize(), // manda el form donde se encuentra la modal 
-        dataType: "JSON", // tipo de respuesta del controlador
-        success: function(data){ 
-
-                for(var a=0; a<data.length;a++){
-                    var datos=  "<tr id=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
-                        + "<td>"+ "<button type='button' class='btn btn-danger' data-id="+ data[a].id +" onclick=''><i class='fa fa-fw fa-trash '></i></button>"                                   
-                        +"</td>"+"</tr>"; // variable guarda el valor del registro de materias
-                    $('#asignaturas_grado_M').append(datos); // agrega nuevo registro a tabla
-                }         
-            }      
-    });//Fin ajax cargar materias en tabla
-
-    }        
-  }); //fin de funcion
-
-
+}); //fin de funcio
+$("#datepickerMatricula").change(function () { //esta funcion sirve para que las ofertas cambien segun cambie el año
+  cargar_oferta(); //llamado a funcion
+}); //fin de funcion
 
   function nueva_matricula() { // ajax para guardar en la tabla oferta
     $("#ingresar_Matricula").on('submit', function(evt){
@@ -136,17 +142,24 @@ $(".oferta_ver").click(function() { //ajax para ver detalles de oferta
             } );
         } 
         else {
+          $('#crear_matricula').modal('hide'); // cierra ventana modal
           $("#exito").modal("show"); //abre modal de exito
+          
           $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
             $("#exito").modal("hide"); // cierra modal
           } );
        }      
     }   
   });
-  //$('#Descripcion-Oferta').val(''); // limpiar el input Descripcion Oferta
-  //$('#Grado').val(''); // limpiar el grado
-  //$('#Grupo').val(''); // limpiar el grupo
-  //$('#Seccion').val(''); // limpiar la seccion
-  //$('#Docente').val(''); // limpiar el docente
+        $('#Seccion_M').val("");
+        $('#Docente_M').val("");
+        $('#Grado_M').val("");
+        $('#Grupo_M').val("");
+        $('#Oferta_M').val(''); 
+        $('#asignaturas_grado_M').val('');
+        $('#Turno').val(''); 
+        $('#Situacion_Matricula').val('');
     }
   }
+
+  

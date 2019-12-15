@@ -180,6 +180,7 @@ $routes->post('/actualizar/tutor', 'tutor::actualizar');
 
 //Rutas Notas
 $routes->get('/notas', 'notas::index');
+$routes->post('/notas/cargar', 'notas::cargar');
 
 
 /**

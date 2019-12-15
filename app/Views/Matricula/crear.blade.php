@@ -13,13 +13,16 @@
                             <img  class="profile-user-img img-responsive img-circle" src="assets/lte/dist/img/hat-1674894_1280.png" class="user-image" alt="User Image">
                             <div class="form-group has-feedback row">
                                 <div class="col-md-9">
+
+                                    
                                     <input type="text" name="idestudiante_M" id="idestudiante_M" class="hidden">
-                                    <input type="text" name="datepickerFechaMatricula" id="datepickerFechaMatricula"></label> 
+                                    <input name="datepickerFechaMatricula" id="datepickerFechaMatricula" class="hidden"> <!--Mandar fecha actual con formato para MySql -->
+                                    <label><?php echo date("d") . "/" . date("m") . "/" . date("Y") ?></label> 
                                     <br/> 
                                     <small>Fecha Matricula</small>
                                 </div>
                                 <div class="col-md-3">
-                                    <input placeholder="Fecha de Nacimiento" name="datepickerMatricula" type="text" class="form-control pull-left requerido carga_oferta" id="datepickerMatricula" required>         
+                                    <input name="datepickerMatricula" type="text" class="form-control pull-left requerido" id="datepickerMatricula" required>         
                                     <br/> 
                                     <small>Año</small> 
                                 </div> 
@@ -37,7 +40,7 @@
                                         </div>  
                                 </div>
                                 <div class="form-group has-feedback"> 
-                                        <select class="form-control oferta_ver" required name="Oferta_M" id="Oferta_M" aria-placeholder="Oferta"> 
+                                        <select class="form-control " required name="Oferta_M" id="Oferta_M" aria-placeholder="Oferta"> 
                                             <option value="" disabled selected>Oferta Academica</option>
                                         </select>  
                                         <small>Oferta Academica</small> 
@@ -67,7 +70,7 @@
 
 
                                 <div class="form-group has-feedback" >
-                                        <table id="asignaturas_grado_M" class="table table-bordered table-hover text-black">                       
+                                        <table id="asignaturas_grado_M" name="asignaturas_grado_M" class="table table-bordered table-hover text-black">                       
                                             </table> 
                                             <small>Materias</small>                                 
                                 </div>

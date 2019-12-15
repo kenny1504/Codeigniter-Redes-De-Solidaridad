@@ -42,8 +42,8 @@ class notas extends BaseController
             JOIN matriculas as m on m.Estudianteid=e.id 
             join ofertas as o on o.id=m.Ofertaid 
             JOIN grupos as gr on gr.id=o.Grupoid 
-            join grados as gra on gra.id=o.Gradoid 
-            WHERE o.id=1";
+            join grados as gra on gra.id=o.Gradoid
+            WHERE(o.FechaOferta=$año AND gr.id=$grupo AND gra.id=$grado)";
             
             $data = $db->query($consulta); //Envia la consulta a la base de datos 
             return json_encode($data->getResultArray());       
