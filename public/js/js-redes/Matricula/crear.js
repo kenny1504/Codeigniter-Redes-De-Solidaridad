@@ -143,8 +143,7 @@ $("#datepickerMatricula").change(function () { //esta funcion sirve para que las
         } 
         else {
           $('#crear_matricula').modal('hide'); // cierra ventana modal
-          $("#exito").modal("show"); //abre modal de exito
-          
+          $("#exito").modal("show"); //abre modal de exito          
           $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
             $("#exito").modal("hide"); // cierra modal
           } );
