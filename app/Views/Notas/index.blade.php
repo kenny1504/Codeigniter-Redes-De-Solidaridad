@@ -9,12 +9,12 @@ Notas
               <div class="box-tools" id="filtros"> 
                 <div class="form-group has-feedback ">
                                         <small>Año</small>
-                                        <input  minlength="4" style="width: 30%; padding-top: 1.3%;" value="<?php echo date("Y") ?>" type="number" name="telefono" id="telefono" >
+                                        <input  minlength="4" style="width: 30%; padding-top: 1.3%;" value="<?php echo date("Y") ?>" type="number" name="año_oferta" id="año_oferta" >
                                         <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grupo_nota" id="grupo_nota" > 
                                         </select>
                                         <select aria-required="true" required style="width: 25%; padding-top: 2.7%; " name="grado_nota" id="grado_nota" >
                                         </select>     
-                                        <button id="buscar_Notas" style="padding-top: 2.7%;" ><i class="fa fa-search"></i></button>         
+                                        <a  onclick="Mostar_Notas();" class="btn btn-primary btn-sm pull-right" id="guardar_notas" ><i class="fa fa-search"></i></a>
                                         
                 </div>  
               </div>
