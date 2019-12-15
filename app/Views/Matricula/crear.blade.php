@@ -70,7 +70,7 @@
 
 
                                 <div class="form-group has-feedback" >
-                                        <table id="asignaturas_grado_M" name="asignaturas_grado_M" class="table table-bordered table-hover text-black">                       
+                                        <table id="asignaturas_grado_M" name="asignaturas_grado_M" class="table table-bordered table-striped">                      
                                             </table> 
                                             <small>Materias</small>                                 
                                 </div>
