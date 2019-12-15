@@ -52,11 +52,21 @@ function nuevo_docente()
                  var sexo=$('#Sexo_Docente').val();
                  var correo=$('#Correo_Docente').val();
                  var telefono=$('#Telefono_Docente').val();
-                  var id=data.id;
+                 var id=data.id;
+                 var estado=0;
+                 if($('#Estado').val()==1)
+                 {
+                 estado="Activo";
+                 }
+                 else
+                 {
+                     estado="Inactivo";
+                 }
 
                 var datos=  "<tr>"+                            
                   "<td>"+cedula+"</td>"+
                   "<td>"+nombre+"</td>"+
+                  "<td>"+estado+"</td> "+
                   "<td>"+sexo+"</td> "+
                   "<td>"+correo+"</td>"+
                   "<td style='padding-top:0.1%; padding-bottom:0.1%;' class='hidden' id="+id+" >"+
@@ -72,14 +82,14 @@ function nuevo_docente()
                 $('#docentes').append(datos); // agrega nuevo registro a tabla
                   
                 $("#exito").modal("show"); //abre modal de exito
-                //limpia campos
-    $('#Cedula_Docente').val("");
-    $('#Nombre_Docente').val("");
-    $('#Apellido1_Docente').val("");
-    $('#Apellido2_Docente').val("");
-    $('#Sexo_Docente').val(null);
-    $('#Correo_Docente').val("");
-    $('#Telefono_Docente').val(null);
+                    //limpia campos
+                    $('#Cedula_Docente').val("");
+                    $('#Nombre_Docente').val("");
+                    $('#Apellido1_Docente').val("");
+                    $('#Apellido2_Docente').val("");
+                    $('#Sexo_Docente').val(null);
+                    $('#Correo_Docente').val("");
+                    $('#Telefono_Docente').val(null);
                 $("#crear_docente").modal("hide"); // cierra modal
                 $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
                           $("#exito").modal("hide"); // cierra modal

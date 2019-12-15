@@ -90,7 +90,7 @@ Matricula
             </div>
             <!-- /.box-header -->
             <div class="box-body panel box box-primary">
-              <table id="estudiantes" class="table table-bordered table-striped">
+              <table id="estudiantes_matricula" class="table table-bordered table-striped">
                      <thead>  <!--Header de la tabla -->  
                        <tr > 
                          <th>Codigo estudiante</th>
@@ -123,10 +123,9 @@ Matricula
             </div>
             <div class="panel box box-primary"></div><!-- /.box-body -->
           </div>
-    <div class="box setup-content" id="step-2"> <!--aqui vas a poner todo lo qeu tiene que ver con tutor -->
-         <!--AQUI -->
+    <div class="box setup-content" id="step-2"> <!-- Datos Tutores -->
          <div class="box-header">
-            <h2 class="box-title text-light-blue">Tutor</h2>
+            <h2 class="box-title text-light-blue">Tutores</h2>
             <div class="pull-right box-tools"> 
                 <a href="#" onclick="ingresar_tutor();" class="btn btn-warning btn-sm pull-right b1" >Agregar Tutor</a>
               <div class="input-group input-group-sm hidden-xs" style="width: 350px;">

@@ -68,7 +68,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </div>
-                                        <input placeholder="Fecha de Nacimiento" name="datepickerDocente" type="text" class="form-control pull-right requerido" id="datepickerDocente" required>            
+                                        <input autocomplete="off"  placeholder="Fecha de Nacimiento" name="datepickerDocente" type="text" class="form-control pull-right requerido" id="datepickerDocente" required>            
                                     </div> 
                         </div>  
                 <div class="modal-footer">

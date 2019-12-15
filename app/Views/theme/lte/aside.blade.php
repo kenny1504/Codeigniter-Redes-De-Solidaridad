@@ -35,8 +35,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Ver Notas</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Asignar Notas</a></li>
+            <li><a href="<?php base_url() ?>notas" ><i class="fa fa-circle-o text-aqua"></i> Ver Notas</a></li>
+            <li><a href="<?php base_url() ?>notas" ><i class="fa fa-circle-o text-aqua"></i> Asignar Notas</a></li>
           </ul>
         </li> <!--Notas fin -->
         <li id="menu_Matriculas" class="treeview"> <!--Matricula inicio -->
@@ -48,7 +48,6 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Matricular</a></li>
             <li><a href="<?php base_url() ?>Matricula"><i class="fa fa-circle-o text-aqua"></i> Mostrar</a></li>
           </ul>
         </li> <!--Matricula fin -->

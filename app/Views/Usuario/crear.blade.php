@@ -35,7 +35,7 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input required placeholder="Fecha vencimiento" type="text" class="form-control pull-right requerido"  id="datepicker">            
+                                <input autocomplete="off" required placeholder="Fecha vencimiento" type="text" class="form-control pull-right requerido"  id="datepicker">            
                             </div> 
                             <small id="vencimientou" class="hidden" >vendimiento</small>   
                         </div>  

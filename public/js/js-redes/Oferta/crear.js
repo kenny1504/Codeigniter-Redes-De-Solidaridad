@@ -1,11 +1,4 @@
-$('#datepickerOferta').datepicker({ //sirve para mostrar Datepicker
-  format: 'yyyy-mm-dd',
-  autoclose: true
-})
-$('#datepickerOfertaEditar').datepicker({ //sirve para mostrar Datepicker editar
-  format: 'yyyy-mm-dd',
-  autoclose: true
-})
+
 $(function() //funcion para buscar dentro del combobox
 {
   $('#Docente').select2({width:"80%"}) // agrega el select2 a combobox docentes para buscar 
@@ -117,7 +110,6 @@ function nueva_oferta() { // ajax para guardar en la tabla oferta
   }   
 });
 $('#Descripcion-Oferta').val(''); // limpiar el input Descripcion Oferta
-$('#datepickerOferta').val(''); // limpiar el input Fecha Oferta
 $('#Grado').val(''); // limpiar el grado
 $('#Grupo').val(''); // limpiar el grupo
 $('#Seccion').val(''); // limpiar la seccion

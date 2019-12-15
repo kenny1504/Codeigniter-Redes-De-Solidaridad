@@ -133,10 +133,10 @@ $routes->get('/grado', 'grado::index');
 $routes->post('/agregar/grado', 'grado::agregar');
 $routes->post('/actualizar/grado', 'grado::actualizar');
 $routes->post('/eliminar/grado', 'grado::eliminar');
-
 $routes->post('/cargargrados/asignatura', 'grado::cargargrados');
 $routes->post('/cargarmaterias_grado/grado', 'asignatura::cargarmaterias_grado');
 $routes->post('/cargargrados/oferta', 'docente::cargargrados');
+
 //Rutas Ofertas
 $routes->get('/ofertas', 'oferta::index');
 $routes->post('/guardar/oferta', 'oferta::guardar');
@@ -176,6 +176,10 @@ $routes->post('/cargar/tutor', 'tutor::cargar');
 $routes->post('/tutor/agregar', 'tutor::agregar');
 $routes->post('/eliminar/tutor', 'tutor::eliminar');
 $routes->post('/actualizar/tutor', 'tutor::actualizar');
+
+//Rutas Notas
+$routes->get('/notas', 'notas::index');
+
 
 /**
  * --------------------------------------------------------------------

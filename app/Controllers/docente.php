@@ -18,7 +18,7 @@ class docente extends BaseController
         $session->start(); // Inicio de varibles SESSION  
         $db = \Config\Database::connect(); // concexion con la basse de datos
         
-        $consulta="SELECT d.id,p.Cedula, CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre, p.Sexo,p.Correo,p.Telefono
+        $consulta="SELECT d.Estado, d.id,p.Cedula, CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as Nombre, p.Sexo,p.Correo,p.Telefono
         FROM docentes as d JOIN personas as p on p.id=d.personasid ";
 
         if(isset($_SESSION['login_in']) && !empty($_SESSION['login_in']) && $_SESSION['login_in']==true)  //si no existe una sesion No ingresa
