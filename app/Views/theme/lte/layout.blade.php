@@ -8,7 +8,7 @@
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- CSS Generales-->
-         <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="bootstrap.min.css" type="text/css">
         <link  rel="stylesheet" type="text/css" href="assets/lte/bower_components/font-awesome/css/font-awesome.min.css" >
         <link rel="stylesheet" type="text/css" href="assets/lte/bower_components/Ionicons/css/ionicons.min.css" >
         <link rel="stylesheet" type="text/css" href="assets/lte/dist/css/AdminLTE.min.css" >

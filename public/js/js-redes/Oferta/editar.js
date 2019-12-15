@@ -4,6 +4,7 @@ $(function() //funcion para buscar dentro del combobox
 {
   $('#Docente1').select2({width:"80%"}) // agrega el select2 a combobox docentes para buscar 
 });
+
 function editar_Oferta(button)
 {
     dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Editar)

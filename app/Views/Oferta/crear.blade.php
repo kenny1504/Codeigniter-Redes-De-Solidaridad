@@ -14,9 +14,13 @@
                                 <input type="text" name="Descripcion-Oferta" id="Descripcion-Oferta" class="form-control requerido" required placeholder="Descripcion de Oferta" >
                             </div>
                             <label for="Nombre" class="col-sm-2 control-label requerido">Año oferta</label> 
-                            <div class="form-group has-feedback">
-                            <input  minlength="4" style="width: 30%; padding-top: 1.3%;" value="<?php echo date("Y") ?>" type="number" name="datepickerOferta" id="datepickerOferta" >
-                            </div>
+                            <div class="form-group input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right" name="datepickerOferta" id="datepickerOferta">
+                                    
+                                </div> 
                             <label for="Nombre"  style="padding-right:14%;" class="col-sm-2 control-label requerido">Grado</label>   
                             <div class="form-group ">                 
                                 <select  style="color: black; width: 80%; padding-top: 1.5%;" name="Grado" id="Grado" required>
