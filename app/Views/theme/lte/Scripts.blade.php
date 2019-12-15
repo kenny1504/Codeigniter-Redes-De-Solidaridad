@@ -12,6 +12,7 @@
         <script type="text/javascript" src="js/funciones.js"></script>
         <script type="text/javascript" src="assets/lte/bower_components/chart.js/Chart.js"></script>
         <script type="text/javascript" src="assets/lte/dist/js/pages/dashboard2.js"></script>
+
         <!--********************* script  "Materia" *************************-->
         <script type="text/javascript" src="js/js-redes/Materia/agregar.js"></script> <!-- escript para validar datos requeridos-->
         <script type="text/javascript" src="js/js-redes/Materia/crear.js"></script> <!-- escript para ingresar datos por ajax-->

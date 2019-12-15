@@ -7,16 +7,19 @@ Notas
             <div class="box-header">
               <h2 class="box-title text-light-blue">Notas</h2>
               <div class="box-tools" id="filtros">
-                <div class="form-group has-feedback ">
-                                        <input style="width: 20%; padding-top: 1.5%; " name="año_oferta" type="text" class="form-control pull-left requerido" id="año_oferta" required placeholder="Año">    
-                                        <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="grupo_nota" id="grupo_nota" > 
-                                        </select>
-                                        <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="grado_nota" id="grado_nota" >
-                                        </select>
-                                        </select>
-                                        <select aria-required="true" required style="width: 20%; padding-top: 2.3%; " name="Detalle_nota" id="Detalle_nota" >
+                <div class="form-group ">
+                                        <input style="width: 20%; padding-top: 1.5%; " name="año_oferta" type="text" class="form-control pull-left requerido" id="año_oferta" required placeholder="Año">
+                                        <select aria-required="true" required style="width: 15%; padding-top: 2.3%; " name="grado_nota" id="grado_nota" >
                                         </select>   
-                                        <a style="width: 10%; " onclick="Mostar_Notas();" class="btn btn-primary btn-sm pull-right" id="guardar_notas" ><i class="fa fa-search"></i></a>
+                                        <select aria-required="true" required style="width: 15%; padding-top: 2.3%; " name="grupo_nota" id="grupo_nota" > 
+                                        </select>
+                                        </select>
+                                        <select aria-required="true" required style="width: 15%; padding-top: 2.3%; " name="Detalle_nota" id="Detalle_nota" >
+                                        </select>  
+                                        </select>
+                                        <select aria-required="true" required style="width: 15%; padding-top: 2.3%; " name="materias_nota" id="materias_nota" >
+                                        </select>  
+                                        <a type="submit" style="width: 10%; padding-top: 1.4%; " onclick="Mostar_Notas();" class="btn btn-primary btn-sm pull-right" id="guardar_notas" ><i class="fa fa-search"></i></a>
                                         
                 </div>  
               </div>
@@ -31,6 +34,7 @@ Notas
                          <th>Sexo</th>
                          <th>Grado</th>
                          <th>Grupo</th>
+                         <th>Materia</th>
                          <th>Nota</th>
                        </tr>
                     </thead> 

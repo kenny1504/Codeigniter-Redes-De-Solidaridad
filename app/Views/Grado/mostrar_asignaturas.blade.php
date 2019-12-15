@@ -13,8 +13,7 @@
                 </table>
                   </div>
                   <div class="modal-footer">
-                  <input type="text" class="form-control hidden" name="id-Grado" id="id-Grado"> <!--Input para guardar id de grado-->
-                    <button type="reset" class="btn btn-outline" data-dismiss="modal">cerrar</button>         
+                  <button type="reset" class="btn btn-outline" data-dismiss="modal">cerrar</button>         
                   </div>
                 </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog --> 

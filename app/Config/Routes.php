@@ -134,7 +134,7 @@ $routes->post('/agregar/grado', 'grado::agregar');
 $routes->post('/actualizar/grado', 'grado::actualizar');
 $routes->post('/eliminar/grado', 'grado::eliminar');
 $routes->post('/cargargrados/asignatura', 'grado::cargargrados');
-$routes->post('/cargarmaterias_grado/grado', 'asignatura::cargarmaterias_grado');
+$routes->post('/asignatura/cargarmaterias_grado', 'asignatura::cargarmaterias_grado');
 $routes->post('/cargargrados/oferta', 'docente::cargargrados');
 
 //Rutas Ofertas
