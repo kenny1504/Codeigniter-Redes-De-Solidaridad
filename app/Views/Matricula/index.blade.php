@@ -110,7 +110,7 @@ Matricula
                                     <td><?php echo $Estudiante['Direccion'];?></td>  <!--agrega dato a la columna-->
                                     <td><?php echo $Estudiante['Nombre_tutor'];?>  <!--inicio columna que contienen botones-->
                                     <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Estudiante['id']; ?>" > 
-                                                <button class="btn btn-primary"  onclick="ver_estudiante(this);"  data-id="<?php echo $Estudiante['id']; ?>" id="Ver-estudiante">Matricular</button>
+                                                <button class="btn btn-primary " onclick="ingresar_matricula(this);"  data-id="<?php echo $Estudiante['id']; ?>" id="Ver-matricula">Matricular</button>
                                                 <i class="fa fa-angle-double-right pull-right" onclick="mostrar(this);" data-id="<?php echo $Estudiante['id']; ?>"></i>                             
                                     </td>
                                     </td>  <!--fin columna botones-->

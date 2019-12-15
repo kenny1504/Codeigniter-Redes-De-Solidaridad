@@ -3,6 +3,7 @@
 use CodeIgniter\Controller;
 use App\Models\UserModel;
 use CodeIgniter\HTTP\Request;
+use App\Models\situacionmatriculas;
 
 class matricula extends BaseController
 {
@@ -32,5 +33,25 @@ class matricula extends BaseController
              }
 
     }
+    public function cargarmaterias_grado_M($id)
+	{
+		$db = \Config\Database::connect(); // concexion con la basse de datos
+  
+		////////////// CONSULTA A ENVIAR A MYSQL
+		  $consulta= "SELECT gradoaasignaturas.id,asignaturas.Nombre FROM ofertas JOIN grados ON  ofertas.Gradoid=grados.id  JOIN gradoaasignaturas ON grados.id=gradoaasignaturas.Gradoid 
+          JOIN asignaturas ON asignaturas.id=gradoaasignaturas.Asignaturaid WHERE ofertas.id=$id";
+		   
+		   $result=$db->query($consulta); //Envia la consulta a la base de datos
+      if($result==true){
+		
+		return json_encode($result->getResultArray());
+
+	  }
+		else{
+     
+			return json_encode(false);
+	 }
+		   
+	}
    
 }

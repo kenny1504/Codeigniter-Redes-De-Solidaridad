@@ -87,15 +87,23 @@ class oferta extends BaseController
 		}
 		return  json_encode($valor);
     }
-    public function cargar($ide)
+    public function cargar($ide)//carga detalle de oferta y editar oferta
     {
         $db = \Config\Database::connect(); // conexion con la basse de datos
-        $carga="SELECT ofertas.id AS idOferta,ofertas.Descripcion,ofertas.FechaOferta,ofertas.Seccionid AS Seccion,ofertas.Gradoid AS Grado,ofertas.Grupoid AS Grupo,ofertas.Docenteid AS Docente FROM docentes 
+        $carga="SELECT ofertas.id AS idOferta,ofertas.Descripcion,ofertas.FechaOferta,ofertas.Seccionid AS Seccion,ofertas.Gradoid AS Grado,ofertas.Grupoid AS Grupo,ofertas.Docenteid AS Docente, secciones.Codigo AS Nombre_Seccion,grados.Grado AS Nombre_Grado,grupos.Grupo AS Nombre_Grupo ,CONCAT(personas.Nombre,' ',personas.Apellido1,' ',personas.Apellido2) AS Nombre_Docente FROM docentes 
         JOIN personas on personas.id=docentes.personasid JOIN ofertas on ofertas.Docenteid=docentes.id JOIN grupos ON
         grupos.id=ofertas.Grupoid JOIN grados ON grados.id=ofertas.Gradoid JOIN secciones ON secciones.id
         =ofertas.Seccionid WHERE ofertas.id=$ide";
                   $encontrada = $db->query($carga); //Envia la consulta a la base de datos
                   return   json_encode($encontrada->getResultArray());
+
+    }
+    public function cargar_ofertas($anio)//mostrar descripcion de oferta en matricula
+    {
+        $db = \Config\Database::connect(); // conexion con la basse de datos
+        $cargar_oferta="SELECT ofertas.id AS idOferta,ofertas.Descripcion FROM  ofertas WHERE ofertas.FechaOferta=$anio";
+                  $encontradas = $db->query($cargar_oferta); //Envia la consulta a la base de datos
+                  return   json_encode($encontradas->getResultArray());
 
     }
     public function actualizar()

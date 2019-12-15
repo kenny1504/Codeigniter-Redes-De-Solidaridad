@@ -17,7 +17,6 @@ class detalleAsignatura extends BaseController
         $idmateria=$this->request->getPost('Asignaturas');   //variable que recive los valores de input idmateria
         $idgrado=$this->request->getPost('Grados');   //variable que recive los valores del idgrado
         $busqueda= $gradoasignatura->where('Gradoid',$idgrado)->where('Asignaturaid',$idmateria)->find();
-
         if($busqueda!=true) {
 
             $data = array (

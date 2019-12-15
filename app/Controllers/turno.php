@@ -98,4 +98,10 @@ class turno extends BaseController
 			return json_encode( $errors); // retorna los errores
 		}		
 	}
+	public function cargarturnos()//listar turnos
+	{
+	   $turnos = new turnos();
+       $result= $turnos->findAll();
+	   return json_encode($result);
+	}
 }
