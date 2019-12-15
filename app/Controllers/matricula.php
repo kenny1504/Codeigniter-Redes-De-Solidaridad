@@ -54,6 +54,7 @@ class matricula extends BaseController
   
   public function guardar() //funcion para guardar en la tabla oferta
 	{
+
         $db = \Config\Database::connect(); // concexion con la basse de datos
         $valor=0;  
         $situacionmatriculas=new situacionmatriculas();
@@ -99,7 +100,6 @@ class matricula extends BaseController
             }    
             
         }
-        return json_encode($valor);
+        return json_encode(0);
   }
-   
 }

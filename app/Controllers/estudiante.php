@@ -108,7 +108,6 @@ class estudiante extends BaseController
                         $newdata = array( // asigna los valores del arreglo a la varible de SESSION
                             'Telefono'=> $telefono['Telefono'], //telefono del tutor
                             'id'  => $result_estudi //id estudiante
-                            
                         ); 
                 }
 
