@@ -4,6 +4,7 @@ use CodeIgniter\Controller;
 use App\Models\UserModel;
 use CodeIgniter\HTTP\Request;
 use App\Models\situacionmatriculas;
+use App\Models\matriculas;
 
 class matricula extends BaseController
 {
@@ -48,6 +49,41 @@ class matricula extends BaseController
 			return json_encode(false);
 	 }
 		   
-	}
+  }
+  
+  public function guardar() //funcion para guardar en la tabla oferta
+	{
+        $db = \Config\Database::connect(); // concexion con la basse de datos
+        $valor=0;  
+        $situacionmatriculas=new situacionmatriculas();
+        $situacion=$this->request->getPost('Situacion_Matricula');
+        $data = array (
+          'Descripcion' => $situacion		
+        );
+        $idsituacionmatriculas = $situacionmatriculas->insert($data);// pedicion para insertar nueva situacion
+        if($idsituacionmatriculas==true)
+        {
+          $matriculas = new matriculas();
+          $idfecha=$this->request->getPost('datepickerFechaMatricula');   //variable que recibe los valores del fecha matricula
+          $idoferta=$this->request->getPost('Oferta_M');   //variable que recibe el id de la oferta seleccionada        
+          $idturno=$this->request->getPost('Turno');   //variable que recibe los valores del turno   
+          $idestudiante=$this->request->getPost('idestudiante_M');   //variable que recibe los valores del idestudiante
+
+
+            $data1 = array (
+                  'Fecha' => $idfecha,
+                  'Ofertaid' => $idoferta,		
+                  'Turnoid' => $idturno,	
+                  'SituacionMatriculaid' => $idsituacionmatriculas,	
+                  'Estudianteid' => $idestudiante,	
+                  );
+            $matriculaid = $matriculas->insert($data1);// peticion para insertar la matricula en la tabla matricula        
+                  if(!empty($matriculaid))
+                  {
+                    $valor=1; 
+                  }
+        }
+        return json_encode($valor);
+              }
    
 }
