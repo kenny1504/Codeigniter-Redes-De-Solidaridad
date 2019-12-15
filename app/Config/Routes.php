@@ -168,6 +168,9 @@ $routes->post('/actualizar/docente', 'docente::actualizar');
 $routes->post('/eliminar/docente', 'docente::eliminar');
 //Rutas Matricula
 $routes->get('/Matricula', 'matricula::index');
+			$routes->post('/oferta/cargar_ofertas', 'oferta::cargar_ofertas');
+			$routes->post('/cargarturnos/turno', 'turno::cargarturnos');
+			$routes->post('/matricula/cargarmaterias_grado_M', 'matricula::cargarmaterias_grado_M');
 //Rutas Tutor
 $routes->post('/cargar/tutor', 'tutor::cargar');
 $routes->post('/tutor/agregar', 'tutor::agregar');
