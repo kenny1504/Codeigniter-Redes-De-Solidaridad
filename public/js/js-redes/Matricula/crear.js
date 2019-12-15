@@ -53,6 +53,22 @@ function ingresar_matricula(button)
       }
     });//Fin ajax combobox Turno
 
+    $.ajax({
+      type: 'POST',
+      url: 'cargarsituacion_matricula/matricula', // llamada a ruta para cargar combobox con datos de tabla situacion matricula
+      dataType: "JSON", // tipo de respuesta del controlador
+      success: function(data){        
+        $('#Situacion_Matricula').empty();//limpia el combobox
+        data.forEach(element => { //ciclo para recorrer el arreglo de turno
+            //variable para asignarle los valores al combobox
+          var datos='<option  value="'+element.id+'">'+element.Descripcion+'</option>';
+
+            $('#Situacion_Matricula').append(datos);//ingresa valores al combobox
+            $('#Situacion_Matricula').val(''); // limpiar los turno
+        });          
+    }
+  });//Fin ajax combobox Turno
+
 }//fin del metodo
 
 function cargar_oferta() //Metodo para cargar las ofertas segun el año seleccionado

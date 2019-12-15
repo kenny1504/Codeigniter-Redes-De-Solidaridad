@@ -86,9 +86,6 @@
                                     <div class="col-md-5">                            
                                         <select aria-required="true" required name="Situacion_Matricula" id="Situacion_Matricula" class="form-control"   aria-placeholder="Situacion Matricula"> 
                                         <option value="" disabled selected>Situacion Matricula</option>
-                                        <option value="Traslado">Traslado</option>
-                                        <option value="Repitente">Repitente</option>
-                                        <option value="Reingreso">Reingreso</option>
                                         </select> 
                                         <small>Situacion Matricula</small>  
                                     </div>

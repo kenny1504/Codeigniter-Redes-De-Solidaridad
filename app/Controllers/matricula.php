@@ -60,15 +60,8 @@ class matricula extends BaseController
 	{
         $db = \Config\Database::connect(); // concexion con la basse de datos
         $valor=0;  
-        $situacionmatriculas=new situacionmatriculas();
-        $situacion=$this->request->getPost('Situacion_Matricula');
-        $data = array (
-          'Descripcion' => $situacion		
-        );
-        $idsituacionmatriculas = $situacionmatriculas->insert($data);// pedicion para insertar nueva situacion
-        if($idsituacionmatriculas==true)
-        {
           $matriculas = new matriculas();
+          $idsituacionmatriculas=$this->request->getPost('Situacion_Matricula');
           $idfecha=$this->request->getPost('datepickerFechaMatricula');   //variable que recibe los valores del fecha matricula
           $idoferta=$this->request->getPost('Oferta_M');   //variable que recibe el id de la oferta seleccionada        
           $idturno=$this->request->getPost('Turno');   //variable que recibe los valores del turno   
@@ -102,8 +95,15 @@ class matricula extends BaseController
             }
             }    
             
-        }
+        
         return json_encode($valor);
   }
+
+  public function cargarsituacion_matricula()//listar situacion matricula
+	{
+	   $situacionmatriculas = new situacionmatriculas();
+       $result= $situacionmatriculas->findAll();
+	   return json_encode($result);
+	}
    
 }

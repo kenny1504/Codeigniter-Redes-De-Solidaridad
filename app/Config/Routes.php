@@ -171,6 +171,7 @@ $routes->get('/Matricula', 'matricula::index');
 $routes->post('/guardar/matricula', 'matricula::guardar');
 			$routes->post('/oferta/cargar_ofertas', 'oferta::cargar_ofertas');
 			$routes->post('/cargarturnos/turno', 'turno::cargarturnos');
+			$routes->post('/cargarsituacion_matricula/matricula', 'matricula::cargarsituacion_matricula');
 			$routes->post('/matricula/cargarmaterias_grado_M', 'matricula::cargarmaterias_grado_M');
 //Rutas Tutor
 $routes->post('/cargar/tutor', 'tutor::cargar');
