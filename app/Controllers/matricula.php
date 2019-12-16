@@ -36,7 +36,7 @@ class matricula extends BaseController
 		$db = \Config\Database::connect(); // concexion con la basse de datos
   
 		////////////// CONSULTA A ENVIAR A MYSQL
-		  $consulta= "SELECT gradoaasignaturas.id,asignaturas.Nombre FROM ofertas JOIN grados ON  ofertas.Gradoid=grados.id  JOIN gradoaasignaturas ON grados.id=gradoaasignaturas.Gradoid 
+		  $consulta= "SELECT asignaturas.id,asignaturas.Nombre FROM ofertas JOIN grados ON  ofertas.Gradoid=grados.id  JOIN gradoaasignaturas ON grados.id=gradoaasignaturas.Gradoid 
           JOIN asignaturas ON asignaturas.id=gradoaasignaturas.Asignaturaid WHERE ofertas.id=$id";
 		   
 		   $result=$db->query($consulta); //Envia la consulta a la base de datos
@@ -54,6 +54,7 @@ class matricula extends BaseController
   
   public function guardar() //funcion para guardar en la tabla oferta
 	{
+
         $db = \Config\Database::connect(); // concexion con la basse de datos
         $valor=0;  
           $matriculas = new matriculas();
@@ -76,15 +77,16 @@ class matricula extends BaseController
             if($matriculaid==true)
             {
               $detallematriculas= new detallematriculas();
-              $idasignatura_M=$this->request->getPost('asignaturas_grado_M');
-              //for($i=0; $i < count($lista); $i++){
+              $idasignatura_M=$this->request->getPost('MateriasM');
+
+              for($i=0; $i < count($idasignatura_M); $i++){
 
                 $data2 = array (
-                  'Asignaturaid' => $idasignatura_M,
+                  'Asignaturaid' => $idasignatura_M[$i],
                   'Matriculaid' => $matriculaid,		
                   );
                   $detallematriculasid = $detallematriculas->insert($data2);
-              //}
+              }
               if(!empty($detallematriculasid))
             {
               $valor=1; 

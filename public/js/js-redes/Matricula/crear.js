@@ -10,7 +10,7 @@ $('#datepickerMatricula').datepicker({ //Fecha Matricula
     autoclose: true
   }).datepicker("setDate", new Date());
 
-var dat;
+var dat; 
 function ingresar_matricula(button)
 {   
         $('#Seccion_M').val("");
@@ -121,11 +121,12 @@ $("#Oferta_M").change(function () { //ajax para ver detalles de oferta
             success: function(data){ 
 
                     for(var a=0; a<data.length;a++){
-                        var datos=  "<tr value=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
+                     
+                           var datos=  "<tr value=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
                             + "<td>"+ "<button type='button' class='btn btn-danger' data-id="+ data[a].id +" onclick=''><i class='fa fa-fw fa-trash '></i></button>"                                   
-                            +"</td>"+"</tr>"; 
+                            +"</td>"+"</tr>"+"<td><input type='hidden' name='MateriasM[]' value='"+data[a].id+"'></td>"; 
                         $('#asignaturas_grado_M').append(datos); // agrega nuevo registro a tabla
-                    }         
+                    }      
                 }      
         });//Fin ajax cargar materias en tabla
 
@@ -150,7 +151,7 @@ $("#datepickerMatricula").change(function () { //esta funcion sirve para que las
     {
     $.ajax({
       type: 'POST', 
-      url: 'guardar/matricula', // llamada a ruta para guardar la nueva matricula
+      url: 'matricula/guardar', // llamada a ruta para guardar la nueva matricula
       data: $('#ingresar_Matricula').serialize(), // manda el form donde se encuentra la modal dataType: "JSON", // tipo de respuesta del controlador
       dataType: "JSON", // tipo de respuesta del controlador
       success: function(data){ 
