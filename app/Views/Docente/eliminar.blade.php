@@ -13,7 +13,7 @@
                 <span  class="icon fa fa-check " ></span>
               </button>
               <button type="button" class="btn btn-warning" data-dismiss="modal">
-                <span class="glyphicon glyphicon"></span>close
+                <span class="glyphicon glyphicon"></span>Cerrar
               </button>
             </div>
           </div>
