@@ -180,9 +180,10 @@ $routes->post('/eliminar/tutor', 'tutor::eliminar');
 $routes->post('/actualizar/tutor', 'tutor::actualizar');
 
 //Rutas Notas 
-$routes->get('/notas', 'notas::index'); 
-$routes->post('/notas/cargar', 'notas::cargar');
-$routes->post('/cargar_detalles', 'notas::cargar_detalles');
+$routes->get('/nota', 'nota::index'); 
+$routes->post('/nota/cargar', 'nota::cargar');
+$routes->post('/cargar_detalles', 'nota::cargar_detalles');
+$routes->post('/nota/Guardar_Notas', 'nota::Guardar_Notas');
 
 
 /**
