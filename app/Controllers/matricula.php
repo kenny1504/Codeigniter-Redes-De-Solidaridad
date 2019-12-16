@@ -121,4 +121,29 @@ class matricula extends BaseController
         return json_encode($resulto2->getResultArray());
       }
   }
+  public function actualizar()
+	{      
+      $db = \Config\Database::connect(); // conexion con la basse de datos
+      $valor=0;
+        $matriculas = new matriculas();
+        $id=$this->request->getPost('idoferta_Editar'); 
+        $idoferta=$this->request->getPost('Oferta_M_Editar');   //variable que recibe los valores del idoferta
+        $idsituacion=$this->request->getPost('Situacion_Matricula_Editar');   //variable que recibe los valores del idsituacion oferta
+        $idtutor=$this->request->getPost('Turno_Editar');   //variable que recibe el valor de idturno
+
+
+		$dat = array (
+            'Ofertaid' => $idoferta,
+            'Turnoid' => $idtutor,		
+            'SituacionMatriculaid' => $idsituacion,	
+            );
+            
+		$result = $matriculas->update($id,$dat);// pedicion para validar el dato
+		if($result==true) // si actualiza los datos
+		{
+			$valor=1;
+		}
+		
+			return json_encode( $valor); // retorna los errores
+	}
 }

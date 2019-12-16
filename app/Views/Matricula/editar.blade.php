@@ -15,7 +15,7 @@
                                     <div class="col-md-9">
     
                                         
-                                        <input type="text" name="idestudiante_M_Editar" id="idestudiante_M_Editar" class="hidden">
+                                        <input type="text" name="idoferta_Editar" id="idoferta_Editar" class="hidden">
                                         <input name="datepickerFechaMatricula_Editar" id="datepickerFechaMatricula_Editar" class="hidden"> <!--Mandar fecha actual con formato para MySql -->
                                         <label><?php echo date("d") . "/" . date("m") . "/" . date("Y") ?></label> 
                                         <br/> 
@@ -93,7 +93,7 @@
                             </div>  
                     <div class="modal-footer">
                         <button type="reset"  class="btn btn-outline pull-left" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" onclick="editar_matricula();" class="btn btn-outline" >Guardar Cambios</button>      
+                        <button type="submit" onclick="actualizar_matricula();" class="btn btn-outline" >Guardar Cambios</button>      
                     </div>
                     <!-- /.modal-content -->
                   </div>

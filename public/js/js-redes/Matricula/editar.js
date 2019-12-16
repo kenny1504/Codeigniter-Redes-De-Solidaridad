@@ -75,6 +75,7 @@ function confirmar_editar_matricula()
             var seccion=data[a].Seccion;
             var docente=data[a].NombreD;
         }
+        $('#idoferta_Editar').val(data[0].id);
         $('#Oferta_M_Editar').val(idOferta);
         $('#Turno_Editar').val(idTurno);
         $('#Situacion_Matricula_Editar').val(idSituacion);
@@ -164,3 +165,33 @@ $("#datepickerMatricula_Editar").change(function () { //esta funcion sirve para 
     cargar_oferta_editar(); //llamado a funcion
   }); //fin de funcion
   
+
+function actualizar_matricula() {
+    $.ajax({
+                
+        type: 'POST',
+        url: 'actualizar/oferta', // ruta editar oferta
+        data: $('#editar_Matricula').serialize(), // manda el form donde se encuentra la modal oferta
+        dataType: "JSON", // tipo de respuesta del controlador
+        success: function(data){
+        if ((data==1)) // si el ajax contiene errores agrega un label indicando el error 
+        { 
+          $("#exito").modal("show"); //abre modal de exito
+          $("#exito").fadeTo(2000,500).slideUp(450,function(){   // cierra la modal despues del tiempo determinado  
+              $("#exito").modal("hide"); // cierra modal                                           
+              } );
+          $("#editar_matricula").modal("hide"); // cierra modal 
+        } 
+        else 
+        {
+          var error="Error al Actualizar Matricula"
+          $('#mensaje').text(error);   //manda el error a la modal
+          $("#Mensaje-error").modal("show"); //abre modal de error
+          $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
+              $("#Mensaje-error").modal("hide"); // cierra modal error
+              } );
+                                 
+        }
+        }
+        });
+    }
