@@ -125,7 +125,7 @@ class asignatura extends BaseController
 		$db = \Config\Database::connect(); // concexion con la basse de datos
   
 		////////////// CONSULTA A ENVIAR A MYSQL
-		  $consulta= "SELECT gradoaasignaturas.Id,asignaturas.Nombre FROM asignaturas INNER JOIN gradoaasignaturas ON asignaturas.Id = gradoaasignaturas.Asignaturaid
+		  $consulta= "SELECT asignaturas.Id,asignaturas.Nombre FROM asignaturas INNER JOIN gradoaasignaturas ON asignaturas.Id = gradoaasignaturas.Asignaturaid
 		  WHERE(gradoaasignaturas.Gradoid =".$id.")";
 		   
 		   $result=$db->query($consulta); //Envia la consulta a la base de datos

@@ -111,9 +111,9 @@ class usuario extends BaseController
           } 
    }
 
-
+//****************************  si hacer **********************************
    
-   public function agregar() //
+   public function agregar() // si hacer
 	{       
    
       $usuario= new usuarios();

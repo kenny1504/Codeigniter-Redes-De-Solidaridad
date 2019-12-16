@@ -26,7 +26,8 @@ Notas
             </div>
             <!-- /.box-header -->
             <div class="box-body panel box box-primary">
-              <table id="estudiantes" class="table table-bordered table-striped">
+              <form id="Estudiante_Notas">
+              <table id="estudiantes_Notas" class="table table-bordered table-striped">
                      <thead>  <!--Header de la tabla -->  
                        <tr > 
                          <th>Codigo estudiante</th>
@@ -40,10 +41,11 @@ Notas
                     </thead> 
                         <tbody> <!--Cuerpo de la tabla --> 
                         </tbody>                        
-              </table>   
+              </table>
+              </form>   
             </div>
             <tfoot>
-            <a href="#" onclick="" class="btn btn-warning btn-sm pull-right" id="guardar_notas" >Guardar</a>
+            <a href="#" onclick="Guardar_Notas();" class="btn btn-warning btn-sm pull-right" id="guardar_notas" >Guardar</a>
             </tfoot>
             <div class="panel box box-primary"></div><!-- /.box-body -->
           </div>  
