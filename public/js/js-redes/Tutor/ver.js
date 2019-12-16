@@ -1,5 +1,6 @@
   //Metodo para mostrar u ocultar botones en index Tutores
-var n=0; var fila=$("#tutor").closest('table').children('tbody').children('tr:first');/* captura el primer tr de la tabla*/   var id1; var id2; var i=0; var a=0; var fila1;
+var n=0; var fila=$("#tutor").closest('table').children('tbody').children('tr:first');/* captura el primer tr de la tabla*/   
+var id1; var id2; var i=0; var a=0; var fila1;
 function mostrarT(button){ // funcion para mostrar y o ocultar botones
   
   fila.attr("style"," ");
@@ -8,8 +9,8 @@ function mostrarT(button){ // funcion para mostrar y o ocultar botones
   {
     fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
     var iden=$(button).attr("data-id"); // captura el id_grado "id" del grado
-    id1="#"+iden;//captura id de la celda de botones
-    id2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
+    id1="#"+iden+"T";//captura id de la celda de botones
+    id2="#"+iden+"T2";// captura id del contenido a ocultar o mostrar
         if(n==0){
           
           $(id1).removeClass('hidden');
@@ -31,8 +32,8 @@ function mostrarT(button){ // funcion para mostrar y o ocultar botones
     a=fila.index();
     fila.attr("style","background-color:#F9E79F;"); // le pones color a la fila seleccionada
     var iden=$(button).attr("data-id"); // captura el id_grado "id" del grado
-    id1="#"+iden;//captura id de la celda de botones
-    id2="#"+iden+"a";// captura id del contenido a ocultar o mostrar
+    id1="#"+iden+"T";//captura id de la celda de botones
+    id2="#"+iden+"T2";// captura id del contenido a ocultar o mostrar
         if(n==0){
           
           $(id1).removeClass('hidden');
