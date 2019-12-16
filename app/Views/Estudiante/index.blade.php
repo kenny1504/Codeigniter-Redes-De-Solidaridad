@@ -168,14 +168,14 @@ Estudiantes
                                   <td><?php echo $Tutor['Sexo'];?></td>  <!--agrega dato a la columna--> 
                                   <td><?php echo $Tutor['Correo'];?></td>  <!--agrega dato a la columna-->
                                   <td><?php echo $Tutor['Oficio'];?>  <!--inicio columna que contienen botones-->
-                                    <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Tutor['id']; ?>" >
+                                    <td style="padding-top:0.1%; padding-bottom:0.1%;"class="hidden" id="<?php echo $Tutor['id']; ?>T" >
                                         <button class="btn btn-primary "  onclick="ver_tutor(this);"  data-id="<?php echo $Tutor['id']; ?>" id="Ver-tutor">ver</button>      
                                         <button class="btn btn-success " onclick="editar_Tutor(this);" data-id="<?php echo $Tutor['id']; ?>"><i class=" fa fa-fw fa-pencil"></i></button> 
                                         <button class="btn btn-info" onclick="eliminar_tutor(this);" data-id="<?php echo $Tutor['id']; ?>"><i class="fa fa-fw fa-trash "></i></button>
                                         <i class="fa fa-angle-double-right pull-right "onclick="mostrarT(this);" data-id="<?php echo $Tutor['id']; ?>"></i>                             
                             </td>
                             </td>  <!--fin columna botones-->
-                                  <td id="<?php echo $Tutor['id']; ?>a" ><?php echo $Tutor['Telefono'];?> <i class="fa fa-angle-double-right pull-right" onclick="mostrarT(this);"  data-id="<?php echo $Tutor['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
+                                  <td id="<?php echo $Tutor['id']; ?>T2" ><?php echo $Tutor['Telefono'];?> <i class="fa fa-angle-double-right pull-right" onclick="mostrarT(this);"  data-id="<?php echo $Tutor['id']; ?>"></i> </td>  <!--agrega dato a la columna-->
                                     
                               </tr>                         
                                     <?php endforeach; ?> 

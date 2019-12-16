@@ -94,7 +94,7 @@ class nota extends BaseController
         }
         else
         {
-            return json_encode(0);    
+            return json_encode($result);    
         }
 
     }
