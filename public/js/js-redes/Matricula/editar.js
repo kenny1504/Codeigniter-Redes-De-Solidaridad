@@ -167,10 +167,13 @@ $("#datepickerMatricula_Editar").change(function () { //esta funcion sirve para 
   
 
 function actualizar_matricula() {
+  $("#editar_Matricula").on('submit', function(evt){
+    evt.preventDefault();  
+  });
     $.ajax({
                 
         type: 'POST',
-        url: 'actualizar/oferta', // ruta editar oferta
+        url: 'actualizar/matricula', // ruta editar oferta
         data: $('#editar_Matricula').serialize(), // manda el form donde se encuentra la modal oferta
         dataType: "JSON", // tipo de respuesta del controlador
         success: function(data){
