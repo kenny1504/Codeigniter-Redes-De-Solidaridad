@@ -32,8 +32,8 @@ class matricula extends BaseController
 
     }
     public function cargarmaterias_grado_M($id)
-	{
-		$db = \Config\Database::connect(); // concexion con la basse de datos
+	  {
+		$db = \Config\Database::connect(); // conexion con la basse de datos
   
 		////////////// CONSULTA A ENVIAR A MYSQL
 		  $consulta= "SELECT asignaturas.id,asignaturas.Nombre FROM ofertas JOIN grados ON  ofertas.Gradoid=grados.id  JOIN gradoaasignaturas ON grados.id=gradoaasignaturas.Gradoid 
@@ -52,9 +52,8 @@ class matricula extends BaseController
 		   
   }
   
-  public function guardar() //funcion para guardar en la tabla oferta
+  public function guardar() //funcion para guardar en la tabla matricula
 	{
-
         $db = \Config\Database::connect(); // concexion con la basse de datos
         $valor=0;  
           $matriculas = new matriculas();
@@ -63,17 +62,26 @@ class matricula extends BaseController
           $idoferta=$this->request->getPost('Oferta_M');   //variable que recibe el id de la oferta seleccionada        
           $idturno=$this->request->getPost('Turno');   //variable que recibe los valores del turno   
           $idestudiante=$this->request->getPost('idestudiante_M');   //variable que recibe los valores del idestudiante
+          $anio=$this->request->getPost('datepickerMatricula');
 
 
-            $data1 = array (
-                  'Fecha' => $idfecha,
-                  'Ofertaid' => $idoferta,		
-                  'Turnoid' => $idturno,	
-                  'SituacionMatriculaid' => $idsituacionmatriculas,	
-                  'Estudianteid' => $idestudiante,	
-                  );
+////////////// CONSULTA A ENVIAR A MYSQL
+        $consulta_M="SELECT matriculas.Estudianteid FROM  ofertas JOIN matriculas ON ofertas.id=matriculas.Ofertaid JOIN estudiantes ON matriculas.Estudianteid=estudiantes.id 
+        WHERE matriculas.Estudianteid=$idestudiante AND ofertas.FechaOferta=$anio";
+   
+        $result2=$db->query($consulta_M); //Envia la consulta a la base de datos
+
+        if(empty($result2->getResultArray()))//si el estudiante no ha sido matriculado
+        {
+          $data1 = array (
+            'Fecha' => $idfecha,
+            'Ofertaid' => $idoferta,		
+            'Turnoid' => $idturno,	
+            'SituacionMatriculaid' => $idsituacionmatriculas,	
+            'Estudianteid' => $idestudiante,	
+            );
             $matriculaid = $matriculas->insert($data1);// peticion para insertar la matricula en la tabla matricula   
-            
+      
             if($matriculaid==true)
             {
               $detallematriculas= new detallematriculas();
@@ -85,15 +93,14 @@ class matricula extends BaseController
                   'Asignaturaid' => $idasignatura_M[$i],
                   'Matriculaid' => $matriculaid,		
                   );
-                  $detallematriculasid = $detallematriculas->insert($data2);
+                  $detallematriculasid = $detallematriculas->insert($data2);//peticion para insertar en detalleMatricula
               }
               if(!empty($detallematriculasid))
-            {
-              $valor=1; 
+              {
+                $valor=1; 
+              }
             }
-            }    
-            
-        
+        }      
         return json_encode($valor);
   }
 
@@ -102,6 +109,16 @@ class matricula extends BaseController
 	   $situacionmatriculas = new situacionmatriculas();
        $result= $situacionmatriculas->findAll();
 	   return json_encode($result);
-	}
-   
+  }  
+  public function recuperar_Matricula($id_estudiante,$anio)
+  {
+      $db = \Config\Database::connect(); // concexion con la basse de datos
+      $consulta3="SELECT m.id,m.Ofertaid,m.Turnoid,m.SituacionMatriculaid,m.Estudianteid, CONCAT(p.Nombre,' ',p.Apellido1,' ',p.Apellido2) as NombreD ,gr.Grupo,g.Grado,s.Codigo Seccion FROM matriculas as m JOIN ofertas ON ofertas.id=m.Ofertaid JOIN docentes ON docentes.id=ofertas.Docenteid JOIN personas as p on p.id=docentes.personasid JOIN grupos as gr ON gr.id=ofertas.Grupoid JOIN grados AS g ON g.id=ofertas.Gradoid JOIN secciones as s ON s.id=ofertas.Seccionid
+      WHERE m.Estudianteid=$id_estudiante AND ofertas.FechaOferta=$anio";
+      $resulto2=$db->query($consulta3); //Envia la consulta a la base de datos
+      if(!empty($resulto2->getResultArray()))
+      {
+        return json_encode($resulto2->getResultArray());
+      }
+  }
 }

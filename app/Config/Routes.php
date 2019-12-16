@@ -173,6 +173,8 @@ $routes->post('/matricula/guardar', 'matricula::guardar');
 			$routes->post('/cargarturnos/turno', 'turno::cargarturnos');
 			$routes->post('/cargarsituacion_matricula/matricula', 'matricula::cargarsituacion_matricula');
 			$routes->post('/matricula/cargarmaterias_grado_M', 'matricula::cargarmaterias_grado_M');
+			$routes->post('/matricula/buscares', 'matricula::buscares');
+			$routes->post('/matricula/recuperar_Matricula', 'matricula::recuperar_Matricula');
 //Rutas Tutor
 $routes->post('/cargar/tutor', 'tutor::cargar');
 $routes->post('/tutor/agregar', 'tutor::agregar');
