@@ -5,7 +5,7 @@ $('#datepickerMatricula').datepicker({ //Fecha Matricula
     autoclose: true,
   }).datepicker("setDate", new Date());
 
-  $('#datepickerFechaMatricula').datepicker({ //sirve para mostrar Datepicker
+  $('#datepickerFechaMatricula').datepicker({ //sirve para mostrar fehca actual
     format: 'yyyy-mm-dd',
     autoclose: true
   }).datepicker("setDate", new Date());
@@ -64,10 +64,10 @@ function ingresar_matricula(button)
           var datos='<option  value="'+element.id+'">'+element.Descripcion+'</option>';
 
             $('#Situacion_Matricula').append(datos);//ingresa valores al combobox
-            $('#Situacion_Matricula').val(''); // limpiar los turno
+            $('#Situacion_Matricula').val(''); // limpiar la situacion matricula
         });          
     }
-  });//Fin ajax combobox Turno
+  });//Fin ajax combobox situacion matricula
 
 }//fin del metodo
 
@@ -116,14 +116,11 @@ $("#Oferta_M").change(function () { //ajax para ver detalles de oferta
         $.ajax({
             type: 'POST',
             url: 'matricula/cargarmaterias_grado_M/'+$('#Oferta_M').val(), // llamada a ruta para cargar asignaturas en las tablas
-            //data: $('#ingresar_Matricula').serialize(), // manda el form donde se encuentra la modal 
             dataType: "JSON", // tipo de respuesta del controlador
             success: function(data){ 
-
-                    for(var a=0; a<data.length;a++){
-                     
+                    for(var a=0; a<data.length;a++){                     
                            var datos=  "<tr value=" + data[a].id + ">"+"<td>"+data[a].Nombre+"</td>"
-                            + "<td>"+ "<button type='button' class='btn btn-danger' data-id="+ data[a].id +" onclick=''><i class='fa fa-fw fa-trash '></i></button>"                                   
+                            + "<td>"+ "<button type='button' class='btn btn-danger' data-id="+ data[a].id +" onclick='remover_Materia_Grado(this)'><i class='fa fa-fw fa-trash '></i></button>"                                   
                             +"</td>"+"</tr>"+"<td><input type='hidden' name='MateriasM[]' value='"+data[a].id+"'></td>"; 
                         $('#asignaturas_grado_M').append(datos); // agrega nuevo registro a tabla
                     }      
@@ -131,21 +128,31 @@ $("#Oferta_M").change(function () { //ajax para ver detalles de oferta
         });//Fin ajax cargar materias en tabla
 
     }
-}); //fin de funcio
+}); //fin de funcion
+
+function remover_Materia_Grado(button)
+{
+    dat = $(button).closest("tr"); //captura toda la fila donde se efectuo el click (Eliminar)
+    dat.remove(); //remueve la fila eliminado 
+}
+//function mandarid_Materia()
+//{
+    //var ty=$('#asignaturas_grado_M').val();
+    //for(var a=0;a<ty;a++)
+    //{
+    //  var datos= "</td>"+"</tr>"+"<td><input type='hidden' name='MateriasMe[]' value='"+ty[a].id+"'></td>"; 
+ //   }
+//}
 $("#datepickerMatricula").change(function () { //esta funcion sirve para que las ofertas cambien segun cambie el año
   cargar_oferta(); //llamado a funcion
 }); //fin de funcion
 
-  function nueva_matricula() { // ajax para guardar en la tabla oferta
 
+function nueva_matricula() { // ajax para guardar en la tabla matricula
 
-    //var ty=$('#asignaturas_grado_M').attr("id");
-
-    
     $("#ingresar_Matricula").on('submit', function(evt){
       evt.preventDefault();  
     });
-  
   
     if($('#Oferta_M').val()!=null && $('#Turno').val()!=null && $('#Situacion_Matricula').val()!=null ) // si el input contiene valores entra 
     {
@@ -155,13 +162,9 @@ $("#datepickerMatricula").change(function () { //esta funcion sirve para que las
       data: $('#ingresar_Matricula').serialize(), // manda el form donde se encuentra la modal dataType: "JSON", // tipo de respuesta del controlador
       dataType: "JSON", // tipo de respuesta del controlador
       success: function(data){ 
-        if (data==0) { // si el ajax contiene errores agrega un label indicando el error 
-            var error="Error Al Ingresar Matricula"
-            $('#mensaje').text(error);   //manda el error a la modal
-            $("#Mensaje-error").modal("show"); //abre modal de error
-            $("#Mensaje-error").fadeTo(2900,500).slideUp(450,function(){// cierra la modal despues del tiempo determinado  
-              $("#Mensaje-error").modal("hide"); // cierra modal error
-            } );
+        if (data==0) { 
+          $('#crear_matricula').modal('hide'); // cierra ventana modal
+          $('#ver_matricula_confirmar').modal('show'); // cierra ventana modal
         } 
         else {
           $('#crear_matricula').modal('hide'); // cierra ventana modal
@@ -172,6 +175,7 @@ $("#datepickerMatricula").change(function () { //esta funcion sirve para que las
        }      
     }   
   });
+  //limpiar cajas de textos
         $('#Seccion_M').val("");
         $('#Docente_M').val("");
         $('#Grado_M').val("");

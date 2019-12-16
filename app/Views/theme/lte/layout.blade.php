@@ -87,7 +87,9 @@
                     <?= $this->include("Docente/editar.blade.php") ?><!-- Modal editar Docente-->
                     
                     <!--******** include de Matricula ********--> 
-                    <?= $this->include("Matricula/crear.blade.php") ?><!-- Modal ingresar Matricula--> 
+                    <?= $this->include("Matricula/crear.blade.php") ?><!-- Modal ingresar Matricula-->
+                    <?= $this->include("Matricula/confirmar_ver.blade.php") ?><!-- Modal confirmar ver Matricula-->
+                    <?= $this->include("Matricula/editar.blade.php") ?><!-- Modal editar Matricula-->
                     <!--******** include de Generales ********-->   
                     <?= $this->include("Alertas/exito.blade.php") ?><!-- Modal mensaje "Exito" -->
                     <?= $this->include("Alertas/error.blade.php") ?><!-- Modal mensaje "errores" -->   
