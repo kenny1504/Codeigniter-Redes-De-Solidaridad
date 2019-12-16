@@ -138,10 +138,23 @@ class matricula extends BaseController
             'SituacionMatriculaid' => $idsituacion,	
             );
             
-		$result = $matriculas->update($id,$dat);// pedicion para validar el dato
-		if($result==true) // si actualiza los datos
+		$matriculaid = $matriculas->update($id,$dat);// pedicion para validar el dato
+		if($matriculaid==true) // si actualiza los datos
 		{
-			$valor=1;
+			$detallematriculas= new detallematriculas();
+              $idasignatura_M=$this->request->getPost('MateriasM_Editar');
+              for($i=0; $i < count($idasignatura_M); $i++){
+
+                $data2 = array (
+                  'Asignaturaid' => $idasignatura_M[$i],
+                  'Matriculaid' => $matriculaid,		
+                  );
+                  $detallematriculasid = $detallematriculas->insert($data2);//peticion para insertar en detalleMatricula
+              }
+              if(!empty($detallematriculasid))
+              {
+                $valor=1; 
+              }
 		}
 		
 			return json_encode( $valor); // retorna los errores
